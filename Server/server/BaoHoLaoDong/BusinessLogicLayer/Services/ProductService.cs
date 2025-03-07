@@ -1,0 +1,467 @@
+﻿
+using System.Text.RegularExpressions;
+using AutoMapper;
+using BusinessLogicLayer.Mappings.RequestDTO;
+using BusinessLogicLayer.Mappings.ResponseDTO;
+using BusinessLogicLayer.Models;
+using BusinessLogicLayer.Services.Interface;
+using BusinessObject.Entities;
+using DataAccessObject.Repository;
+using DataAccessObject.Repository.Interface;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+
+namespace BusinessLogicLayer.Services;
+
+public class ProductService : IProductService
+{
+    private readonly IMapper _mapper;
+    private readonly ILogger<ProductService> _logger;
+    private readonly IProductRepo _productRepo;
+    private readonly ITaxRepo _taxRepo;
+    private readonly string _imageDirectory;
+    private readonly IFileService _fileService;
+    public ProductService(MinhXuanDatabaseContext context, IMapper mapper, ILogger<ProductService> logger,
+        string imageDirectory,IFileService fileService)
+    {
+        _productRepo = new ProductRepo(context);
+        _mapper = mapper;
+        _logger = logger;
+        _imageDirectory = imageDirectory;
+        _fileService = fileService;
+        _taxRepo = new TaxRepo(context);
+    }
+
+
+    public async Task<List<ProductCategoryGroupResponse>?> CreateNewCategory(NewProductCategory newProductCategory)
+    {
+        var category = _mapper.Map<ProductCategory>(newProductCategory);
+        category = await _productRepo.CreateCategoryAsync(category);
+        var groups = await _productRepo.GetAllCategoriesAsync();
+        return _mapper.Map<List<ProductCategoryGroupResponse>>(groups);
+    }
+
+    public async Task<List<ProductCategoryGroupResponse>?> GetAllCategory()
+    {
+        var categories = await _productRepo.GetAllCategoriesAsync();
+        return _mapper.Map<List<ProductCategoryGroupResponse>>(categories);
+    }
+
+    public async Task<Page<ProductResponse>?> GetProductByPage(int group,int category = 0, int page = 1, int pageSize = 20)
+    {
+        var products = await _productRepo.GetProductPageAsync(group,category, page, pageSize);
+        var totalProduct = await _productRepo.CountProductByCategory(group,category);
+        var productsResponse = _mapper.Map<List<ProductResponse>>(products);
+        var pageResult = new Page<ProductResponse>(productsResponse, page, pageSize, totalProduct);
+        _logger.LogInformation("getproducts",pageResult);
+        return pageResult;
+    }
+
+    public async Task<List<ProductCategoryGroupResponse>?> UpdateCategoryAsync(UpdateProductCategory updateProductCategory)
+    {
+        try
+        {
+            var category = await _productRepo.GetCategoryByIdAsync(updateProductCategory.CategoryId);
+            if (category == null)
+            {
+                throw new Exception("Category not found.");
+            }
+
+            _mapper.Map(updateProductCategory, category);
+            category = await _productRepo.UpdateCategoryAsync(category);
+            var groups = await _productRepo.GetAllCategoriesAsync();
+            return _mapper.Map<List<ProductCategoryGroupResponse>>(groups);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error updating category with ID: {CategoryId}", updateProductCategory.CategoryId);
+            throw;
+        }
+    }
+
+    public async Task<ProductResponse> CreateNewProductAsync(NewProduct newProduct)
+    {
+        try
+        {
+            var product = _mapper.Map<Product>(newProduct);
+            product = await _productRepo.CreateProductAsync(product);
+            var files = newProduct.Files;
+            if (files != null && files.Count > 0)
+            {
+                foreach (var file in files)
+                {
+                    var fileName = await _fileService.SaveImageAsync(file);
+                    if (fileName != null)
+                    {
+                        var productImage = new ProductImage()
+                        {
+                            ProductId = product.ProductId,
+                            FileName = fileName,
+                            IsPrimary = (files.IndexOf(file) == 0)?true:false
+                        };
+                        await _productRepo.CreateProductImageAsync(productImage);
+                    }
+                }
+            }
+            product = await _productRepo.GetProductByIdAsync(product.ProductId);
+            return _mapper.Map<ProductResponse>(product);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error creating new product.");
+            throw;
+        }
+    }
+
+    public async Task<int> CountProductByCategory(int category)
+    {
+        return await _productRepo.CountProductByCategory(0,category);
+    }
+
+    public async Task<ProductResponse?> UpdateProductAsync(UpdateProduct updateProduct)
+    {
+        try
+        {
+            var product = await _productRepo.GetProductByIdAsync(updateProduct.Id);
+            if (product == null)
+            {
+                throw new Exception("Product not found.");
+            }
+
+            _mapper.Map(updateProduct, product);
+            product = await _productRepo.UpdateProductAsync(product);
+            _logger.LogInformation("Update product success");
+            return _mapper.Map<ProductResponse>(product);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error updating product with ID: {ProductId}", updateProduct.Id);
+            throw;
+        }
+    }
+
+  public async Task<ProductResponse?> UpdateProductImageAsync(UpdateProductImage updateProductImage)
+{
+    IFormFile? file = null;
+    string? oldPath = null;
+    string? fileName = null;
+    try
+    {
+        // Get the existing product image by its ID
+        var productImage = await _productRepo.GetProductImageByIdAsync(updateProductImage.ProductImageId);
+        if (productImage == null)
+        {
+            _logger.LogWarning("Product image with ID: {ProductImageId} not found.", updateProductImage.ProductImageId);
+            return null;
+        }
+
+        file = updateProductImage.File;
+
+        // Construct the path for the existing image to be deleted later
+        oldPath = Path.Combine(_imageDirectory, productImage.FileName);
+
+        // Check if a new file is uploaded
+        if (file != null && file.Length > 0)
+        {
+            // Save the new image and get the new file name
+            fileName = await _fileService.SaveImageAsync(file);
+            if (fileName == null)
+            {
+                throw new Exception("Failed to save new product image.");
+            }
+
+            // Update the product image details with the new file name
+            productImage.FileName = fileName;
+            productImage.IsPrimary = updateProductImage.IsPrimary;
+
+            // Update the product image in the repository
+            var result = await _productRepo.UpdateProductImageAsync(productImage);
+            var product = await _productRepo.GetProductByIdAsync(productImage.ProductId);
+            if (result != null)
+            {
+                // Delete the old image if it exists
+                if (!string.IsNullOrEmpty(oldPath) && File.Exists(oldPath))
+                {
+                    try
+                    {
+                        File.Delete(oldPath);
+                        _logger.LogInformation("Old image file deleted: {OldImagePath}", oldPath);
+                    }
+                    catch (Exception deleteEx)
+                    {
+                        _logger.LogError(deleteEx, "Failed to delete old image file: {OldImagePath}", oldPath);
+                    }
+                }
+            }
+            return _mapper.Map<ProductResponse>(product);
+        }
+
+        return null;
+    }
+    catch (Exception ex)
+    {
+        // Handle unexpected errors
+        _logger.LogError(ex, "Error updating product image with ID: {ProductImageId}", updateProductImage.ProductImageId);
+        // If an error occurs, delete the newly uploaded image if it was partially saved
+        if (!string.IsNullOrEmpty(fileName))
+        {
+            try
+            {
+                File.Delete(Path.Combine(_imageDirectory, fileName));
+                _logger.LogInformation("Deleted partially uploaded image: {NewImagePath}", Path.Combine(_imageDirectory, fileName));
+            }
+            catch (Exception deleteEx)
+            {
+                _logger.LogError(deleteEx, "Failed to delete partially uploaded image: {NewImagePath}", Path.Combine(_imageDirectory, fileName));
+            }
+        }
+        throw; 
+    }
+}
+
+
+    public async Task<ProductResponse?> DeleteImageAsync(int id)
+    {
+        try
+        {
+            var productImageExit = await _productRepo.GetProductImageByIdAsync(id);
+            if (productImageExit != null)
+            {
+                var result =await _productRepo.DeleteProductImageAsync(id);
+                var fileName = productImageExit.FileName;
+                var oldFilePath = Path.Combine(_imageDirectory, fileName);
+                if (File.Exists(oldFilePath) && result)
+                {
+                    File.Delete(oldFilePath);
+                    var product = await _productRepo.GetProductByIdAsync(productImageExit.ProductId);
+                    return _mapper.Map<ProductResponse>(product);
+                }
+            }
+            return null;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error delete image with ID: " + id);
+            throw;
+        }
+    }
+
+    public async Task<ProductResponse?> CreateNewProductImageAsync(NewProductImage productImage)
+    {
+        try
+        {
+            var productExit = await _productRepo.GetProductByIdAsync(productImage.ProductId);
+            if (productExit == null) throw new Exception("Product not found");
+            var file = productImage.File;
+            if (file != null && file.Length > 0)
+            {
+                var fileName = await _fileService.SaveImageAsync(file);
+                var newProductImage = new ProductImage()
+                {
+                    ProductId = productExit.ProductId,
+                    FileName = fileName,
+                    IsPrimary = productImage.IsPrimary
+
+                };
+                newProductImage = await _productRepo.CreateProductImageAsync(newProductImage);
+                _logger.LogInformation(newProductImage.ProductImageId.ToString());
+                var product = await _productRepo.GetProductByIdAsync(productImage.ProductId);
+                return _mapper.Map<ProductResponse>(product);
+            }
+            return null;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex,"Error create new image");
+            throw;
+        }
+    }
+
+    public async Task<ProductResponse?> CreateNewProductVariantAsync(NewProductVariant newProductVariant)
+    {
+        try
+        {
+            var productId = newProductVariant.ProductId;
+            var product = await _productRepo.GetProductByIdAsync(productId);
+            if (product == null)
+            {
+                throw new Exception("Product not found.");
+            }
+            var productVariant = _mapper.Map<ProductVariant>(newProductVariant);
+            productVariant = await _productRepo.CreateProductVariantAsync(productVariant);
+            product = await _productRepo.GetProductByIdAsync(productId);
+            return _mapper.Map<ProductResponse>(product);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error creating new product variant.");
+            throw;
+        }
+    }
+
+    public async Task<ProductResponse?> UpdateProductVariantAsync(UpdateProductVariant updateProductVariant)
+    {
+        try
+        {
+            var productId = updateProductVariant.ProductId;
+            var variantId = updateProductVariant.VariantId;
+            var productVariant = await _productRepo.GetProductVariantByIdAsync(variantId);
+            if (productVariant == null)
+            {
+                throw new Exception("Product variant not found.");
+            }
+
+            _mapper.Map(updateProductVariant, productVariant);
+            productVariant = await _productRepo.UpdateProductVariantAsync(productVariant);
+            var product = await _productRepo.GetProductByIdAsync(productId);
+            return _mapper.Map<ProductResponse>(product);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error updating product variant with ID: {VariantId}", updateProductVariant.VariantId);
+            throw;
+        }
+    }
+    public static string RemoveDiacritics(string text)
+    {
+        string[] vietnameseSigns = new string[]
+        {
+            "aáàảãạăắằẳẵặâấầẩẫậ", "AÁÀẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬ",
+            "dđ", "DĐ",
+            "eéèẻẽẹêếềểễệ", "EÉÈẺẼẸÊẾỀỂỄỆ",
+            "iíìỉĩị", "IÍÌỈĨỊ",
+            "oóòỏõọôốồổỗộơớờởỡợ", "OÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢ",
+            "uúùủũụưứừửữự", "UÚÙỦŨỤƯỨỪỬỮỰ",
+            "yýỳỷỹỵ", "YÝỲỶỸỴ"
+        };
+
+        foreach (var sign in vietnameseSigns)
+        {
+            foreach (var c in sign.Substring(1))
+            {
+                text = text.Replace(c, sign[0]);
+            }
+        }
+        return text;
+    }
+
+    public async Task<List<ProductResponse>?> SearchProductAsync(string title)
+    {
+        try
+        {
+            title = RemoveDiacritics(Regex.Replace(title.Trim().ToLower(), @"\s+", " "));
+
+            var products = await _productRepo.GetAllProductsAsync() ?? new List<Product>();
+
+            var filteredProducts = products
+                .Where(p => RemoveDiacritics(p.ProductName.ToLower()).Contains(title))
+                .ToList();
+
+            return _mapper.Map<List<ProductResponse>>(filteredProducts);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error while searching products with title: {Title}", title);
+            return new List<ProductResponse>();
+        }
+    }
+
+    public async Task<ProductResponse?> GetProductByIdAsync(int id)
+    {
+        try
+        {
+            var product = await _productRepo.GetProductByIdAsync(id);
+            return _mapper.Map<ProductResponse>(product);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error while get product by id");
+            throw;
+        }
+    }
+
+    public async Task<List<ProductResponse>?> GetTopSaleProduct(int size)
+    {
+        try
+        {
+            var products = await _productRepo.GetAllProductsAsync();
+            var topSaleProducts = products
+                .OrderByDescending(p => p.OrderDetails.Count)
+                .Take(size)
+                .ToList();
+            return _mapper.Map<List<ProductResponse>>(topSaleProducts);
+        }catch(Exception ex)
+        {
+            _logger.LogError(ex, "Error while get top sale product");
+            throw;
+        }
+    }
+
+    public async Task<ProductResponse?> AddTaxProductAsync(NewProductTax newProductTax)
+    {
+        try
+        {
+            var productTax = _mapper.Map<ProductTaxis>(newProductTax); 
+             productTax = await _productRepo.AddProductTaxAsync(productTax);
+             if (productTax != null)
+             {
+                 var product = await _productRepo.GetProductByIdAsync(newProductTax.ProductId);
+                 return _mapper.Map<ProductResponse>(product);
+             }
+             return null;
+        }catch(Exception ex)
+        {
+            _logger.LogError(ex, "Error while add tax product");
+            throw;
+        }
+    }
+
+    public async Task<ProductResponse?> DeleteTaxAsync(int productTaxid)
+    {
+        try
+        {
+            var result = await _productRepo.DeleteProductTaxAsync(productTaxid);
+            var product = await _productRepo.GetProductByIdAsync((int)result.ProductId);
+            return _mapper.Map<ProductResponse>(product);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error while delete tax product");
+            throw;
+        }
+    }
+
+    public async Task<List<ProductResponse>?> FilterProductsAsync(List<int?> categories)
+    {
+        var products =await _productRepo.FilterProductsAsync(categories);
+        return _mapper.Map<List<ProductResponse>>(products);
+    }
+
+    public async Task<ProductCategoryGroupResponse?> CreateNewGroupCategoryAsync(NewGroupCategory groupCategory)
+    {
+        try
+        {
+            var group = _mapper.Map<ProductCategoryGroup>(groupCategory);
+            group = await _productRepo.CreateGroupCategoryAsync(group);
+            return _mapper.Map<ProductCategoryGroupResponse>(group);
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+    public async Task<ProductCategoryGroupResponse?> UpdateGroupCategoryAsync(UpdateGroupCategory groupCategory)
+    {
+        try
+        {
+            var group = _mapper.Map<ProductCategoryGroup>(groupCategory);
+            group = await _productRepo.UpdateGroupCategoryAsync(group);
+            return _mapper.Map<ProductCategoryGroupResponse>(group);
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }     
+    }
+}
