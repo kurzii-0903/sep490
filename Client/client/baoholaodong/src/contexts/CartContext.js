@@ -3,31 +3,27 @@
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState(() => { // Lấy dữ liệu giỏ hàng từ sessionStorage khi trang load
+        try {
+            return JSON.parse(sessionStorage.getItem("cartItems")) || [];
+        } catch (error) {
+            console.error("Failed to load cart items from sessionStorage:", error);
+            return [];
+        }
+    });
     const [totalPrice, setTotalPrice] = useState(0);
     const [toast, setToast] = useState(null);
 
     useEffect(() => {
-        console.log("useEffect for loading cart items from localStorage triggered");
-        try {
-            const savedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-            setCartItems(savedCartItems);
-            updateTotalPrice(savedCartItems); // Update total price based on loaded items
-            console.log("Loaded cart items from localStorage:", savedCartItems);
-        } catch (error) {
-            console.error("Failed to load cart items from localStorage:", error);
-        }
-    }, []);
+        updateTotalPrice(cartItems);
+    }, [cartItems]);
 
     useEffect(() => {
-        console.log("useEffect for saving cart items to localStorage triggered");
         try {
-            localStorage.setItem("cartItems", JSON.stringify(cartItems));
-            console.log("Saved cart items to localStorage:", cartItems);
+            sessionStorage.setItem("cartItems", JSON.stringify(cartItems)); // Lưu giỏ hàng vào sessionStorage mỗi khi thay đổi
         } catch (error) {
-            console.error("Failed to save cart items to localStorage:", error);
+            console.error("Failed to save cart items to sessionStorage:", error);
         }
-        updateTotalPrice(cartItems); // Update total price based on current items
     }, [cartItems]);
 
     const updateTotalPrice = (items) => {
@@ -48,7 +44,7 @@ const CartProvider = ({ children }) => {
             } else {
                 updatedItems = [...prevItems, { ...product, quantity, price }];
             }
-            console.log("Updated cart items:", updatedItems);
+            sessionStorage.setItem("cartItems", JSON.stringify(updatedItems)); // Cập nhật sessionStorage ngay sau khi thêm vào giỏ hàng
             return updatedItems;
         });
         showToast("Sản phẩm đã được thêm vào giỏ hàng");
@@ -56,14 +52,20 @@ const CartProvider = ({ children }) => {
 
     const updateCartItemQuantity = (productId, quantity) => {
         setCartItems((prevItems) => {
-            return prevItems.map(item =>
+            const updatedItems = prevItems.map(item =>
                 item.id === productId ? { ...item, quantity: parseInt(quantity) } : item
             );
+            sessionStorage.setItem("cartItems", JSON.stringify(updatedItems));
+            return updatedItems;
         });
     };
 
     const removeFromCart = (productId) => {
-        setCartItems((prevItems) => prevItems.filter(item => item.id !== productId));
+        setCartItems((prevItems) => {
+            const updatedItems = prevItems.filter(item => item.id !== productId);
+            sessionStorage.setItem("cartItems", JSON.stringify(updatedItems));
+            return updatedItems;
+        });
     };
 
     const showToast = (message) => {

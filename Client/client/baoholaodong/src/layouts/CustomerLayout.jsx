@@ -12,12 +12,14 @@ const CustomerLayout = () => {
     const location = useLocation();
 
     useEffect(() => {
-        const savedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        const savedCartItems = JSON.parse(sessionStorage.getItem("cartItems")) || [];
+        console.log("Loaded cart items from sessionStorage:", savedCartItems);
         setCartItems(savedCartItems);
     }, [setCartItems]);
 
     useEffect(() => {
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        console.log("Saving cart items to sessionStorage:", cartItems);
+        sessionStorage.setItem("cartItems", JSON.stringify(cartItems));
         setCartCount(cartItems.length);
     }, [cartItems]);
 
@@ -25,14 +27,16 @@ const CustomerLayout = () => {
         showToast(null);
     };
 
+    const isCheckoutPage = location.pathname === "/checkout";
+
     return (
         <div className="main-container">
-            <Header cartCount={cartCount} cartItems={cartItems} showToast={showToast} />
-            {location.pathname !== "/" && <Breadcrumb />}
+            {!isCheckoutPage && <Header cartCount={cartCount} cartItems={cartItems} showToast={showToast} />}
+            {!isCheckoutPage && location.pathname !== "/" && <Breadcrumb />}
             <main className="main-content">
                 <Outlet context={{ addToCart }} />
             </main>
-            <Footer />
+            {!isCheckoutPage && <Footer />}
             {toast && (
                 <Toast message={toast} onClose={handleToastClose} />
             )}
