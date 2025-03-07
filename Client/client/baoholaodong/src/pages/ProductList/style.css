@@ -1,0 +1,130 @@
+﻿.product-list-page {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
+    max-width: 1780px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    text-align: left;
+}
+
+.banner {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-filter {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.filter-header {
+    display: flex;
+    align-items: center;
+}
+
+.filter-icon {
+    margin-right: 10px;
+}
+
+.filter-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.filter-subtitle {
+    font-size: 16px;
+}
+
+.filter-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.filter-checkbox {
+    margin-right: 10px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.filter-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.product-section {
+    flex: 3;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product-list-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.product-list-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.product-list-name {
+    font-size: 16px;
+    margin: 10px 0;
+    text-align: left;
+}
+
+.product-list-price {
+    color: #f00;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.add-to-cart-button-product-list {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #b50a00;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+
+.add-to-cart-button-product-list:hover {
+    background-color: goldenrod;
+}
+
+.add-to-cart-icon {
+    margin-right: 8px;
+}
