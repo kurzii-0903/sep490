@@ -424,7 +424,7 @@ namespace BusinessLogicLayer.Services
                     CustomerInfo = JsonSerializer.Serialize(model.CustomerInfo),
                     TotalAmount = model.TotalPrice,
                     OrderDate = DateTime.Now,
-                    Status = "Pending",
+                    Status = OrderStatus.Pending.ToString(),
                     OrderDetails = model.OrderDetails.Select(od => new OrderDetail
                     {
                         ProductId = od.ProductId,
@@ -445,7 +445,7 @@ namespace BusinessLogicLayer.Services
                             Amount = model.Invoice.Amount,
                             PaymentMethod = model.Invoice.PaymentMethod,
                             QrcodeData = model.Invoice.QRCodeData,
-                            PaymentStatus = model.Invoice.PaymentStatus,
+                            PaymentStatus = InvoiceStatus.Pending.ToString(),
                             ImagePath = model.Invoice.ImagePath,
                             CreatedAt = DateTime.Now,
                             Status = "Paid"
