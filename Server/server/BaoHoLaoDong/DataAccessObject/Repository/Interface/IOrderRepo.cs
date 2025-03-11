@@ -38,5 +38,6 @@ namespace DataAccessObject.Repository.Interface
         Task<List<OrderDetail>?> SearchOrderDetailsAsync(string searchTerm, int page, int pageSize);
         Task<decimal> CalculateOrderDetailTotalAsync(int orderDetailId);
 
+        Task<Order?> PayAsync(Order order);
     }
 }

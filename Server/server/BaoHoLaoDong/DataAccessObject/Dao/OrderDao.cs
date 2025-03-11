@@ -1,5 +1,6 @@
 ﻿using BusinessObject.Entities;
 using Microsoft.EntityFrameworkCore;
+using System;
 namespace DataAccessObject.Dao;
 
 public class OrderDao : IDao<Order>
@@ -136,5 +137,23 @@ public class OrderDao : IDao<Order>
     public async Task<int> CountAsync()
     {
         return await _context.Orders.CountAsync();
+    }
+
+    // Create a new Order
+    public async Task<Order?> PayAsync(Order entity)
+    {
+        using var transaction = _context.Database.BeginTransaction();
+        try
+        {
+            _context.Orders.Add(entity);
+            _context.SaveChanges();
+            transaction.Commit();
+            return entity;
+        }
+        catch (Exception)
+        {
+            transaction.Rollback();
+            throw;
+        }
     }
 }

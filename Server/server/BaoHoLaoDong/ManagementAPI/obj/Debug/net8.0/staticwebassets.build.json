@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oHEHOYTHlWcY8bb6QmpPK9KCpAc1IUQwElb43gTM/CU=",
+  "Hash": "GUwF54uddUrMML3AU0sfCoLiChiF4NUT+ABpTO/57po=",
   "Source": "ManagementAPI",
   "BasePath": "_content/ManagementAPI",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "ManagementAPI\\wwwroot",
       "Source": "ManagementAPI",
-      "ContentRoot": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
       "BasePath": "_content/ManagementAPI",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\0da89775-c0c4-4e70-a1d4-c23cebb4ef8c.jpg",
+      "Identity": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\0da89775-c0c4-4e70-a1d4-c23cebb4ef8c.jpg",
       "SourceId": "ManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
       "BasePath": "_content/ManagementAPI",
       "RelativePath": "images/0da89775-c0c4-4e70-a1d4-c23cebb4ef8c#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -38,10 +38,10 @@
       "OriginalItemSpec": "wwwroot\\images\\0da89775-c0c4-4e70-a1d4-c23cebb4ef8c.jpg"
     },
     {
-      "Identity": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\1858850e-537f-4132-a46c-9bad08d29974.jpg",
+      "Identity": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\1858850e-537f-4132-a46c-9bad08d29974.jpg",
       "SourceId": "ManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
       "BasePath": "_content/ManagementAPI",
       "RelativePath": "images/1858850e-537f-4132-a46c-9bad08d29974#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -59,10 +59,10 @@
       "OriginalItemSpec": "wwwroot\\images\\1858850e-537f-4132-a46c-9bad08d29974.jpg"
     },
     {
-      "Identity": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\1e93a238-ab89-49dc-9ff1-b50df883d121.jpg",
+      "Identity": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\1e93a238-ab89-49dc-9ff1-b50df883d121.jpg",
       "SourceId": "ManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
       "BasePath": "_content/ManagementAPI",
       "RelativePath": "images/1e93a238-ab89-49dc-9ff1-b50df883d121#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\images\\1e93a238-ab89-49dc-9ff1-b50df883d121.jpg"
     },
     {
-      "Identity": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\43609447-b565-4620-8f4f-8e047af483f4.jpg",
+      "Identity": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\43609447-b565-4620-8f4f-8e047af483f4.jpg",
       "SourceId": "ManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
       "BasePath": "_content/ManagementAPI",
       "RelativePath": "images/43609447-b565-4620-8f4f-8e047af483f4#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\images\\43609447-b565-4620-8f4f-8e047af483f4.jpg"
     },
     {
-      "Identity": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\4e313b73-63bf-4132-8901-fac050ac2392.jpg",
+      "Identity": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\4e313b73-63bf-4132-8901-fac050ac2392.jpg",
       "SourceId": "ManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
       "BasePath": "_content/ManagementAPI",
       "RelativePath": "images/4e313b73-63bf-4132-8901-fac050ac2392#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\images\\4e313b73-63bf-4132-8901-fac050ac2392.jpg"
     },
     {
-      "Identity": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\78c32a8f-dad8-42f1-a141-18e8ccf81f52.jpg",
+      "Identity": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\78c32a8f-dad8-42f1-a141-18e8ccf81f52.jpg",
       "SourceId": "ManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
       "BasePath": "_content/ManagementAPI",
       "RelativePath": "images/78c32a8f-dad8-42f1-a141-18e8ccf81f52#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -143,10 +143,10 @@
       "OriginalItemSpec": "wwwroot\\images\\78c32a8f-dad8-42f1-a141-18e8ccf81f52.jpg"
     },
     {
-      "Identity": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\7cfcaf91-2f80-4372-9ab4-1cd51e1471ba.jpg",
+      "Identity": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\7cfcaf91-2f80-4372-9ab4-1cd51e1471ba.jpg",
       "SourceId": "ManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
       "BasePath": "_content/ManagementAPI",
       "RelativePath": "images/7cfcaf91-2f80-4372-9ab4-1cd51e1471ba#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -164,10 +164,10 @@
       "OriginalItemSpec": "wwwroot\\images\\7cfcaf91-2f80-4372-9ab4-1cd51e1471ba.jpg"
     },
     {
-      "Identity": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\7eb35592-0585-4474-8b38-84f28d07a697.jpg",
+      "Identity": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\7eb35592-0585-4474-8b38-84f28d07a697.jpg",
       "SourceId": "ManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
       "BasePath": "_content/ManagementAPI",
       "RelativePath": "images/7eb35592-0585-4474-8b38-84f28d07a697#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -185,10 +185,10 @@
       "OriginalItemSpec": "wwwroot\\images\\7eb35592-0585-4474-8b38-84f28d07a697.jpg"
     },
     {
-      "Identity": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\a72d55c2-b493-4adb-bd04-b88a89bc7616.jpg",
+      "Identity": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\a72d55c2-b493-4adb-bd04-b88a89bc7616.jpg",
       "SourceId": "ManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
       "BasePath": "_content/ManagementAPI",
       "RelativePath": "images/a72d55c2-b493-4adb-bd04-b88a89bc7616#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -206,10 +206,10 @@
       "OriginalItemSpec": "wwwroot\\images\\a72d55c2-b493-4adb-bd04-b88a89bc7616.jpg"
     },
     {
-      "Identity": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\a99eaebb-9cd0-4a8a-8fd6-ee960b5f2ff7.jpg",
+      "Identity": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\a99eaebb-9cd0-4a8a-8fd6-ee960b5f2ff7.jpg",
       "SourceId": "ManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
       "BasePath": "_content/ManagementAPI",
       "RelativePath": "images/a99eaebb-9cd0-4a8a-8fd6-ee960b5f2ff7#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -227,10 +227,10 @@
       "OriginalItemSpec": "wwwroot\\images\\a99eaebb-9cd0-4a8a-8fd6-ee960b5f2ff7.jpg"
     },
     {
-      "Identity": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\ae39869d-f646-41cf-9fcd-5e9afcd9ad50.jpg",
+      "Identity": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\ae39869d-f646-41cf-9fcd-5e9afcd9ad50.jpg",
       "SourceId": "ManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
       "BasePath": "_content/ManagementAPI",
       "RelativePath": "images/ae39869d-f646-41cf-9fcd-5e9afcd9ad50#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -248,10 +248,10 @@
       "OriginalItemSpec": "wwwroot\\images\\ae39869d-f646-41cf-9fcd-5e9afcd9ad50.jpg"
     },
     {
-      "Identity": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\b56a9b58-b49f-4622-a506-add91cdd726d.jpg",
+      "Identity": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\b56a9b58-b49f-4622-a506-add91cdd726d.jpg",
       "SourceId": "ManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
       "BasePath": "_content/ManagementAPI",
       "RelativePath": "images/b56a9b58-b49f-4622-a506-add91cdd726d#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -269,10 +269,10 @@
       "OriginalItemSpec": "wwwroot\\images\\b56a9b58-b49f-4622-a506-add91cdd726d.jpg"
     },
     {
-      "Identity": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\e44c1f29-d4fa-46cf-895a-010828478835.jpg",
+      "Identity": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\e44c1f29-d4fa-46cf-895a-010828478835.jpg",
       "SourceId": "ManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\",
       "BasePath": "_content/ManagementAPI",
       "RelativePath": "images/e44c1f29-d4fa-46cf-895a-010828478835#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -293,7 +293,7 @@
   "Endpoints": [
     {
       "Route": "images/0da89775-c0c4-4e70-a1d4-c23cebb4ef8c.8oa9didzke.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\0da89775-c0c4-4e70-a1d4-c23cebb4ef8c.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\0da89775-c0c4-4e70-a1d4-c23cebb4ef8c.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -314,7 +314,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -338,7 +338,7 @@
     },
     {
       "Route": "images/0da89775-c0c4-4e70-a1d4-c23cebb4ef8c.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\0da89775-c0c4-4e70-a1d4-c23cebb4ef8c.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\0da89775-c0c4-4e70-a1d4-c23cebb4ef8c.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -359,7 +359,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -375,7 +375,7 @@
     },
     {
       "Route": "images/1858850e-537f-4132-a46c-9bad08d29974.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\1858850e-537f-4132-a46c-9bad08d29974.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\1858850e-537f-4132-a46c-9bad08d29974.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -396,7 +396,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -412,7 +412,7 @@
     },
     {
       "Route": "images/1858850e-537f-4132-a46c-9bad08d29974.wu4mjrrux3.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\1858850e-537f-4132-a46c-9bad08d29974.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\1858850e-537f-4132-a46c-9bad08d29974.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -433,7 +433,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -457,7 +457,7 @@
     },
     {
       "Route": "images/1e93a238-ab89-49dc-9ff1-b50df883d121.5ltfzq8nz3.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\1e93a238-ab89-49dc-9ff1-b50df883d121.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\1e93a238-ab89-49dc-9ff1-b50df883d121.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -478,7 +478,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -502,7 +502,7 @@
     },
     {
       "Route": "images/1e93a238-ab89-49dc-9ff1-b50df883d121.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\1e93a238-ab89-49dc-9ff1-b50df883d121.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\1e93a238-ab89-49dc-9ff1-b50df883d121.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -523,7 +523,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -539,7 +539,7 @@
     },
     {
       "Route": "images/43609447-b565-4620-8f4f-8e047af483f4.8oa9didzke.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\43609447-b565-4620-8f4f-8e047af483f4.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\43609447-b565-4620-8f4f-8e047af483f4.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -560,7 +560,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -584,7 +584,7 @@
     },
     {
       "Route": "images/43609447-b565-4620-8f4f-8e047af483f4.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\43609447-b565-4620-8f4f-8e047af483f4.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\43609447-b565-4620-8f4f-8e047af483f4.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -605,7 +605,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -621,7 +621,7 @@
     },
     {
       "Route": "images/4e313b73-63bf-4132-8901-fac050ac2392.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\4e313b73-63bf-4132-8901-fac050ac2392.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\4e313b73-63bf-4132-8901-fac050ac2392.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -642,7 +642,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -658,7 +658,7 @@
     },
     {
       "Route": "images/4e313b73-63bf-4132-8901-fac050ac2392.natg9uiv7f.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\4e313b73-63bf-4132-8901-fac050ac2392.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\4e313b73-63bf-4132-8901-fac050ac2392.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -679,7 +679,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -703,7 +703,7 @@
     },
     {
       "Route": "images/78c32a8f-dad8-42f1-a141-18e8ccf81f52.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\78c32a8f-dad8-42f1-a141-18e8ccf81f52.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\78c32a8f-dad8-42f1-a141-18e8ccf81f52.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -724,7 +724,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -740,7 +740,7 @@
     },
     {
       "Route": "images/78c32a8f-dad8-42f1-a141-18e8ccf81f52.wu4mjrrux3.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\78c32a8f-dad8-42f1-a141-18e8ccf81f52.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\78c32a8f-dad8-42f1-a141-18e8ccf81f52.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -761,7 +761,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -785,7 +785,7 @@
     },
     {
       "Route": "images/7cfcaf91-2f80-4372-9ab4-1cd51e1471ba.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\7cfcaf91-2f80-4372-9ab4-1cd51e1471ba.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\7cfcaf91-2f80-4372-9ab4-1cd51e1471ba.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -806,7 +806,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -822,7 +822,7 @@
     },
     {
       "Route": "images/7cfcaf91-2f80-4372-9ab4-1cd51e1471ba.natg9uiv7f.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\7cfcaf91-2f80-4372-9ab4-1cd51e1471ba.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\7cfcaf91-2f80-4372-9ab4-1cd51e1471ba.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -843,7 +843,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -867,7 +867,7 @@
     },
     {
       "Route": "images/7eb35592-0585-4474-8b38-84f28d07a697.ipswsyfurq.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\7eb35592-0585-4474-8b38-84f28d07a697.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\7eb35592-0585-4474-8b38-84f28d07a697.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -888,7 +888,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -912,7 +912,7 @@
     },
     {
       "Route": "images/7eb35592-0585-4474-8b38-84f28d07a697.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\7eb35592-0585-4474-8b38-84f28d07a697.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\7eb35592-0585-4474-8b38-84f28d07a697.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -933,7 +933,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -949,7 +949,7 @@
     },
     {
       "Route": "images/a72d55c2-b493-4adb-bd04-b88a89bc7616.8oa9didzke.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\a72d55c2-b493-4adb-bd04-b88a89bc7616.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\a72d55c2-b493-4adb-bd04-b88a89bc7616.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -970,7 +970,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -994,7 +994,7 @@
     },
     {
       "Route": "images/a72d55c2-b493-4adb-bd04-b88a89bc7616.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\a72d55c2-b493-4adb-bd04-b88a89bc7616.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\a72d55c2-b493-4adb-bd04-b88a89bc7616.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1015,7 +1015,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1031,7 +1031,7 @@
     },
     {
       "Route": "images/a99eaebb-9cd0-4a8a-8fd6-ee960b5f2ff7.9f0tks1rnn.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\a99eaebb-9cd0-4a8a-8fd6-ee960b5f2ff7.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\a99eaebb-9cd0-4a8a-8fd6-ee960b5f2ff7.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1052,7 +1052,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1076,7 +1076,7 @@
     },
     {
       "Route": "images/a99eaebb-9cd0-4a8a-8fd6-ee960b5f2ff7.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\a99eaebb-9cd0-4a8a-8fd6-ee960b5f2ff7.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\a99eaebb-9cd0-4a8a-8fd6-ee960b5f2ff7.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1097,7 +1097,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1113,7 +1113,7 @@
     },
     {
       "Route": "images/ae39869d-f646-41cf-9fcd-5e9afcd9ad50.3r4pukz88k.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\ae39869d-f646-41cf-9fcd-5e9afcd9ad50.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\ae39869d-f646-41cf-9fcd-5e9afcd9ad50.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1134,7 +1134,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1158,7 +1158,7 @@
     },
     {
       "Route": "images/ae39869d-f646-41cf-9fcd-5e9afcd9ad50.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\ae39869d-f646-41cf-9fcd-5e9afcd9ad50.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\ae39869d-f646-41cf-9fcd-5e9afcd9ad50.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1179,7 +1179,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1195,7 +1195,7 @@
     },
     {
       "Route": "images/b56a9b58-b49f-4622-a506-add91cdd726d.8oa9didzke.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\b56a9b58-b49f-4622-a506-add91cdd726d.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\b56a9b58-b49f-4622-a506-add91cdd726d.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1216,7 +1216,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1240,7 +1240,7 @@
     },
     {
       "Route": "images/b56a9b58-b49f-4622-a506-add91cdd726d.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\b56a9b58-b49f-4622-a506-add91cdd726d.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\b56a9b58-b49f-4622-a506-add91cdd726d.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1261,7 +1261,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1277,7 +1277,7 @@
     },
     {
       "Route": "images/e44c1f29-d4fa-46cf-895a-010828478835.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\e44c1f29-d4fa-46cf-895a-010828478835.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\e44c1f29-d4fa-46cf-895a-010828478835.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1298,7 +1298,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1314,7 +1314,7 @@
     },
     {
       "Route": "images/e44c1f29-d4fa-46cf-895a-010828478835.wu4mjrrux3.jpg",
-      "AssetFile": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\e44c1f29-d4fa-46cf-895a-010828478835.jpg",
+      "AssetFile": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\wwwroot\\images\\e44c1f29-d4fa-46cf-895a-010828478835.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1335,7 +1335,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Mar 2025 04:00:33 GMT"
+          "Value": "Mon, 10 Mar 2025 23:41:55 GMT"
         },
         {
           "Name": "Cache-Control",

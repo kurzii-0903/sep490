@@ -2339,6 +2339,27 @@
         }
       }
     },
+    "/api/Order/img/invoice": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Product/create-category": {
       "post": {
         "tags": [
