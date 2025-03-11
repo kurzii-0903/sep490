@@ -68,13 +68,22 @@ const CartProvider = ({ children }) => {
         });
     };
 
+    const clearCart = () => {
+        setCartItems([]);
+        try {
+            sessionStorage.removeItem("cartItems");
+        } catch (error) {
+            console.error("Failed to clear cart items from sessionStorage:", error);
+        }
+    };
+
     const showToast = (message) => {
         setToast(message);
         setTimeout(() => setToast(null), 3000);
     };
 
     return (
-        <CartContext.Provider value={{ cartItems, setCartItems, totalPrice, addToCart, updateCartItemQuantity, removeFromCart, showToast, toast }}>
+        <CartContext.Provider value={{ cartItems, setCartItems, totalPrice, addToCart, updateCartItemQuantity, removeFromCart, showToast, toast, clearCart }}>
             {children}
         </CartContext.Provider>
     );

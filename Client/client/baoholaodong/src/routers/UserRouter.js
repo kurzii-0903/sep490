@@ -31,6 +31,7 @@ import Dashboard from "../pages/manager/Dashboard";
 import CartProvider from "../contexts/CartContext";
 import ScrollToTop from "../components/ScrollToTop";
 import Checkout from "../pages/Checkout";
+import { OrderProvider } from "../contexts/OrderContext";
 
 const UserRouter = () => {
     return (
@@ -54,7 +55,12 @@ const UserRouter = () => {
                         <Route path="/product/:id" element={<ProductDetail />} />
                         <Route path="/blog" element={<BlogList />} />
                         <Route path="/about" element={<About />} />
-                        <Route path="/checkout" element={<Checkout />} />
+                        <Route path="/checkout" element={
+                            <OrderProvider>
+                                <Checkout />
+                            </OrderProvider>
+                        }
+                        />
                         <Route path="/verification" element={<VerificationPage />} />
                         <Route path="/unauthorized" element={<UnauthorizedPage />} />
                         <Route path="/logout" element={<Logout />} />
@@ -76,7 +82,12 @@ const UserRouter = () => {
                         <Route path="dashboard" element={<Dashboard />} />
                         <Route index element={<Dashboard />} />
                         <Route path="users" element={<Users />} />
-                        <Route path="orders" element={<Orders />} />
+                        <Route path="orders" element={
+                            <OrderProvider>
+                                <Orders />
+                            </OrderProvider>
+                        }
+                        />
                         <Route path="products" element={<Products />} />
                         <Route path="blog-posts" element={<BlogPosts />} />
                         <Route path="invoices" element={<Invoices />} />
