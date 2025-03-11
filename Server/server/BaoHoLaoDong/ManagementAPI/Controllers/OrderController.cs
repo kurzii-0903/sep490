@@ -274,5 +274,19 @@ namespace ManagementAPI.Controllers
                 throw;
             }
         }
+
+        [HttpPut("confirm-order")]
+        public async Task<IActionResult> ConfirmOrderAsync(int orderId)
+        {
+            try
+            {
+                var result = await _orderService.ConfirmOrderAsync(orderId);
+                return Ok();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
