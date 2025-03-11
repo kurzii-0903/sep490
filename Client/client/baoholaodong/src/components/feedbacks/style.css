@@ -1,0 +1,120 @@
+body {
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+.feedback-section {
+    position: relative;
+    background-image: url('../../images/feedback.png');
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    color: white;
+    text-align: left;
+    height: 479px;
+    max-width: 100%; /* Ensure the section does not exceed the viewport width */
+    overflow: hidden; /* Prevent overflow */
+}
+
+
+.feedback-title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #b50a00;
+}
+
+.feedback-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 30%;
+    height: 4px;
+    background-color: gold;
+    clip-path: polygon(0% 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+}
+
+.feedback-subtitle {
+    margin-top: 60px;
+    font-size: 18px;
+    color: white;
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    margin-top: 10px;
+}
+
+.feedback-navigation {
+    position: absolute;
+    top: 60px; /* Same as .feedback-subtitle */
+    right: 20px;
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+.nav-button {
+    background-color: white;
+    color: red;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feedback-list {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    margin-top: 110px;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    width: 100%; /* Ensure the container takes full width */
+}
+
+.feedback-list::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+.feedback-item {
+    flex-shrink: 0; /* Prevent items from shrinking */
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    margin-right: 20px;
+    height: 205px;
+    width: 600px;
+    border-radius: 0; /* Remove border radius */
+}
+
+.feedback-item.active {
+    display: flex;
+    margin-top: 20px;
+}
+
+.feedback-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.feedback-content {
+    color: black;
+}
+
+.feedback-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.feedback-text {
+    margin-top: 5px;
+    font-size: 16px;
+    color: black;
+}

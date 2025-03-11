@@ -1,0 +1,31 @@
+# Node modules: Thư mục chứa các package phụ thuộc của Node.js
+node_modules/
+
+# Production build folder: Thư mục build sau khi compile
+build/
+
+# Logs: Các file log có thể phát sinh trong quá trình chạy dự án
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+
+# Environment variables: File chứa các biến môi trường nhạy cảm
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor directories and files (ví dụ Visual Studio Code, Vim, v.v.)
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS generated files (như trên macOS)
+.DS_Store

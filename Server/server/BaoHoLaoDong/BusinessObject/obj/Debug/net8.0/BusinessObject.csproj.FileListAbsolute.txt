@@ -1,0 +1,15 @@
+D:\Support\BAOHOLAODONG\sep490\Server\server\BaoHoLaoDong\BusinessObject\bin\Debug\net8.0\BusinessObject.deps.json
+D:\Support\BAOHOLAODONG\sep490\Server\server\BaoHoLaoDong\BusinessObject\bin\Debug\net8.0\BusinessObject.runtimeconfig.json
+D:\Support\BAOHOLAODONG\sep490\Server\server\BaoHoLaoDong\BusinessObject\bin\Debug\net8.0\BusinessObject.dll
+D:\Support\BAOHOLAODONG\sep490\Server\server\BaoHoLaoDong\BusinessObject\bin\Debug\net8.0\BusinessObject.pdb
+D:\Support\BAOHOLAODONG\sep490\Server\server\BaoHoLaoDong\BusinessObject\obj\Debug\net8.0\BusinessObject.csproj.AssemblyReference.cache
+D:\Support\BAOHOLAODONG\sep490\Server\server\BaoHoLaoDong\BusinessObject\obj\Debug\net8.0\BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+D:\Support\BAOHOLAODONG\sep490\Server\server\BaoHoLaoDong\BusinessObject\obj\Debug\net8.0\BusinessObject.AssemblyInfoInputs.cache
+D:\Support\BAOHOLAODONG\sep490\Server\server\BaoHoLaoDong\BusinessObject\obj\Debug\net8.0\BusinessObject.AssemblyInfo.cs
+D:\Support\BAOHOLAODONG\sep490\Server\server\BaoHoLaoDong\BusinessObject\obj\Debug\net8.0\BusinessObject.csproj.CoreCompileInputs.cache
+D:\Support\BAOHOLAODONG\sep490\Server\server\BaoHoLaoDong\BusinessObject\obj\Debug\net8.0\BusinessObject.sourcelink.json
+D:\Support\BAOHOLAODONG\sep490\Server\server\BaoHoLaoDong\BusinessObject\obj\Debug\net8.0\BusinessObject.dll
+D:\Support\BAOHOLAODONG\sep490\Server\server\BaoHoLaoDong\BusinessObject\obj\Debug\net8.0\refint\BusinessObject.dll
+D:\Support\BAOHOLAODONG\sep490\Server\server\BaoHoLaoDong\BusinessObject\obj\Debug\net8.0\BusinessObject.pdb
+D:\Support\BAOHOLAODONG\sep490\Server\server\BaoHoLaoDong\BusinessObject\obj\Debug\net8.0\BusinessObject.genruntimeconfig.cache
+D:\Support\BAOHOLAODONG\sep490\Server\server\BaoHoLaoDong\BusinessObject\obj\Debug\net8.0\ref\BusinessObject.dll
