@@ -11,8 +11,6 @@ public partial class OrderDetail
 
     public int ProductId { get; set; }
 
-    public int ProductVariantId { get; set; }
-
     public string ProductName { get; set; } = null!;
 
     public decimal ProductPrice { get; set; }

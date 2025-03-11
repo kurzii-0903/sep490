@@ -402,21 +402,18 @@ namespace BusinessLogicLayer.Services
             try
             {
                 var productIds = model.OrderDetails.Select(od => od.ProductId).Distinct().ToList();
-                var variantIds = model.OrderDetails.Select(od => od.ProductVariantId).Distinct().ToList();
                 var products = await _productRepo.GetProductByIdsAsync(productIds);
-                var productVariants = await _productRepo.GetProductVariantsByIdsAsync(variantIds);
 
                 foreach (var item in model.OrderDetails)
                 {
                     var product = products.FirstOrDefault(p => p.ProductId == item.ProductId);
-                    var productVariant = productVariants.FirstOrDefault(pv => pv.ProductId == item.ProductId);
-                    if (product != null && productVariant != null)
+                    if (product != null)
                     {
                         item.ProductPrice = product.Price;
                         item.ProductDiscount = product.Discount;
                         item.TotalPrice = product.Price * item.Quantity * (1 - (item.ProductDiscount ?? 0) / 100);
-                        item.Size = productVariant.Size;
-                        item.Color = productVariant.Color;
+                        item.Size = item.Size;
+                        item.Color = item.Color;
                         item.ProductName = product.ProductName;
                     }
                 }
@@ -427,11 +424,10 @@ namespace BusinessLogicLayer.Services
                     CustomerInfo = JsonSerializer.Serialize(model.CustomerInfo),
                     TotalAmount = model.TotalPrice,
                     OrderDate = DateTime.Now,
-                    Status = "Pending",
+                    Status = OrderStatus.Pending.ToString(),
                     OrderDetails = model.OrderDetails.Select(od => new OrderDetail
                     {
                         ProductId = od.ProductId,
-                        ProductVariantId = od.ProductVariantId,
                         ProductName = od.ProductName,
                         ProductPrice = od.ProductPrice,
                         ProductDiscount = od.ProductDiscount ?? 0,
@@ -449,7 +445,7 @@ namespace BusinessLogicLayer.Services
                             Amount = model.Invoice.Amount,
                             PaymentMethod = model.Invoice.PaymentMethod,
                             QrcodeData = model.Invoice.QRCodeData,
-                            PaymentStatus = model.Invoice.PaymentStatus,
+                            PaymentStatus = InvoiceStatus.Pending.ToString(),
                             ImagePath = model.Invoice.ImagePath,
                             CreatedAt = DateTime.Now,
                             Status = "Paid"
