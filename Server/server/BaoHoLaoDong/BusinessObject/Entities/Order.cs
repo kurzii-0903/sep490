@@ -13,13 +13,13 @@ public partial class Order
 
     public string Status { get; set; } = null!;
 
-    public string CustomerInfo { get; set; }
-
     public DateTime OrderDate { get; set; }
 
     public DateTime? UpdatedAt { get; set; }
 
-    public virtual Customer Customer { get; set; } = null!;
+    public string? CustomerInfo { get; set; }
+
+    public virtual Customer? Customer { get; set; }
 
     public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
 
