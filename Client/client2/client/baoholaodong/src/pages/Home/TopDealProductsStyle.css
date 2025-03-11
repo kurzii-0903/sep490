@@ -1,0 +1,293 @@
+﻿
+.deal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    background-image: url('../../images/saletrees.jpg');
+    background-position: 50% 50%;
+    background-size: 40%;
+    background-repeat: repeat;
+    filter: brightness(85%);
+
+}
+
+.deal .container {
+    display: flex;
+    align-items: center; /* Center items vertically within the container */
+    width: 100%; /* Adjust this value to increase the width */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.deal .container .flex {
+    height: auto; /* Ensure the height of the discounted products is not affected */
+    display: flex;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.product-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.product-discounted-card {
+    flex: 0 0 auto;
+    width: 350px;
+    background: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.product-discounted-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.product-discounted-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 15px;
+}
+
+.product-discounted-name {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.product-discounted-prices {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.product-discount-price {
+    color: red;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.product-original-price {
+    color: gray;
+    text-decoration: line-through;
+    font-size: 16px;
+}
+
+.product-discount-percentage {
+    color: goldenrod;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.option-button {
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #b50a00;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 100%;
+}
+
+.option-button:hover {
+    background-color: #a00a00;
+}
+
+.deal-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align to the start (left) */
+    margin-left: -100px; /* Remove left margin */
+    margin-right: auto; /* Push the section to the left */
+    white-space: nowrap; /* Prevent text from wrapping */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.product-container {
+    margin-top: 20px; /* Adjust this value if needed */
+    margin-left: 40px; /* Add left margin to shift products to the right */
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping to a new line */
+    width: calc(100% - 80px); /* Adjust width to fit within the container */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.deal h2 {
+    color: white;
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.deal-title-text {
+    color: white;
+    font-size: 30px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 42px;
+    margin-bottom: 20px;
+    position: relative; /* Ensure the pseudo-element is positioned relative to the text */
+}
+
+.highlight {
+    position: relative;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Adjust this value to position the underline */
+    left: 0;
+    width: 140%; /* Extend the underline further to the right */
+    height: 3px; /* Adjust the height of the underline */
+    background-color: gold; /* Gold color for the underline */
+    clip-path: polygon(0% 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+}
+
+.navigate-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Add space between the buttons */
+    margin-top: 20px; /* Add margin to position below product cards */
+}
+
+.navigate-button {
+    width: 40px; /* Set the width of the square */
+    height: 40px; /* Set the height of the square */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white; /* White background */
+    color: red; /* Red icons */
+    border: 2px solid gold; /* Yellow border */
+    cursor: pointer;
+    font-size: 1.2rem; /* Reduce the font size */
+    line-height: 1; /* Adjust line height to make icons thinner */
+}
+
+.navigate-button:hover {
+    background-color: yellow; /* Change background color to yellow on hover */
+}
+
+.view-all-button {
+    position: relative;
+    width: 200px;
+    height: 50px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 50px; /* Center text vertically */
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: bold;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); /* Parallelogram shape */
+    overflow: hidden; /* Hide overflow to prevent scrollbars */
+    border-top: 2px solid #b50a00; /* Red top border */
+    border-bottom: 2px solid #b50a00; /* Red bottom border */
+    border-left: none; /* Remove left border */
+    border-right: none; /* Remove right border */
+    transition: color 0.5s ease; /* Smooth transition for text color */
+    margin-top: 20px; /* Add margin to position below navigation buttons */
+}
+
+.view-all-button:hover {
+    color: red; /* Change text color to red on hover */
+}
+
+.view-all-button::before,
+.view-all-button::after {
+    content: '';
+    position: absolute;
+    background-color: gold;
+    height: 100%;
+}
+
+.view-all-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: gold; /* Yellow background */
+    transition: left 0.5s ease; /* Smooth transition for background */
+    z-index: -1; /* Place behind the text */
+}
+
+.view-all-button:hover::before {
+    left: 0; /* Move background to cover the button */
+}
+
+.view-all-button::after {
+    top: 0;
+    right: 0;
+    width: 10%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+}
+
+.text-gold {
+    color: goldenrod;
+}
+
+/* Responsive styles for discounted products */
+@media (max-width: 768px) {
+    .deal {
+        height: auto; /* Adjust height for smaller screens */
+        background-size: cover; /* Cover the background image */
+    }
+
+    .deal .container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .deal-info {
+        margin-left: 0;
+        margin-right: 0;
+        align-items: center;
+        text-align: center;
+        margin-top: 65px; /* Move down slightly on mobile */
+    }
+
+    .product-container {
+        flex-wrap: nowrap; /* Prevent wrapping to a new line */
+        margin-left: 0;
+        width: 100%;
+        overflow-x: auto; /* Enable horizontal scrolling */
+        scroll-behavior: smooth; /* Smooth scrolling */
+    }
+
+    .product-card {
+        width: 80%; /* Adjust the width of product cards on mobile */
+        margin: 0 10px; /* Add margin between product cards */
+    }
+
+    .navigate-button-container {
+        display: flex; /* Show navigation buttons */
+        justify-content: center;
+        gap: 10px; /* Add space between the buttons */
+        margin-top: -9px; /* Add margin to position below product cards */
+    }
+
+    .view-all-button {
+        width: 100%;
+        margin-top: 20px; /* Add margin to position below navigation buttons */
+    }
+
+    .deal-title-text {
+        font-size: 24px;
+        line-height: 36px;
+
+    }
+}
