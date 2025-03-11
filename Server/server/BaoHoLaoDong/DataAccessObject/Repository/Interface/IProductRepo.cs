@@ -39,4 +39,6 @@ public interface IProductRepo
     Task<List<Product>> FilterProductsAsync(List<int?> categories);
     Task<ProductCategoryGroup?> CreateGroupCategoryAsync(ProductCategoryGroup group);
     Task<ProductCategoryGroup> UpdateGroupCategoryAsync(ProductCategoryGroup group);
+    Task<List<Product>> GetProductByIdsAsync(List<int> productIds);
+    Task<List<ProductVariant>> GetProductVariantsByIdsAsync(List<int> Ids);
 }

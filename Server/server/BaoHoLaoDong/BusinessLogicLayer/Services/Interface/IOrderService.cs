@@ -33,7 +33,7 @@ namespace BusinessLogicLayer.Services.Interface
         Task<decimal> CalculateOrderDetailTotalAsync(int orderDetailId);
 
         #region Payment
-        Task<bool> PayAsync(OrderResponse order);
+        Task<bool> PayAsync(OrderPaymentResponse order);
         #endregion
     }
 }

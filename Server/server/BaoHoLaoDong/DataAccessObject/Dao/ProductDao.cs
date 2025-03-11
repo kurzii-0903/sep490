@@ -140,4 +140,12 @@ public class ProductDao : IDao<Product>
             .Where(p => categories.Contains(p.CategoryId))
             .ToListAsync();
     }
+
+    public async Task<List<Product>> GetProductByIdsAsync(List<int> ids)
+    {
+        return await _context.Products
+            .Where(x => ids.Contains(x.ProductId))
+            .AsNoTracking()
+            .ToListAsync();
+    }
 }

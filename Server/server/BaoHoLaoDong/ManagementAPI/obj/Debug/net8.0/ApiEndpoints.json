@@ -307,9 +307,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "paymentInfo",
-        "Type": "ManagementAPI.ModelHelper.PaymentInfo",
-        "IsRequired": true
+        "Name": "OrderInfo",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "InvoiceImage",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

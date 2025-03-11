@@ -1,6 +1,7 @@
 ﻿using BusinessObject.Entities;
 using DataAccessObject.Dao;
 using DataAccessObject.Repository.Interface;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -248,6 +249,18 @@ namespace DataAccessObject.Repository
             var groupExit = await _productCategoryGroupDao.GetByIdAsync(group.GroupId);
             if(groupExit == null) throw new ArgumentException("Product category group not found.");
             return await _productCategoryGroupDao.UpdateAsync(group);
+        }
+
+        public async Task<List<Product>> GetProductByIdsAsync(List<int> productIds)
+        {
+            var products = await _productDao.GetProductByIdsAsync(productIds);
+            return products;
+        }
+
+        public async Task<List<ProductVariant>> GetProductVariantsByIdsAsync(List<int> Ids)
+        {
+            var products = await _productVariantDao.GetProductVariantByIdsAsync(Ids);
+            return products;
         }
 
         #endregion ProductReview

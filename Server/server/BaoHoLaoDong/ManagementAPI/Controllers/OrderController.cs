@@ -7,6 +7,8 @@ using ManagementAPI.ModelHelper;
 using BusinessLogicLayer.Models;
 using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
+using Newtonsoft.Json;
+using Org.BouncyCastle.Asn1.X9;
 
 namespace ManagementAPI.Controllers
 {
@@ -199,67 +201,49 @@ namespace ManagementAPI.Controllers
 
         [AllowAnonymous]
         [HttpPost("payment")]
-        public async Task<IActionResult> Payment([FromBody] PaymentInfo paymentInfo)
+        public async Task<IActionResult> Payment([FromForm] PaymentInfo model)
         {
             try
             {
-                OrderResponse order = new OrderResponse
+                if (string.IsNullOrEmpty(model.OrderInfo))
                 {
-                    CustomerId = paymentInfo.CustomerId,
-                    TotalAmount = paymentInfo.TotalAmount,
-                    Status = OrderStatus.Pending.ToString(),
-                    OrderDate = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
-                    OrderDetails = paymentInfo.OrderDetails
-                    .Select(x => new OrderDetailResponse
-                    {
-                        ProductId = x.ProductId,
-                        ProductVariantId = x.ProductVariantId,
-                        ProductName = x.ProductName,
-                        ProductPrice = x.ProductPrice,
-                        Quantity = x.Quantity,
-                        TotalPrice = x.TotalPrice,
-                        Size = x.Size,
-                        Color = x.Color,
-                        CreatedAt = x.CreatedAt
-                    }).ToList(),
-                    CustomerInfo = JsonSerializer.Serialize(new CustomerInfo
-                    {
-                        Name = paymentInfo.Name,
-                        Email = paymentInfo.Email,
-                        PhoneNumber = paymentInfo.PhoneNumber,
-                        Address = paymentInfo.Address,
-                        Province = paymentInfo.Province,
-                        District = paymentInfo.District,
-                        Commune = paymentInfo.Commune
-                    })
-                };
-                if (paymentInfo.PaymentMethod == "Chuyển khoản" && paymentInfo.File != null)
+                    return BadRequest("OrderInfo is required.");
+                }
+
+                // Parse JSON từ string OrderInfo
+                OrderPaymentResponse orderInfo;
+                try
+                {
+                    orderInfo = JsonConvert.DeserializeObject<OrderPaymentResponse>(model.OrderInfo);
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest("Invalid OrderInfo format: " + ex.Message);
+                }
+                if (orderInfo == null
+                    || orderInfo.Invoice == null
+                    || orderInfo.OrderDetails?.Any() != true)
+                {
+                    return BadRequest("Invalid data");
+                }
+                if (orderInfo.Invoice.PaymentMethod == "Chuyển khoản" && model.InvoiceImage != null)
                 {
                     var pathFolder = _configuration["ApplicationSettings:ImageFolder"];
                     if (!Directory.Exists(pathFolder))
                     {
                         Directory.CreateDirectory(pathFolder);
                     }
-                    var fileName = Guid.NewGuid().ToString();
+                    string fileExtension = Path.GetExtension(model.InvoiceImage.FileName);
+                    var fileName = Guid.NewGuid().ToString() + fileExtension;
                     var filePath = Path.Combine(pathFolder, fileName);
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
-                        await paymentInfo.File.CopyToAsync(stream);
+                        await model.InvoiceImage.CopyToAsync(stream);
                     }
-                    InvoiceResponse invoice = new InvoiceResponse
-                    {
-                        PaymentMethod = paymentInfo.PaymentMethod,
-                        QrcodeData = paymentInfo.QRCode,
-                        Status = InvoiceStatus.Pending.ToString(),
-                        InvoiceNumber = Guid.NewGuid().ToString(),
-                        Amount = paymentInfo.TotalAmount,
-                        ImagePath = filePath
-                    };
-                    order.Receipts = new List<InvoiceResponse> { invoice };
+                    orderInfo.Invoice.ImagePath = filePath;
                 }
 
-                var result = await _orderService.PayAsync(order);
+                var result = await _orderService.PayAsync(orderInfo);
 
                 return Ok();
             }

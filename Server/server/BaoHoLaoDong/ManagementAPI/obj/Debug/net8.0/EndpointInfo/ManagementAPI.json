@@ -2308,204 +2308,26 @@
         ],
         "requestBody": {
           "content": {
-            "application/json;odata.metadata=minimal;odata.streaming=true": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=minimal;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=minimal": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=full": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=none": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=minimal;IEEE754Compatible=false": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=minimal;IEEE754Compatible=true": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=full;IEEE754Compatible=false": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=full;IEEE754Compatible=true": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=none;IEEE754Compatible=false": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.metadata=none;IEEE754Compatible=true": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.streaming=true;IEEE754Compatible=false": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.streaming=true;IEEE754Compatible=true": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.streaming=false;IEEE754Compatible=false": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;odata.streaming=false;IEEE754Compatible=true": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;IEEE754Compatible=false": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/json;IEEE754Compatible=true": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "text/plain": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentInfo"
+                "type": "object",
+                "properties": {
+                  "OrderInfo": {
+                    "type": "string"
+                  },
+                  "InvoiceImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "OrderInfo": {
+                  "style": "form"
+                },
+                "InvoiceImage": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -6309,108 +6131,6 @@
           },
           "status": {
             "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "OrderDetailResponse": {
-        "type": "object",
-        "properties": {
-          "orderDetailId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "orderId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "productId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "productName": {
-            "type": "string",
-            "nullable": true
-          },
-          "productPrice": {
-            "type": "number",
-            "format": "double"
-          },
-          "productDiscount": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "totalPrice": {
-            "type": "number",
-            "format": "double"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PaymentInfo": {
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "phoneNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "address": {
-            "type": "string",
-            "nullable": true
-          },
-          "province": {
-            "type": "string",
-            "nullable": true
-          },
-          "district": {
-            "type": "string",
-            "nullable": true
-          },
-          "commune": {
-            "type": "string",
-            "nullable": true
-          },
-          "paymentMethod": {
-            "type": "string",
-            "nullable": true
-          },
-          "totalAmount": {
-            "type": "number",
-            "format": "double"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "qrCode": {
-            "type": "string",
-            "nullable": true
-          },
-          "file": {
-            "type": "string",
-            "format": "binary",
-            "nullable": true
-          },
-          "orderDetails": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderDetailResponse"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false

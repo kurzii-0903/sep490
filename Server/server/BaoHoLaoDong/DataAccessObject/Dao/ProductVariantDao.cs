@@ -55,7 +55,15 @@ public class ProductVariantDao : IDao<ProductVariant>
             .Where(pv => pv.ProductId == productId)
             .ToListAsync();
     }
-    
+
+    public async Task<List<ProductVariant>> GetByProductIdAsync(List<int> productIds)
+    {
+        return await _context.ProductVariants
+            .AsNoTracking()
+            .Where(pv => productIds.Contains(pv.ProductId))
+            .ToListAsync();
+    }
+
     public async Task<List<ProductVariant>?> GetAllAsync()
     {
         throw new NotImplementedException();
@@ -64,5 +72,13 @@ public class ProductVariantDao : IDao<ProductVariant>
     public async Task<List<ProductVariant>?> GetPageAsync(int page, int pageSize)
     {
         throw new NotImplementedException();
+    }
+
+    public async Task<List<ProductVariant>> GetProductVariantByIdsAsync(List<int> ids)
+    {
+        return await _context.ProductVariants
+            .AsNoTracking()
+            .Where(pv => ids.Contains(pv.VariantId))
+            .ToListAsync();
     }
 }
