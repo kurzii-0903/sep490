@@ -1,0 +1,55 @@
+# -------------------------------
+# Visual Studio & ASP.NET Settings
+# -------------------------------
+.vs/                           # Visual Studio temporary files
+*.suo                          # User-specific options files
+*.user                         # User-specific settings
+*.userosscache                 # Cache files
+*.sln.docstates                # Solution state file
+*.sdf                          # SQL Server Compact files
+*.cache                        # Cache files
+*.dbmdl                        # Database model files
+*.bak                          # Backup files
+*.backup                       # Backup files
+*.log                          # Log files
+bin/                           # Build output folder for binaries
+obj/                           # Build output folder for object files
+
+# -------------------------------
+# ASP.NET Specific Files
+# -------------------------------
+appsettings.json               # Default configuration (if you don't want it tracked)
+appsettings.*.json             # Other environment-specific configuration files
+
+# -------------------------------
+# NuGet Packages & Dependencies
+# -------------------------------
+*.nupkg                      # NuGet package files
+packages/                     # NuGet packages folder
+project.lock.json            # Dependency lock file (older projects)
+project.fragment.lock.json   # Fragmented lock file
+
+# -------------------------------
+# IDE Specific Files
+# -------------------------------
+.idea/                        # Rider/IntelliJ project files
+.vscode/                      # VS Code settings
+
+# -------------------------------
+# React & Node.js Settings
+# -------------------------------
+node_modules/                 # Node.js dependencies
+build/                        # Build output folder (commonly used in React projects)
+dist/                         # Alternative build output folder
+npm-debug.log*               # npm error logs
+yarn-debug.log*              # Yarn error logs
+yarn-error.log*              # Yarn error logs
+
+# -------------------------------
+# Environment Files
+# -------------------------------
+.env                          # Environment variables file
+.env.local                    # Local overrides
+.env.development.local        # Development-specific overrides
+.env.test.local               # Testing-specific overrides
+.env.production.local         # Production-specific overrides

@@ -1,36 +1,43 @@
 {
   "format": 1,
   "restore": {
-    "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {}
+    "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {}
   },
   "projects": {
-    "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+    "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "projectUniqueName": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
         "projectName": "BusinessLogicLayer",
-        "projectPath": "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
-        "packagesPath": "C:\\Users\\ngoli\\.nuget\\packages\\",
-        "outputPath": "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\obj\\",
+        "projectPath": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "packagesPath": "C:\\Users\\HungNM\\.nuget\\packages\\",
+        "outputPath": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ngoli\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\HungNM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\BusinessObject\\BusinessObject.csproj"
+              "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessObject\\BusinessObject.csproj"
               },
-              "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\DataAccessObject\\DataAccessObject.csproj": {
-                "projectPath": "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\DataAccessObject\\DataAccessObject.csproj"
+              "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\DataAccessObject\\DataAccessObject.csproj": {
+                "projectPath": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\DataAccessObject\\DataAccessObject.csproj"
               }
             }
           }
@@ -44,7 +51,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -87,26 +95,33 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\BusinessObject\\BusinessObject.csproj": {
+    "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\BusinessObject\\BusinessObject.csproj",
-        "packagesPath": "C:\\Users\\ngoli\\.nuget\\packages\\",
-        "outputPath": "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\BusinessObject\\obj\\",
+        "projectPath": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessObject\\BusinessObject.csproj",
+        "packagesPath": "C:\\Users\\HungNM\\.nuget\\packages\\",
+        "outputPath": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ngoli\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\HungNM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -124,7 +139,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -165,34 +181,41 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\DataAccessObject\\DataAccessObject.csproj": {
+    "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\DataAccessObject\\DataAccessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\DataAccessObject\\DataAccessObject.csproj",
+        "projectUniqueName": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\DataAccessObject\\DataAccessObject.csproj",
         "projectName": "DataAccessObject",
-        "projectPath": "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\DataAccessObject\\DataAccessObject.csproj",
-        "packagesPath": "C:\\Users\\ngoli\\.nuget\\packages\\",
-        "outputPath": "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\DataAccessObject\\obj\\",
+        "projectPath": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\DataAccessObject\\DataAccessObject.csproj",
+        "packagesPath": "C:\\Users\\HungNM\\.nuget\\packages\\",
+        "outputPath": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\DataAccessObject\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ngoli\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\HungNM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "E:\\SEP490\\MinhXuanSafetyGear_Server\\server\\BaoHoLaoDong\\BusinessObject\\BusinessObject.csproj"
+              "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessObject\\BusinessObject.csproj"
               }
             }
           }
@@ -206,7 +229,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -227,7 +251,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

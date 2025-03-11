@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "E:\\a_SEP_SP24\\MinhXuanSafetyGear\\server\\BaoHoLaoDong\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|e:\\a_sep_sp24\\minhxuansafetygear\\server\\baoholaodong\\dataaccessobject\\repository\\interface\\iuserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|solutionrelative:dataaccessobject\\repository\\interface\\iuserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{522DFF9B-D415-4E50-AC97-7131160D035C}|BusinessObject\\BusinessObject.csproj|e:\\a_sep_sp24\\minhxuansafetygear\\server\\baoholaodong\\businessobject\\entities\\minhxuandatabasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522DFF9B-D415-4E50-AC97-7131160D035C}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\entities\\minhxuandatabasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|e:\\a_sep_sp24\\minhxuansafetygear\\server\\baoholaodong\\dataaccessobject\\dao\\accountverificationdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|solutionrelative:dataaccessobject\\dao\\accountverificationdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|e:\\a_sep_sp24\\minhxuansafetygear\\server\\baoholaodong\\dataaccessobject\\repository\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|solutionrelative:dataaccessobject\\repository\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|e:\\a_sep_sp24\\minhxuansafetygear\\server\\baoholaodong\\dataaccessobject\\repository\\orderrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|solutionrelative:dataaccessobject\\repository\\orderrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 116,
+          "SelectedChildIndex": 120,
           "Children": [
             {
               "$type": "Bookmark",
@@ -478,19 +490,62 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:9:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:9:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "IUserRepo.cs",
-              "DocumentMoniker": "E:\\a_SEP_SP24\\MinhXuanSafetyGear\\server\\BaoHoLaoDong\\DataAccessObject\\Repository\\Interface\\IUserRepo.cs",
-              "RelativeDocumentMoniker": "DataAccessObject\\Repository\\Interface\\IUserRepo.cs",
-              "ToolTip": "E:\\a_SEP_SP24\\MinhXuanSafetyGear\\server\\BaoHoLaoDong\\DataAccessObject\\Repository\\Interface\\IUserRepo.cs",
-              "RelativeToolTip": "DataAccessObject\\Repository\\Interface\\IUserRepo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA7AAAA",
+              "DocumentIndex": 3,
+              "Title": "OrderRepo.cs",
+              "DocumentMoniker": "E:\\a_SEP_SP24\\MinhXuanSafetyGear\\server\\BaoHoLaoDong\\DataAccessObject\\Repository\\OrderRepo.cs",
+              "RelativeDocumentMoniker": "DataAccessObject\\Repository\\OrderRepo.cs",
+              "ToolTip": "E:\\a_SEP_SP24\\MinhXuanSafetyGear\\server\\BaoHoLaoDong\\DataAccessObject\\Repository\\OrderRepo.cs",
+              "RelativeToolTip": "DataAccessObject\\Repository\\OrderRepo.cs",
+              "ViewState": "AQIAAGQAAAAAAAAAAAAAwG4AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T11:43:00.366Z",
+              "WhenOpened": "2025-01-25T08:58:51.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserRepo.cs",
+              "DocumentMoniker": "E:\\a_SEP_SP24\\MinhXuanSafetyGear\\server\\BaoHoLaoDong\\DataAccessObject\\Repository\\UserRepo.cs",
+              "RelativeDocumentMoniker": "DataAccessObject\\Repository\\UserRepo.cs",
+              "ToolTip": "E:\\a_SEP_SP24\\MinhXuanSafetyGear\\server\\BaoHoLaoDong\\DataAccessObject\\Repository\\UserRepo.cs",
+              "RelativeToolTip": "DataAccessObject\\Repository\\UserRepo.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAQwBYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T08:58:50.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccountVerificationDao.cs",
+              "DocumentMoniker": "E:\\a_SEP_SP24\\MinhXuanSafetyGear\\server\\BaoHoLaoDong\\DataAccessObject\\Dao\\AccountVerificationDao.cs",
+              "RelativeDocumentMoniker": "DataAccessObject\\Dao\\AccountVerificationDao.cs",
+              "ToolTip": "E:\\a_SEP_SP24\\MinhXuanSafetyGear\\server\\BaoHoLaoDong\\DataAccessObject\\Dao\\AccountVerificationDao.cs",
+              "RelativeToolTip": "DataAccessObject\\Dao\\AccountVerificationDao.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwB0AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T08:58:39.728Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MinhXuanDatabaseContext.cs",
+              "DocumentMoniker": "E:\\a_SEP_SP24\\MinhXuanSafetyGear\\server\\BaoHoLaoDong\\BusinessObject\\Entities\\MinhXuanDatabaseContext.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\Entities\\MinhXuanDatabaseContext.cs",
+              "ToolTip": "E:\\a_SEP_SP24\\MinhXuanSafetyGear\\server\\BaoHoLaoDong\\BusinessObject\\Entities\\MinhXuanDatabaseContext.cs",
+              "RelativeToolTip": "BusinessObject\\Entities\\MinhXuanDatabaseContext.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAwB8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T08:57:16.598Z",
               "EditorCaption": ""
             }
           ]
