@@ -300,6 +300,22 @@
   },
   {
     "ContainingType": "ManagementAPI.Controllers.OrderController",
+    "Method": "GetImage",
+    "RelativePath": "api/Order/img/invoice",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ManagementAPI.Controllers.OrderController",
     "Method": "Payment",
     "RelativePath": "api/Order/payment",
     "HttpMethod": "POST",

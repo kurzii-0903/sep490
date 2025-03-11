@@ -9,6 +9,8 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
 using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1.X9;
+using System.Runtime.CompilerServices;
+using Microsoft.IdentityModel.Tokens;
 
 namespace ManagementAPI.Controllers
 {
@@ -199,7 +201,6 @@ namespace ManagementAPI.Controllers
             }
         }
 
-        [AllowAnonymous]
         [HttpPost("payment")]
         public async Task<IActionResult> Payment([FromForm] PaymentInfo model)
         {
@@ -240,7 +241,7 @@ namespace ManagementAPI.Controllers
                     {
                         await model.InvoiceImage.CopyToAsync(stream);
                     }
-                    orderInfo.Invoice.ImagePath = filePath;
+                    orderInfo.Invoice.ImagePath = fileName;
                 }
 
                 var result = await _orderService.PayAsync(orderInfo);
@@ -250,6 +251,27 @@ namespace ManagementAPI.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("img/invoice")]
+        public async Task<IActionResult> GetImage(string fileName)
+        {
+            try
+            {
+                if(string.IsNullOrEmpty(fileName))
+                {
+                    return BadRequest("Invalid data");
+                }
+                var pathFolder = _configuration["ApplicationSettings:ImageFolder"];
+                string imagePath = Path.Combine(pathFolder, fileName);
+                byte[] imageBytes = System.IO.File.ReadAllBytes(imagePath);
+                string base64String = Convert.ToBase64String(imageBytes);
+                return Ok(new { ImageBase64 = base64String });
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

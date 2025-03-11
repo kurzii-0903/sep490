@@ -445,7 +445,7 @@ namespace BusinessLogicLayer.Services
                     {
                         new Invoice
                         {
-                            InvoiceNumber = model.Invoice.InvoiceNumber,
+                            InvoiceNumber = Guid.NewGuid().ToString(),
                             Amount = model.Invoice.Amount,
                             PaymentMethod = model.Invoice.PaymentMethod,
                             QrcodeData = model.Invoice.QRCodeData,
@@ -457,7 +457,7 @@ namespace BusinessLogicLayer.Services
                     }
                 };
 
-                var orderResponse = await _orderRepo.CreateOrderAsync(order);
+                var orderResponse = await _orderRepo.PayAsync(order);
                 return true;
             }
             catch (Exception ex)
