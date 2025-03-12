@@ -1,0 +1,140 @@
+.header-gradient {
+    width: 100%;
+    background: linear-gradient(to top, #4a0403, #a50d0b); /* Darker gradient */
+    position: relative; /* Initially relative */
+    top: 0;
+    z-index: 1000;
+    transition: background 2s ease-in-out, padding 0.5s ease-in-out, top 50s ease-in-out; /* Use ease-in-out for smoother transition */
+    transition-delay: 2s, 0s, 30s;
+    padding: 5px 10px;
+}
+
+.header-gradient.scrolled {
+    background: linear-gradient(to top, #4a0403, #a50d0b); /* Darker gradient */
+    padding: 10px 20px; /* Adjust padding for the sticky state */
+    position: fixed; /* Change to fixed when scrolled */
+    top: 0; /* Stick to the top */
+    z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+.siderbar-head {
+    background: linear-gradient(to top, #4a0403, #a50d0b); /* Darker gradient */
+}
+
+.sidebar-overlay {
+    z-index: 2000; /* Ensure the overlay is above other elements */
+}
+
+.sidebar-container {
+    z-index: 2001; /* Ensure the sidebar is above the overlay */
+}
+
+.header-gradient .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header-gradient .container .flex.items-center button {
+    display: flex;
+    flex-direction: column; /* Change flex direction to column */
+    align-items: center;
+    margin-left: -100px; /* Adjust this value to move the button further to the left */
+}
+
+.header-gradient .container .flex.items-center button span {
+    margin-left: 0; /* Remove left margin */
+    margin-top: 4px; /* Add top margin to create space between icon and text */
+}
+
+.header-gradient .flex.items-center.space-x-6 .relative.flex.items-center {
+    margin-right: -100px; /* Adjust this value to move the cart button further to the right */
+}
+
+.header-gradient .search-container {
+    flex-grow: 3;
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.header-gradient .search-container input {
+    width: 100%; /* Make the search bar take the full width */
+}
+
+/* Mobile Header Styles */
+@media (max-width: 768px) {
+    .header-gradient {
+        padding: 2px; /* Reduce padding */
+    }
+    .header-gradient .container {
+        flex-direction: row; /* Align items horizontally */
+        justify-content: space-between; /* Space out elements */
+        align-items: center; /* Center elements vertically */
+        padding: 0 10px; /* Reduce padding */
+        overflow: hidden; /* Prevent elements from overflowing */
+    }
+    .header-gradient .container .flex.items-center {
+        width: auto; /* Adjust width to auto */
+        margin: 0; /* Remove margin */
+        display: flex;
+        align-items: center;
+        flex-shrink: 0; /* Prevent shrinking */
+    }
+    .header-gradient .container .flex.items-center button {
+        margin-left: 0;
+    }
+    .header-gradient .search-container {
+        display: none !important; /* Hide the original search container on mobile */
+    }
+    .mobile-search-container {
+        width: 97%;
+        margin: 5px 0; /* Reduce margin */
+        display: flex;
+        align-items: center;
+    }
+    .header-gradient .flex.items-center.space-x-6 {
+        width: auto; /* Adjust width to auto */
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* Align items to the end */
+        flex-shrink: 0; /* Prevent shrinking */
+    }
+    .header-gradient .logo {
+        flex-grow: 1; /* Allow the logo to take up available space */
+        text-align: center; /* Center the logo */
+    }
+    .header-gradient .container .flex.items-center button {
+        margin-left: 0; /* Remove negative margin */
+    }
+    .header-gradient .flex.items-center.space-x-6 .relative.flex.items-center {
+        margin-right: 0; /* Remove negative margin */
+    }
+    .header-gradient .flex.items-center.space-x-6 {
+        flex-direction: row; /* Stack avatar and cart vertically */
+        align-items: flex-end; /* Align to the right */
+        gap: 10px; /* Add some space between elements */
+    }
+
+    /* Hide contact info, header text while keeping logo and icons visible */
+    .contact-info,
+    .header-gradient h1,
+    .header-gradient p,
+    .header-gradient .flex.items-center.space-x-6 .relative.flex.items-center span,
+    .header-gradient .flex.items-center.space-x-6 .relative.group .flex.items-center div {
+        display: none !important;
+    }
+
+    /* Hide hover dropdown lists for account and cart on mobile */
+    .header-gradient .relative.group .absolute {
+        display: none !important;
+    }
+
+    /* Hide CartDropdown on mobile */
+    .cart-dropdown {
+        display: none !important;
+    }
+}
