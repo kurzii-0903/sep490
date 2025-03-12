@@ -1,0 +1,49 @@
+
+/* Thêm lớp cha cụ thể để giới hạn phạm vi style */
+.customer-info-page .customer-info {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.customer-info-page h1 {
+    text-align: center;
+    color: #333;
+}
+
+.customer-info-page .form-group {
+    margin-bottom: 15px;
+}
+
+.customer-info-page label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.customer-info-page input[type="text"],
+.customer-info-page input[type="tel"],
+.customer-info-page input[type="email"],
+.customer-info-page select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.customer-info-page button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.customer-info-page button:hover {
+    background-color: #218838;
+}
