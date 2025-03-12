@@ -2346,10 +2346,11 @@
         ],
         "parameters": [
           {
-            "name": "fileName",
+            "name": "orderId",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],

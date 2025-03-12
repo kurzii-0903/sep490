@@ -496,5 +496,24 @@ namespace BusinessLogicLayer.Services
                 throw;
             }
         }
+
+        public async Task<string> GetInvoiceImageAsync(int orderId)
+        {
+            try
+            {
+                var order = await _orderRepo.GetOrderByIdAsync(orderId);
+                if (order == null || order.Invoices?.Any() != true)
+                {
+                    return String.Empty;
+                }
+                var invoices = order.Invoices.FirstOrDefault();
+                return invoices?.ImagePath != null ? invoices.ImagePath : String.Empty;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error GetInvoiceImageAsync");
+                throw;
+            }
+        }
     }
 }

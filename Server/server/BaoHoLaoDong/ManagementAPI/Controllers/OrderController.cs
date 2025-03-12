@@ -255,13 +255,14 @@ namespace ManagementAPI.Controllers
         }
 
         [HttpGet("img/invoice")]
-        public async Task<IActionResult> GetImage(string fileName)
+        public async Task<IActionResult> GetImage(int orderId)
         {
             try
             {
+                var fileName = await _orderService.GetInvoiceImageAsync(orderId);
                 if(string.IsNullOrEmpty(fileName))
                 {
-                    return BadRequest("Invalid data");
+                    return NotFound();
                 }
                 var pathFolder = _configuration["ApplicationSettings:ImageFolder"];
                 string imagePath = Path.Combine(pathFolder, fileName);
@@ -281,6 +282,7 @@ namespace ManagementAPI.Controllers
             try
             {
                 var result = await _orderService.ConfirmOrderAsync(orderId);
+
                 return Ok();
             }
             catch (Exception)
