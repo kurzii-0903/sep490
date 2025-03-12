@@ -255,19 +255,35 @@ namespace ManagementAPI.Controllers
         }
 
         [HttpGet("img/invoice")]
-        public async Task<IActionResult> GetImage(string fileName)
+        public async Task<IActionResult> GetImage(int orderId)
         {
             try
             {
+                var fileName = await _orderService.GetInvoiceImageAsync(orderId);
                 if(string.IsNullOrEmpty(fileName))
                 {
-                    return BadRequest("Invalid data");
+                    return NotFound();
                 }
                 var pathFolder = _configuration["ApplicationSettings:ImageFolder"];
                 string imagePath = Path.Combine(pathFolder, fileName);
                 byte[] imageBytes = System.IO.File.ReadAllBytes(imagePath);
                 string base64String = Convert.ToBase64String(imageBytes);
                 return Ok(new { ImageBase64 = base64String });
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [HttpPut("confirm-order")]
+        public async Task<IActionResult> ConfirmOrderAsync(int orderId)
+        {
+            try
+            {
+                var result = await _orderService.ConfirmOrderAsync(orderId);
+
+                return Ok();
             }
             catch (Exception)
             {

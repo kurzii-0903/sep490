@@ -216,6 +216,22 @@
   },
   {
     "ContainingType": "ManagementAPI.Controllers.OrderController",
+    "Method": "ConfirmOrderAsync",
+    "RelativePath": "api/Order/confirm-order",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ManagementAPI.Controllers.OrderController",
     "Method": "CreateOrder",
     "RelativePath": "api/Order/create-order",
     "HttpMethod": "POST",
@@ -307,8 +323,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "fileName",
-        "Type": "System.String",
+        "Name": "orderId",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

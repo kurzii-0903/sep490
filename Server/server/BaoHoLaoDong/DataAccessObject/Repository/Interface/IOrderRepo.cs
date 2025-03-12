@@ -7,7 +7,7 @@ namespace DataAccessObject.Repository.Interface
     public interface IOrderRepo
     {
         // Order
-
+        Task<Order?> GetOrderByIdWithTrackingAsync(int id);
         Task<Order?> GetOrderByIdAsync(int id);
         Task<Order?> CreateOrderAsync(Order order);
         Task<Order?> UpdateOrderAsync(Order order);
@@ -28,8 +28,6 @@ namespace DataAccessObject.Repository.Interface
         // OrderDetail
         Task<OrderDetail?> GetOrderDetailByIdAsync(int orderDetailId);
         Task<OrderDetail?> CreateOrderDetailAsync(OrderDetail orderDetail);
-
-
         Task<OrderDetail?> UpdateOrderDetailAsync(int orderId, OrderDetail orderDetail);
 
         Task<bool> DeleteOrderDetailAsync(int orderDetailId);
@@ -39,5 +37,6 @@ namespace DataAccessObject.Repository.Interface
         Task<decimal> CalculateOrderDetailTotalAsync(int orderDetailId);
 
         Task<Order?> PayAsync(Order order);
+        Task<bool> UpdateOrderWithInvoiceAsync(Order order, ICollection<Invoice> invoices);
     }
 }

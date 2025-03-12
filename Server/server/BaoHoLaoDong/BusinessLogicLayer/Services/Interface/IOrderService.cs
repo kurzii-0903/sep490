@@ -34,6 +34,8 @@ namespace BusinessLogicLayer.Services.Interface
 
         #region Payment
         Task<bool> PayAsync(OrderPaymentResponse order);
+        Task<bool> ConfirmOrderAsync(int orderId);
+        Task<string> GetInvoiceImageAsync(int orderId);
         #endregion
     }
 }

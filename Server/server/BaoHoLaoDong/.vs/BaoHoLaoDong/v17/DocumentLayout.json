@@ -3,67 +3,36 @@
   "WorkspaceRootPath": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{175BF1C1-3DB9-48C5-B27C-68ED0966EF06}|ManagementAPI\\ManagementAPI.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\managementapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{175BF1C1-3DB9-48C5-B27C-68ED0966EF06}|ManagementAPI\\ManagementAPI.csproj|solutionrelative:managementapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{175BF1C1-3DB9-48C5-B27C-68ED0966EF06}|ManagementAPI\\ManagementAPI.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\managementapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{175BF1C1-3DB9-48C5-B27C-68ED0966EF06}|ManagementAPI\\ManagementAPI.csproj|solutionrelative:managementapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{522DFF9B-D415-4E50-AC97-7131160D035C}|BusinessObject\\BusinessObject.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\businessobject\\entities\\minhxuandatabasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{522DFF9B-D415-4E50-AC97-7131160D035C}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\entities\\minhxuandatabasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\businesslogiclayer\\services\\interface\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\services\\interface\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\businesslogiclayer\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\businesslogiclayer\\mappings\\responsedto\\orderdetailpaymentresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\mappings\\responsedto\\orderdetailpaymentresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\dataaccessobject\\repository\\interface\\iorderrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|solutionrelative:dataaccessobject\\repository\\interface\\iorderrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\businesslogiclayer\\mappings\\responsedto\\orderpaymentresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\mappings\\responsedto\\orderpaymentresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{175BF1C1-3DB9-48C5-B27C-68ED0966EF06}|ManagementAPI\\ManagementAPI.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\managementapi\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{175BF1C1-3DB9-48C5-B27C-68ED0966EF06}|ManagementAPI\\ManagementAPI.csproj|solutionrelative:managementapi\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{175BF1C1-3DB9-48C5-B27C-68ED0966EF06}|ManagementAPI\\ManagementAPI.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\managementapi\\modelhelper\\paymentinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{175BF1C1-3DB9-48C5-B27C-68ED0966EF06}|ManagementAPI\\ManagementAPI.csproj|solutionrelative:managementapi\\modelhelper\\paymentinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\dataaccessobject\\repository\\orderrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|solutionrelative:dataaccessobject\\repository\\orderrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\businesslogiclayer\\services\\blogpostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\services\\blogpostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\businesslogiclayer\\businesslogiclayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\businesslogiclayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\dataaccessobject\\dataaccessobject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|solutionrelative:dataaccessobject\\dataaccessobject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Models\\MinhXuanDatabase2Context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{175BF1C1-3DB9-48C5-B27C-68ED0966EF06}|ManagementAPI\\ManagementAPI.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\managementapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{175BF1C1-3DB9-48C5-B27C-68ED0966EF06}|ManagementAPI\\ManagementAPI.csproj|solutionrelative:managementapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\businesslogiclayer\\models\\enumobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\models\\enumobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\dataaccessobject\\dao\\orderdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|solutionrelative:dataaccessobject\\dao\\orderdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\dataaccessobject\\repository\\interface\\iorderrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|solutionrelative:dataaccessobject\\repository\\interface\\iorderrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\businesslogiclayer\\mappings\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\mappings\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{175BF1C1-3DB9-48C5-B27C-68ED0966EF06}|ManagementAPI\\ManagementAPI.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\managementapi\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{175BF1C1-3DB9-48C5-B27C-68ED0966EF06}|ManagementAPI\\ManagementAPI.csproj|solutionrelative:managementapi\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|e:\\sp\\capstone\\sep490\\server\\server\\baoholaodong\\dataaccessobject\\repository\\orderrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DD87486-FFAA-4E6C-BB97-34E571429C7A}|DataAccessObject\\DataAccessObject.csproj|solutionrelative:dataaccessobject\\repository\\orderrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -73,8 +42,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 9,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IOrderService.cs",
+              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Services\\Interface\\IOrderService.cs",
+              "RelativeDocumentMoniker": "BusinessLogicLayer\\Services\\Interface\\IOrderService.cs",
+              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Services\\Interface\\IOrderService.cs",
+              "RelativeToolTip": "BusinessLogicLayer\\Services\\Interface\\IOrderService.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAADwvycAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T03:07:09.369Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -109,133 +91,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "OrderPaymentResponse.cs",
-              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Mappings\\ResponseDTO\\OrderPaymentResponse.cs",
-              "RelativeDocumentMoniker": "BusinessLogicLayer\\Mappings\\ResponseDTO\\OrderPaymentResponse.cs",
-              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Mappings\\ResponseDTO\\OrderPaymentResponse.cs",
-              "RelativeToolTip": "BusinessLogicLayer\\Mappings\\ResponseDTO\\OrderPaymentResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAuAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "ManagementAPI\\Controllers\\OrderController.cs",
+              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "ManagementAPI\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAPsAAAAAAAAAAAAAAAYBAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:41:40.176Z",
+              "WhenOpened": "2025-03-11T19:08:38.179Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\Controllers\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "ManagementAPI\\Controllers\\AuthenticationController.cs",
-              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\Controllers\\AuthenticationController.cs",
-              "RelativeToolTip": "ManagementAPI\\Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "OrderDao.cs",
+              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\DataAccessObject\\Dao\\OrderDao.cs",
+              "RelativeDocumentMoniker": "DataAccessObject\\Dao\\OrderDao.cs",
+              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\DataAccessObject\\Dao\\OrderDao.cs",
+              "RelativeToolTip": "DataAccessObject\\Dao\\OrderDao.cs",
+              "ViewState": "AgIAAKEAAAAAAAAAAAAowLQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:41:12.557Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PaymentInfo.cs",
-              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\ModelHelper\\PaymentInfo.cs",
-              "RelativeDocumentMoniker": "ManagementAPI\\ModelHelper\\PaymentInfo.cs",
-              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\ModelHelper\\PaymentInfo.cs",
-              "RelativeToolTip": "ManagementAPI\\ModelHelper\\PaymentInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:41:04.919Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MinhXuanDatabaseContext.cs",
-              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessObject\\Entities\\MinhXuanDatabaseContext.cs",
-              "RelativeDocumentMoniker": "BusinessObject\\Entities\\MinhXuanDatabaseContext.cs",
-              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessObject\\Entities\\MinhXuanDatabaseContext.cs",
-              "RelativeToolTip": "BusinessObject\\Entities\\MinhXuanDatabaseContext.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAywC4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:39:15.207Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OrderService.cs",
-              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Services\\OrderService.cs",
-              "RelativeDocumentMoniker": "BusinessLogicLayer\\Services\\OrderService.cs",
-              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Services\\OrderService.cs",
-              "RelativeToolTip": "BusinessLogicLayer\\Services\\OrderService.cs",
-              "ViewState": "AgIAAJABAAAAAAAAAIAwwKQBAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T14:54:06.762Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "BusinessLogicLayer",
-              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
-              "RelativeDocumentMoniker": "BusinessLogicLayer\\BusinessLogicLayer.csproj",
-              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
-              "RelativeToolTip": "BusinessLogicLayer\\BusinessLogicLayer.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-11T17:34:23.352Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "ManagementAPI\\appsettings.json",
-              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\appsettings.json",
-              "RelativeToolTip": "ManagementAPI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-11T14:44:40.933Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OrderDetailPaymentResponse.cs",
-              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Mappings\\ResponseDTO\\OrderDetailPaymentResponse.cs",
-              "RelativeDocumentMoniker": "BusinessLogicLayer\\Mappings\\ResponseDTO\\OrderDetailPaymentResponse.cs",
-              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Mappings\\ResponseDTO\\OrderDetailPaymentResponse.cs",
-              "RelativeToolTip": "BusinessLogicLayer\\Mappings\\ResponseDTO\\OrderDetailPaymentResponse.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAqwAwAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:41:48.143Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "DataAccessObject",
-              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\DataAccessObject\\DataAccessObject.csproj",
-              "RelativeDocumentMoniker": "DataAccessObject\\DataAccessObject.csproj",
-              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\DataAccessObject\\DataAccessObject.csproj",
-              "RelativeToolTip": "DataAccessObject\\DataAccessObject.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-11T17:34:03.844Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "BlogPostService.cs",
-              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Services\\BlogPostService.cs",
-              "RelativeDocumentMoniker": "BusinessLogicLayer\\Services\\BlogPostService.cs",
-              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Services\\BlogPostService.cs",
-              "RelativeToolTip": "BusinessLogicLayer\\Services\\BlogPostService.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAhwBMAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T14:50:33.989Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T18:48:47.167Z"
             },
             {
               "$type": "Document",
@@ -245,74 +122,80 @@
               "RelativeDocumentMoniker": "DataAccessObject\\Repository\\OrderRepo.cs",
               "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\DataAccessObject\\Repository\\OrderRepo.cs",
               "RelativeToolTip": "DataAccessObject\\Repository\\OrderRepo.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAhwBMAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAAAKIAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:07:52.644Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T18:51:03.526Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MinhXuanDatabase2Context.cs",
-              "DocumentMoniker": "E:\\Models\\MinhXuanDatabase2Context.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Models\\MinhXuanDatabase2Context.cs",
-              "ToolTip": "E:\\Models\\MinhXuanDatabase2Context.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Models\\MinhXuanDatabase2Context.cs",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:15:00.462Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "OrderDao.cs",
-              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\DataAccessObject\\Dao\\OrderDao.cs",
-              "RelativeDocumentMoniker": "DataAccessObject\\Dao\\OrderDao.cs",
-              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\DataAccessObject\\Dao\\OrderDao.cs",
-              "RelativeToolTip": "DataAccessObject\\Dao\\OrderDao.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAgwDcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T14:55:34.068Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 3,
               "Title": "IOrderRepo.cs",
               "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\DataAccessObject\\Repository\\Interface\\IOrderRepo.cs",
               "RelativeDocumentMoniker": "DataAccessObject\\Repository\\Interface\\IOrderRepo.cs",
               "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\DataAccessObject\\Repository\\Interface\\IOrderRepo.cs",
               "RelativeToolTip": "DataAccessObject\\Repository\\Interface\\IOrderRepo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:07:23.571Z",
+              "WhenOpened": "2025-03-11T18:43:58.149Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "ManagementAPI\\Controllers\\OrderController.cs",
-              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\Controllers\\OrderController.cs",
-              "RelativeToolTip": "ManagementAPI\\Controllers\\OrderController.cs",
-              "ViewState": "AgIAAPwAAAAAAAAAAAAYwAkBAABSAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Mappings\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "BusinessLogicLayer\\Mappings\\MappingProfile.cs",
+              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Mappings\\MappingProfile.cs",
+              "RelativeToolTip": "BusinessLogicLayer\\Mappings\\MappingProfile.cs",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAgwJMAAAByAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T14:46:08.342Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T18:40:12.125Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "ManagementAPI\\Controllers\\ProductController.cs",
-              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\ManagementAPI\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "ManagementAPI\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAmwGIAAAAjAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Services\\OrderService.cs",
+              "RelativeDocumentMoniker": "BusinessLogicLayer\\Services\\OrderService.cs",
+              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Services\\OrderService.cs",
+              "RelativeToolTip": "BusinessLogicLayer\\Services\\OrderService.cs",
+              "ViewState": "AgIAAOsBAAAAAAAAAAAQwPgBAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T14:40:42.744Z",
+              "WhenOpened": "2025-03-11T14:54:06.762Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "cfd83781-a786-4f4f-8047-de1a0e3e0ead",
+        "Display": 1,
+        "X": 20,
+        "Y": 165,
+        "Width": 1528,
+        "Height": 522,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EnumObject.cs",
+              "DocumentMoniker": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Models\\EnumObject.cs",
+              "RelativeDocumentMoniker": "BusinessLogicLayer\\Models\\EnumObject.cs",
+              "ToolTip": "E:\\SP\\Capstone\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Models\\EnumObject.cs",
+              "RelativeToolTip": "BusinessLogicLayer\\Models\\EnumObject.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T18:38:58.248Z",
               "EditorCaption": ""
             }
           ]

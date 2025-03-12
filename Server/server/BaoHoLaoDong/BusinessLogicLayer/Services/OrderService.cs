@@ -21,6 +21,7 @@ namespace BusinessLogicLayer.Services
         private readonly ILogger<OrderService> _logger;
         private readonly IOrderRepo _orderRepo;
         private readonly IProductRepo _productRepo;
+        private readonly IInvoiceRepo _invoiceRepo;
 
         public OrderService(MinhXuanDatabaseContext context, IMapper mapper, ILogger<OrderService> logger)
         {
@@ -28,6 +29,7 @@ namespace BusinessLogicLayer.Services
             _mapper = mapper;
             _logger = logger;
             _productRepo = new ProductRepo(context);
+            _invoiceRepo = new InvoiceRepo(context);
         }
 
 
@@ -425,6 +427,7 @@ namespace BusinessLogicLayer.Services
                     TotalAmount = model.TotalPrice,
                     OrderDate = DateTime.Now,
                     Status = OrderStatus.Pending.ToString(),
+                    UpdatedAt = DateTime.Now,
                     OrderDetails = model.OrderDetails.Select(od => new OrderDetail
                     {
                         ProductId = od.ProductId,
@@ -459,6 +462,56 @@ namespace BusinessLogicLayer.Services
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error creating new order.");
+                throw;
+            }
+        }
+
+        public async Task<bool> ConfirmOrderAsync(int orderId)
+        {
+            try
+            {
+                var order = await _orderRepo.GetOrderByIdAsync(orderId);
+                if (order == null)
+                {
+                    return false;
+                }
+
+                order.Status = OrderStatus.Completed.ToString();
+                order.UpdatedAt = DateTime.Now;
+                var invoices = order.Invoices;
+                if (invoices == null || !invoices.Any())
+                {
+                    return false;
+                }
+
+                foreach (var invoice in invoices)
+                {
+                    invoice.Status = InvoiceStatus.Paid.ToString();
+                }
+                return await _orderRepo.UpdateOrderWithInvoiceAsync(order,invoices);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating invoice status for order ID: {OrderId}", orderId);
+                throw;
+            }
+        }
+
+        public async Task<string> GetInvoiceImageAsync(int orderId)
+        {
+            try
+            {
+                var order = await _orderRepo.GetOrderByIdAsync(orderId);
+                if (order == null || order.Invoices?.Any() != true)
+                {
+                    return String.Empty;
+                }
+                var invoices = order.Invoices.FirstOrDefault();
+                return invoices?.ImagePath != null ? invoices.ImagePath : String.Empty;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error GetInvoiceImageAsync");
                 throw;
             }
         }
