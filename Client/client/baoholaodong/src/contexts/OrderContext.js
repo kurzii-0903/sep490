@@ -23,30 +23,35 @@ export const OrderProvider = ({ children }) => {
             const response = await axios.get(`${BASE_URL}/api/Order/getall-orders`);
             return response.data;
         } catch (error) {
-            console.error("Lỗi khi lấy danh mục sản phẩm:", error.response?.data || error.message);
+            console.error("Lỗi khi lấy đơn hàng:", error.response?.data || error.message);
         }
     }, []);
 
     const getInvoiceImage = async (orderId) => {
         try {
-            const response = await axios.get(`${BASE_URL}/api/Order/img//${orderId}`);
+            const response = await axios.get(`${BASE_URL}/api/Order/img/invoice?orderId=${orderId}`);
             return response.data;
         } catch (error) {
-            console.error("Lỗi khi lấy danh mục sản phẩm:", error.response?.data || error.message);
+            if (error.response && error.response.status === 404) {
+                console.log("Không tìm thấy ảnh chuyển khoản cho đơn hàng này");
+                return null;
+            }
+            console.error("Lỗi khi lấy ảnh chuyển khoản:", error.response?.data || error.message);
+            return { error: true, message: "Không thể tải ảnh chuyển khoản" };
         }
     };
 
     const updateOrderStatus = async (orderId, status) => {
         try {
-            const response = await axios.put(`${BASE_URL}/api/Order/update-status/${orderId}`, { status });
+            const response = await axios.put(`${BASE_URL}/api/Order/confirm-order?orderId=${orderId}`);
             return response.data;
         } catch (error) {
-            console.error("Lỗi khi lấy danh mục sản phẩm:", error.response?.data || error.message);
+            console.error("Lỗi khi cập nhật đơn hàng:", error.response?.data || error.message);
         }
     };
 
     return (
-        <OrderContext.Provider value={{ createOrder, getAllOrders }}>
+        <OrderContext.Provider value={{ createOrder, getAllOrders, getInvoiceImage, updateOrderStatus }}>
             {children}
         </OrderContext.Provider>
     );
