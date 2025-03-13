@@ -25,4 +25,11 @@ public class NotificationDao
         await _context.SaveChangesAsync();
         return newNotification;
     }
+
+    public async Task<List<Notification>?> CreateAsync(List<Notification> newNotifications)
+    {
+        await _context.Notifications.AddRangeAsync(newNotifications);
+        await _context.SaveChangesAsync();
+        return newNotifications;
+    }
 }

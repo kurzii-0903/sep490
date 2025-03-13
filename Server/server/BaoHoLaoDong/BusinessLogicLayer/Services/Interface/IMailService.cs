@@ -10,6 +10,6 @@ public interface IMailService
     /// <param name="verificationCode"></param>
     /// <returns></returns>
     public Task<bool> SendVerificationEmailAsync(string toEmail, string verificationCode);
-    public Task<bool> SendOrderConfirmationEmailAsync(string toEmail, string orderNumber, string orderDetails);
+    public Task<bool> SendOrderConfirmationEmailAsync(string toEmail, string orderNumber, string orderDetails, string total);
     public  Task<bool> SendAccountCreatedEmailAsync(string toEmail, string username);
 }

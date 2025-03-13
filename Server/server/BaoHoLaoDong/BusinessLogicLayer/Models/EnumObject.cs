@@ -20,4 +20,16 @@ namespace BusinessLogicLayer.Models
         Completed,
         Cancelled
     }
+
+    public enum RecipientType
+    {
+        Customer,
+        Employee
+    }
+
+    public enum NotificationStatus
+    {
+        Active,
+        DeActive
+    }
 }

@@ -22,4 +22,9 @@ public class NotificationRepo :INotificationRepo
     {
         return await notificationDao.CreateAsync(newNotification);
     }
+
+    public async Task<List<Notification>?> CreateAsync(List<Notification> newNotifications)
+    {
+        return await notificationDao.CreateAsync(newNotifications);
+    }
 }

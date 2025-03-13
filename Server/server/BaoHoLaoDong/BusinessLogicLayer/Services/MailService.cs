@@ -11,7 +11,7 @@ namespace BusinessLogicLayer.Services
         private readonly EmailSettings _emailSettings;
         private readonly ApplicationUrls _applicationUrls;
 
-        public MailService(IOptions<EmailSettings> emailSettings,IOptions<ApplicationUrls> applicationUrls)
+        public MailService(IOptions<EmailSettings> emailSettings, IOptions<ApplicationUrls> applicationUrls)
         {
             _emailSettings = emailSettings.Value;
             _applicationUrls = applicationUrls.Value;
@@ -73,58 +73,58 @@ namespace BusinessLogicLayer.Services
             }
         }
         public async Task<bool> SendVerificationEmailAsync(string toEmail, string verificationCode)
-{
-    try
-    {
-        var message = new MimeMessage();
-        message.From.Add(new MailboxAddress("Bảo Hộ Lao Động Minh Xuân", _emailSettings.SmtpUser));
-        message.To.Add(new MailboxAddress("", toEmail));
-        message.Subject = "Mã xác thực tài khoản của bạn";
-
-        // Tạo đường dẫn xác thực
-        string verificationLink = $"{_applicationUrls.ClientUrl}/verification?email={toEmail}&verifyCode={verificationCode}";
-
-        // Nội dung email với mã xác thực và nút xác thực
-        string htmlBody = $@"
-        <html>
-            <body>
-                <h2>Chào bạn!</h2>
-                <p>Để hoàn tất quá trình đăng ký tài khoản, vui lòng nhập mã xác thực dưới đây hoặc nhấn vào nút để xác thực tài khoản của bạn:</p>
-                
-                <p><strong>Mã xác thực:</strong> {verificationCode}</p>
-                
-                <p>Hoặc bạn có thể nhấn vào nút dưới đây để xác thực tài khoản:</p>
-                <a href='{verificationLink}' style='padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;'>Xác thực tài khoản</a>
-
-                <p>Vui lòng không chia sẻ mã xác thực này với bất kỳ ai để bảo mật tài khoản của bạn.</p>
-                <p>Trân trọng,<br />Đội ngũ hỗ trợ</p>
-            </body>
-        </html>";
-
-        var bodyBuilder = new BodyBuilder
         {
-            HtmlBody = htmlBody
-        };
-        message.Body = bodyBuilder.ToMessageBody();
+            try
+            {
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress("Bảo Hộ Lao Động Minh Xuân", _emailSettings.SmtpUser));
+                message.To.Add(new MailboxAddress("", toEmail));
+                message.Subject = "Mã xác thực tài khoản của bạn";
 
-        using (var client = new SmtpClient())
-        {
-            await client.ConnectAsync(_emailSettings.SmtpHost, _emailSettings.SmtpPort, true);
-            await client.AuthenticateAsync(_emailSettings.SmtpUser, _emailSettings.SmtpPassword);
-            await client.SendAsync(message);
-            await client.DisconnectAsync(true);
+                // Tạo đường dẫn xác thực
+                string verificationLink = $"{_applicationUrls.ClientUrl}/verification?email={toEmail}&verifyCode={verificationCode}";
+
+                // Nội dung email với mã xác thực và nút xác thực
+                string htmlBody = $@"
+                <html>
+                    <body>
+                        <h2>Chào bạn!</h2>
+                        <p>Để hoàn tất quá trình đăng ký tài khoản, vui lòng nhập mã xác thực dưới đây hoặc nhấn vào nút để xác thực tài khoản của bạn:</p>
+                
+                        <p><strong>Mã xác thực:</strong> {verificationCode}</p>
+                
+                        <p>Hoặc bạn có thể nhấn vào nút dưới đây để xác thực tài khoản:</p>
+                        <a href='{verificationLink}' style='padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;'>Xác thực tài khoản</a>
+
+                        <p>Vui lòng không chia sẻ mã xác thực này với bất kỳ ai để bảo mật tài khoản của bạn.</p>
+                        <p>Trân trọng,<br />Đội ngũ hỗ trợ</p>
+                    </body>
+                </html>";
+
+                var bodyBuilder = new BodyBuilder
+                {
+                    HtmlBody = htmlBody
+                };
+                message.Body = bodyBuilder.ToMessageBody();
+
+                using (var client = new SmtpClient())
+                {
+                    await client.ConnectAsync(_emailSettings.SmtpHost, _emailSettings.SmtpPort, true);
+                    await client.AuthenticateAsync(_emailSettings.SmtpUser, _emailSettings.SmtpPassword);
+                    await client.SendAsync(message);
+                    await client.DisconnectAsync(true);
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error sending verification email: {ex.Message}");
+                return false;
+            }
         }
 
-        return true;
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Error sending verification email: {ex.Message}");
-        return false;
-    }
-}
-
-        public async Task<bool> SendOrderConfirmationEmailAsync(string toEmail, string orderNumber, string orderDetails)
+        public async Task<bool> SendOrderConfirmationEmailAsync(string toEmail, string orderNumber, string orderDetails, string total)
         {
             try
             {
@@ -140,6 +140,7 @@ namespace BusinessLogicLayer.Services
                     <p>Chúng tôi đã nhận được đơn hàng của bạn với mã đơn hàng: <strong>{orderNumber}</strong>.</p>
                     <p>Thông tin đơn hàng:</p>
                     <pre>{orderDetails}</pre>
+                    <p>Tổng giá trị đơn hàng: <strong>{total}</strong>.</p>
                     <p>Chúng tôi sẽ xử lý đơn hàng của bạn và thông báo khi đơn hàng được giao.</p>
                     <p>Trân trọng,<br />Đội ngũ hỗ trợ</p>
                 </body>
@@ -167,15 +168,15 @@ namespace BusinessLogicLayer.Services
                 return false;
             }
         }
-        public async Task<bool> SendAccountCreatedEmailAsync(string toEmail, string username) 
-        { 
-            try 
+        public async Task<bool> SendAccountCreatedEmailAsync(string toEmail, string username)
+        {
+            try
             {
-        var message = new MimeMessage();
-        message.From.Add(new MailboxAddress("No Reply", _emailSettings.SmtpUser));
-        message.To.Add(new MailboxAddress("", toEmail));
-        message.Subject = "Tài khoản của bạn đã được tạo thành công";
-        string htmlBody = $@"
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress("No Reply", _emailSettings.SmtpUser));
+                message.To.Add(new MailboxAddress("", toEmail));
+                message.Subject = "Tài khoản của bạn đã được tạo thành công";
+                string htmlBody = $@"
             <html>
                 <body>
                     <h2>Chào mừng bạn đến với hệ thống của chúng tôi!</h2>
@@ -198,28 +199,28 @@ namespace BusinessLogicLayer.Services
                 </body>
             </html>";
 
-        var bodyBuilder = new BodyBuilder
-        {
-            HtmlBody = htmlBody
-        };
-        message.Body = bodyBuilder.ToMessageBody();
+                var bodyBuilder = new BodyBuilder
+                {
+                    HtmlBody = htmlBody
+                };
+                message.Body = bodyBuilder.ToMessageBody();
 
-        using (var client = new SmtpClient())
-        {
-            await client.ConnectAsync(_emailSettings.SmtpHost, _emailSettings.SmtpPort, true);
-            await client.AuthenticateAsync(_emailSettings.SmtpUser, _emailSettings.SmtpPassword);
-            await client.SendAsync(message);
-            await client.DisconnectAsync(true);
+                using (var client = new SmtpClient())
+                {
+                    await client.ConnectAsync(_emailSettings.SmtpHost, _emailSettings.SmtpPort, true);
+                    await client.AuthenticateAsync(_emailSettings.SmtpUser, _emailSettings.SmtpPassword);
+                    await client.SendAsync(message);
+                    await client.DisconnectAsync(true);
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error sending account creation email: {ex.Message}");
+                return false;
+            }
         }
-
-        return true;
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Error sending account creation email: {ex.Message}");
-        return false;
-    }
-}
 
     }
 }
