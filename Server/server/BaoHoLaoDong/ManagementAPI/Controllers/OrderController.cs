@@ -235,7 +235,7 @@ namespace ManagementAPI.Controllers
                         Directory.CreateDirectory(pathFolder);
                     }
                     string fileExtension = Path.GetExtension(model.InvoiceImage.FileName);
-                    var fileName = Guid.NewGuid().ToString() + fileExtension;
+                    var fileName = orderInfo.CustomerInfo.Name.Replace(" ","-") + DateTime.Now.ToString("yyyyMMddHHmmss") + fileExtension;
                     var filePath = Path.Combine(pathFolder, fileName);
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
