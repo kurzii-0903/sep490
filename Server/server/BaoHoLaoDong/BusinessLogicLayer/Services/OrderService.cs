@@ -405,7 +405,10 @@ namespace BusinessLogicLayer.Services
             {
                 var productIds = model.OrderDetails.Select(od => od.ProductId).Distinct().ToList();
                 var products = await _productRepo.GetProductByIdsAsync(productIds);
-
+                if (products == null || !products.Any())
+                {
+                    throw new Exception("Invalid product IDs.");
+                }
                 foreach (var item in model.OrderDetails)
                 {
                     var product = products.FirstOrDefault(p => p.ProductId == item.ProductId);
