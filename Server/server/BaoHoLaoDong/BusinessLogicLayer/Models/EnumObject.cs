@@ -32,4 +32,9 @@ namespace BusinessLogicLayer.Models
         Active,
         DeActive
     }
+
+    public enum NotificationGroup
+    {
+        Employee
+    }
 }

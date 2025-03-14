@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|d:\\support\\baoholaodong\\sep490\\server\\server\\baoholaodong\\businesslogiclayer\\services\\interface\\imailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\services\\interface\\imailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|d:\\support\\baoholaodong\\sep490\\server\\server\\baoholaodong\\businesslogiclayer\\services\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\services\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|d:\\support\\baoholaodong\\sep490\\server\\server\\baoholaodong\\businesslogiclayer\\mappings\\responsedto\\orderdetailpaymentresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\mappings\\responsedto\\orderdetailpaymentresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|d:\\support\\baoholaodong\\sep490\\server\\server\\baoholaodong\\businesslogiclayer\\services\\interface\\imailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1BE995B-A8F7-48B5-873A-033D1BC23F9A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\services\\interface\\imailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{175BF1C1-3DB9-48C5-B27C-68ED0966EF06}|ManagementAPI\\ManagementAPI.csproj|d:\\support\\baoholaodong\\sep490\\server\\server\\baoholaodong\\managementapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -99,7 +99,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "IMailService.cs",
               "DocumentMoniker": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Services\\Interface\\IMailService.cs",
               "RelativeDocumentMoniker": "BusinessLogicLayer\\Services\\Interface\\IMailService.cs",
@@ -112,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MailService.cs",
               "DocumentMoniker": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Services\\MailService.cs",
               "RelativeDocumentMoniker": "BusinessLogicLayer\\Services\\MailService.cs",
@@ -196,7 +196,7 @@
               "RelativeDocumentMoniker": "BusinessLogicLayer\\Services\\OrderService.cs",
               "ToolTip": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Services\\OrderService.cs",
               "RelativeToolTip": "BusinessLogicLayer\\Services\\OrderService.cs",
-              "ViewState": "AgIAAK0BAAAAAAAAAAAtwOYBAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAKoBAAAAAAAAAAAtwNsBAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-13T03:59:28.467Z",
               "EditorCaption": ""
@@ -310,13 +310,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "OrderDetailPaymentResponse.cs",
               "DocumentMoniker": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Mappings\\ResponseDTO\\OrderDetailPaymentResponse.cs",
               "RelativeDocumentMoniker": "BusinessLogicLayer\\Mappings\\ResponseDTO\\OrderDetailPaymentResponse.cs",
               "ToolTip": "D:\\Support\\BAOHOLAODONG\\sep490\\Server\\server\\BaoHoLaoDong\\BusinessLogicLayer\\Mappings\\ResponseDTO\\OrderDetailPaymentResponse.cs",
               "RelativeToolTip": "BusinessLogicLayer\\Mappings\\ResponseDTO\\OrderDetailPaymentResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-11T04:58:52.405Z",
               "EditorCaption": ""
