@@ -11,6 +11,8 @@ using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1.X9;
 using System.Runtime.CompilerServices;
 using Microsoft.IdentityModel.Tokens;
+using ManagementAPI.Hubs;
+using Microsoft.AspNetCore.SignalR;
 
 namespace ManagementAPI.Controllers
 {
@@ -20,11 +22,14 @@ namespace ManagementAPI.Controllers
     {
         private readonly IOrderService _orderService;
         private readonly IConfiguration _configuration;
+        private readonly IHubContext<NotificationHub> _notificationHub;
 
-        public OrderController(IOrderService orderService, IConfiguration configuration)
+
+        public OrderController(IOrderService orderService, IConfiguration configuration, IHubContext<NotificationHub> notificationHub)
         {
             _orderService = orderService;
             _configuration = configuration;
+            _notificationHub = notificationHub;
         }
 
         /// <summary>
@@ -245,7 +250,7 @@ namespace ManagementAPI.Controllers
                 }
 
                 var result = await _orderService.PayAsync(orderInfo);
-
+                await _notificationHub.Clients.Group(NotificationGroup.Employee.ToString()).SendAsync("ReceiveNotification", orderInfo);
                 return Ok();
             }
             catch (Exception ex)

@@ -22,14 +22,20 @@ namespace BusinessLogicLayer.Services
         private readonly IOrderRepo _orderRepo;
         private readonly IProductRepo _productRepo;
         private readonly IInvoiceRepo _invoiceRepo;
+        private readonly IUserRepo _userRepo;
+        private readonly INotificationRepo _notificationRepo;
+        private readonly IMailService _mailService;
 
-        public OrderService(MinhXuanDatabaseContext context, IMapper mapper, ILogger<OrderService> logger)
+        public OrderService(MinhXuanDatabaseContext context, IMapper mapper, ILogger<OrderService> logger, IMailService mailService)
         {
             _orderRepo = new OrderRepo(context);
             _mapper = mapper;
             _logger = logger;
             _productRepo = new ProductRepo(context);
             _invoiceRepo = new InvoiceRepo(context);
+            _userRepo = new UserRepo(context);
+            _notificationRepo = new NotificationRepo(context);
+            _mailService = mailService;
         }
 
 
@@ -460,6 +466,36 @@ namespace BusinessLogicLayer.Services
                 };
 
                 var orderResponse = await _orderRepo.PayAsync(order);
+                if(orderResponse != null && model.CustomerId != null)
+                {
+                    var employees = await _userRepo.GetAllEmployeesAsync();
+                    List<Notification> notifications = new List<Notification>();
+                    if(employees != null && employees.Any())
+                    {
+                        employees.ForEach(x => notifications.Add(new Notification
+                        {
+                            CreatedAt = DateTime.Now,
+                            Title = $"Đơn hàng mới cần xác minh",
+                            Message = $"Đơn hàng từ khách hàng {model.CustomerInfo.Name} được tạo mới với mã số tiền là {model.TotalPrice}",
+                            RecipientId = x.EmployeeId,
+                            RecipientType = RecipientType.Employee.ToString(),
+                            IsRead = false,
+                            Status = NotificationStatus.Active.ToString()
+                        }));
+                        await _notificationRepo.CreateAsync(notifications);
+                    }
+                }
+                if(orderResponse != null)
+                {
+                    var orderDetails = order.OrderDetails;
+                    string htmlOrderDetails = string.Empty;
+                    foreach (var item in orderDetails)
+                    {
+                        htmlOrderDetails = htmlOrderDetails + $"<li title=\"Sản phẩm 1\">Tên mặt hàng: {item.ProductName} - Số lượng: {item.Quantity} - Giá: {item.ProductPrice}</li>";
+                    }
+                    string s = $"<ul>{htmlOrderDetails}</ul>";
+                    await _mailService.SendOrderConfirmationEmailAsync(model.CustomerInfo.Email, order.OrderId.ToString(), s, order.TotalAmount.ToString());
+                }
                 return true;
             }
             catch (Exception ex)
