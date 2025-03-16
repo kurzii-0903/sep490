@@ -1,0 +1,72 @@
+/* Scope all styles to the customer-info-page class */
+.customer-info-page {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    min-height: 100vh;
+}
+
+/* Form Container */
+.customer-info-page .customer-info {
+    padding: 40px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+}
+
+.customer-info-page .customer-info h1 {
+    color: #D81B60;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.customer-info-page .customer-info .subtitle {
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.customer-info-page .form-group {
+    margin-bottom: 15px;
+}
+
+.customer-info-page .form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.customer-info-page .form-group input,
+.customer-info-page .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.customer-info-page .form-group select {
+    appearance: none;
+    background: white;
+}
+
+/* Button Styles */
+.customer-info-page button {
+    background-color: #1976D2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.customer-info-page button:hover {
+    background-color: #1565C0;
+}
