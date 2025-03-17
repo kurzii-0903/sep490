@@ -3,6 +3,8 @@ import { SquarePen, Eye, Plus } from 'lucide-react';
 import Modal from "../../../components/Modal/Modal";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import RangePicker from '../../../components/rangepicker/RangePicker';
+
 const BASE_URL = process.env.REACT_APP_BASE_URL_API;
 
 const Orders = () => {
@@ -11,27 +13,46 @@ const Orders = () => {
 	const [orders, setOrders] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [totalPages, setTotalPages] = useState(1);
+	const [searchName, setSearchName] = useState('');
+	const [startDate, setStartDate] = useState(null);
+	const [endDate, setEndDate] = useState(null);
+	const [searchInput, setSearchInput] = useState("");
 	const navigate = useNavigate();
 	useEffect(() => {
 		const fetchOrders = async () => {
 			try {
 				const response = await axios.get(`${BASE_URL}/api/Order/get-page-orders`, {
 					params: {
+						customerName: searchName,
+						startDate: startDate,
+						endDate: endDate,
 						page: currentPage,
 						pageSize: 10
 					}
 				});
 				console.log(response.data.items || []);
-				
+
 				setOrders(response.data.items || []);
 				setTotalPages(response.data.totalPages);
 			} catch (error) {
 				console.error("Error fetching orders:", error);
+				setOrders([]);
 			}
 		};
-	
+
 		fetchOrders();
-	}, [currentPage]);
+	}, [currentPage, searchName, startDate, endDate]);
+
+	const handleSearch = (range) => {
+		setStartDate(range.startDate);
+		setEndDate(range.endDate);
+	};
+
+	const handleKeyDown = (e) => {
+		if (e.key === "Enter") {
+			setSearchName(searchInput);
+		}
+	};
 
 	const handleCreate = () => {
 		navigate("/manager/create-order");
@@ -41,6 +62,15 @@ const Orders = () => {
 			<div className="flex p-6 border-b justify-between">
 				<h3 className="text-lg font-semibold text-gray-800">Orders Management</h3>
 				<div className="flex space-x-4">
+					<input
+						type="text"
+						value={searchInput}
+						onChange={(e) => setSearchInput(e.target.value)}
+						onKeyDown={handleKeyDown}
+						placeholder="Tìm kiếm sản phẩm..."
+						className="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+					/>
+					<RangePicker onSearch={handleSearch} />
 					<button
 						className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center"
 						onClick={handleCreate}>
@@ -122,8 +152,8 @@ const Orders = () => {
 										key={page}
 										onClick={() => setCurrentPage(() => Number(page))} // Đảm bảo React cập nhật state chính xác
 										className={`px-3 py-1 border rounded-md ${currentPage === page
-												? "bg-blue-500 text-white"
-												: "text-gray-700 hover:bg-gray-200"
+											? "bg-blue-500 text-white"
+											: "text-gray-700 hover:bg-gray-200"
 											}`}
 									>
 										{page}
