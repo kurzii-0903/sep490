@@ -1,30 +1,39 @@
-﻿import React, {useState, useEffect, useContext, useCallback} from 'react';
-import {SquarePen, Eye, Plus} from 'lucide-react';
-import { OrderContext } from '../../../contexts/OrderContext';
+﻿import React, { useState, useEffect } from 'react';
+import { SquarePen, Eye, Plus } from 'lucide-react';
 import Modal from "../../../components/Modal/Modal";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const BASE_URL = process.env.REACT_APP_BASE_URL_API;
 
 const Orders = () => {
 	const [isOpenImage, setIsOpenImage] = useState(false);
 	const [image, setImage] = useState('');
 	const [orders, setOrders] = useState([]);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [totalPages, setTotalPages] = useState(1);
 	const navigate = useNavigate();
 	useEffect(() => {
-		if(orders.length === 0){
-			getAllOrders();
-		}
-	},[orders.length] );
-	const getAllOrders = async () => {
-		try {
-			const response = await axios.get(`${BASE_URL}/api/Order/getall-orders`);
-			setOrders(response.data);
-		} catch (error) {
-			console.error("Lỗi khi lấy đơn hàng:", error.response?.data || error.message);
-		}
-	};
-	const handleCreate =()=>{
+		const fetchOrders = async () => {
+			try {
+				const response = await axios.get(`${BASE_URL}/api/Order/get-page-orders`, {
+					params: {
+						page: currentPage,
+						pageSize: 10
+					}
+				});
+				console.log(response.data.items || []);
+				
+				setOrders(response.data.items || []);
+				setTotalPages(response.data.totalPages);
+			} catch (error) {
+				console.error("Error fetching orders:", error);
+			}
+		};
+	
+		fetchOrders();
+	}, [currentPage]);
+
+	const handleCreate = () => {
 		navigate("/manager/create-order");
 	}
 	return (
@@ -35,7 +44,7 @@ const Orders = () => {
 					<button
 						className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center"
 						onClick={handleCreate}>
-						<Plus className="w-5 h-5 mr-2"/>
+						<Plus className="w-5 h-5 mr-2" />
 						Tạo đơn hàng
 					</button>
 				</div>
@@ -66,7 +75,7 @@ const Orders = () => {
 							</tr>
 						</thead>
 						<tbody className="bg-white divide-y divide-gray-200">
-							{ orders.length >0 && orders.map((order) => (
+							{orders.length > 0 && orders.map((order) => (
 								<tr key={order.orderId}>
 									<td className="px-6 py-4 whitespace-nowrap">
 										<div className="text-sm text-gray-900">{order.orderId}</div>
@@ -76,7 +85,7 @@ const Orders = () => {
 										<div className="text-sm text-gray-500">{order.email}</div>
 									</td>
 									<td className="px-6 py-4 whitespace-nowrap">
-										<div className="text-sm text-gray-900">{order.orderDate}</div>
+										<div className="text-sm text-gray-900">{new Date(order.orderDate).toLocaleString()}</div>
 									</td>
 									<td className="px-6 py-4 whitespace-nowrap">
 										<span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
@@ -88,18 +97,50 @@ const Orders = () => {
 									</td>
 									<td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
 										<button
-											onClick={()=>navigate(`/manager/order-detail/${order.orderId}`)}
+											onClick={() => navigate(`/manager/order-detail/${order.orderId}`)}
 											className="text-blue-600 hover:text-blue-900 mr-4">
-											<Eye  className="h-5 w-5" />
+											<Eye className="h-5 w-5" />
 										</button>
 										<button className="text-blue-600 hover:text-blue-900">
-											<SquarePen  className="h-5 w-5" />
+											<SquarePen className="h-5 w-5" />
 										</button>
 									</td>
 								</tr>
 							))}
 						</tbody>
 					</table>
+					<div className="p-6 flex justify-center mt-4">
+						{orders.length !== 0 ? (
+							<nav className="flex items-center space-x-1">
+								<button
+									onClick={() => setCurrentPage(prevPage => Math.max(prevPage - 1, 1))}
+									disabled={currentPage === 1}
+									className="px-3 py-1 border rounded-md text-gray-700 hover:bg-gray-200"><i
+										className="fas fa-angle-left"></i></button>
+								{Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+									<button
+										key={page}
+										onClick={() => setCurrentPage(() => Number(page))} // Đảm bảo React cập nhật state chính xác
+										className={`px-3 py-1 border rounded-md ${currentPage === page
+												? "bg-blue-500 text-white"
+												: "text-gray-700 hover:bg-gray-200"
+											}`}
+									>
+										{page}
+									</button>
+
+								))}
+								<button
+									onClick={() => setCurrentPage(prevPage => Math.min(prevPage + 1, totalPages))}
+									disabled={currentPage === totalPages}
+									className="px-3 py-1 border rounded-md text-gray-700 hover:bg-gray-200"><i
+										className="fas fa-angle-right"></i></button>
+							</nav>
+						) : (
+							""
+						)}
+					</div>
+
 				</div>
 				<Modal isOpen={isOpenImage} onClose={() => setIsOpenImage(false)} title={"Hình ảnh chuyển khoản"}>
 					<div className="p-6">

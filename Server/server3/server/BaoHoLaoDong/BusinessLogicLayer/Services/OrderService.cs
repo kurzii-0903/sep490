@@ -600,36 +600,6 @@ namespace BusinessLogicLayer.Services
                     QrcodeData = $"https://vietqr.co/api/generate/MB/0974841508/VIETQR.CO/{order.TotalAmount}/{invoiceNumber}"
                 };
                 order = await _orderRepo.CreateOrderAsync(order);
-                if (order != null && newOrder.CustomerId != null)
-                {
-                    var employees = await _userRepo.GetAllEmployeesAsync();
-                    List<Notification> notifications = new List<Notification>();
-                    if (employees != null && employees.Any())
-                    {
-                        employees.ForEach(x => notifications.Add(new Notification
-                        {
-                            CreatedAt = DateTime.Now,
-                            Title = $"Đơn hàng mới cần xác minh",
-                            Message = $"Đơn hàng từ khách hàng {newOrder.CustomerName} được tạo mới với mã số tiền là {order.TotalAmount}",
-                            RecipientId = x.EmployeeId,
-                            RecipientType = RecipientType.Employee.ToString(),
-                            IsRead = false,
-                            Status = NotificationStatus.Active.ToString()
-                        }));
-                        await _notificationRepo.CreateAsync(notifications);
-                    }
-                }
-                if (order != null)
-                {
-                    var orderDetails = order.OrderDetails;
-                    string htmlOrderDetails = string.Empty;
-                    foreach (var item in orderDetails)
-                    {
-                        htmlOrderDetails = htmlOrderDetails + $"<li title=\"Sản phẩm 1\">Tên mặt hàng: {item.ProductName} - Số lượng: {item.Quantity} - Giá: {item.ProductPrice}</li>";
-                    }
-                    string s = $"<ul>{htmlOrderDetails}</ul>";
-                    await _mailService.SendOrderConfirmationEmailAsync(newOrder.CustomerEmail, order.OrderId.ToString(), s, order.TotalAmount.ToString());
-                }
                 return _mapper.Map<OrderResponse>(order);
             }
             catch (Exception ex)

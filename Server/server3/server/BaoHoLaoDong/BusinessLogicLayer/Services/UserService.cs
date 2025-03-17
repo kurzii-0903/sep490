@@ -354,4 +354,10 @@ public class UserService : IUserService
         return customerResponse;
     }
 
+    public async Task<List<UserResponse>?> GetAllEmployeesAsync()
+    {
+        var customer = await _userRepo.GetAllEmployeesAsync();
+        var customerResponse = _mapper.Map<List<UserResponse>>(customer);
+        return customerResponse;
+    }
 }

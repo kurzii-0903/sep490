@@ -25,13 +25,21 @@ namespace ManagementAPI.Controllers
         private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
         private readonly IHubContext<NotificationHub> _notificationHub;
+        private readonly IMailService _mailService;
+        private readonly INotificationService _notificationService;
+        private readonly IUserService _userService;
 
-        public OrderController(IOrderService orderService, IConfiguration configuration,IMapper mapper, IHubContext<NotificationHub> notificationHub)
+        public OrderController(IOrderService orderService, IConfiguration configuration,
+            IMapper mapper, IHubContext<NotificationHub> notificationHub,
+            IMailService mailService, INotificationService notificationService, IUserService userService)
         {
             _orderService = orderService;
             _configuration = configuration;
             _mapper = mapper;
             _notificationHub = notificationHub;
+            _mailService = mailService;
+            _notificationService = notificationService;
+            _userService = userService;
         }
 
         /// <summary>
@@ -59,7 +67,34 @@ namespace ManagementAPI.Controllers
             try
             {
                 var result = await _orderService.CreateNewOrderV2Async(newOrder);
-                await _notificationHub.Clients.Group(NotificationGroup.Employee.ToString()).SendAsync("ReceiveNotification", result);
+
+                if (result != null && newOrder.CustomerId != null)
+                {
+                    NewNotification notification = new NewNotification()
+                    {
+                        Title = $"Đơn hàng mới cần xác minh",
+                        Message = $"Đơn hàng từ khách hàng {newOrder.CustomerName} được tạo mới với mã số tiền là {result.TotalAmount}",
+                        RecipientId = 1,
+                        RecipientType = RecipientType.Employee.ToString(),
+                        Status = NotificationStatus.Active.ToString()
+
+                    };
+                    var notis = await _notificationService.CreateNewNotificationAsync(notification);
+                    await _notificationHub.Clients.Group(NotificationGroup.Employee.ToString()).SendAsync("ReceiveNotification", notis);
+
+                }
+                if (result != null)
+                {
+                    var orderDetails = result.OrderDetails;
+                    string htmlOrderDetails = string.Empty;
+                    foreach (var item in orderDetails)
+                    {
+                        htmlOrderDetails = htmlOrderDetails + $"<li title=\"Sản phẩm 1\">Tên mặt hàng: {item.ProductName} - Số lượng: {item.Quantity} - Giá: {item.ProductPrice}</li>";
+                    }
+                    string s = $"<ul>{htmlOrderDetails}</ul>";
+                    await _mailService.SendOrderConfirmationEmailAsync(newOrder.CustomerEmail, result.OrderId.ToString(), s, result.TotalAmount.ToString());
+                }
+
                 return Ok(result);
             }
             catch (Exception ex)
@@ -142,11 +177,11 @@ namespace ManagementAPI.Controllers
                 NewOrder orderRequest = new NewOrder
                 {
                     //OrderId = updateOrder.OrderId,
-                   // CustomerId = updateOrder.CustomerId,
-                   // TotalAmount = updateOrder.TotalAmount,
-                  //  Status = updateOrder.Status,
-                  //  OrderDate = updateOrder.OrderDate,
-                  //  UpdatedAt = updateOrder.UpdatedAt
+                    // CustomerId = updateOrder.CustomerId,
+                    // TotalAmount = updateOrder.TotalAmount,
+                    //  Status = updateOrder.Status,
+                    //  OrderDate = updateOrder.OrderDate,
+                    //  UpdatedAt = updateOrder.UpdatedAt
                 };
 
                 var result = await _orderService.UpdateOrderAsync(updateOrder.OrderId, orderRequest);
@@ -318,5 +353,27 @@ namespace ManagementAPI.Controllers
                 throw;
             }
         }
+
+        [HttpGet("get-page-orders")]
+        public async Task<IActionResult> GetOrdersPageAsync([FromQuery] int? customerId, [FromQuery] string? customerName,
+            [FromQuery] DateTime? startDate, [FromQuery] DateTime? endDate, [FromQuery] int page = 1, [FromQuery] int pageSize = 20)
+        {
+            try
+            {
+                string? customerIdStr = customerId?.ToString();
+                var orders = await _orderService.GetOrdersAsync(startDate, endDate, customerName ?? customerIdStr, page, pageSize);
+                if (orders == null || !orders.Items.Any())
+                {
+                    return NotFound(new { message = "No orders found with the given criteria." });
+                }
+
+                return Ok(orders);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = "Failed to retrieve orders", error = ex.Message });
+            }
+        }
+
     }
 }
