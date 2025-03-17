@@ -37,6 +37,8 @@ public class NotificationDao
     {
         return await _context.Notifications
             .Where(n => n.RecipientType == recipientType)
+            .Where(c => c.RecipientId == 1)
+            .OrderByDescending(c => c.CreatedAt)
             .AsNoTracking()
             .ToListAsync();
     }
