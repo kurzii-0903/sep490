@@ -16,7 +16,7 @@ public class InvoiceController : ControllerBase
    }
 
    [HttpPut("confirm-invoice-by-customer")]
-   public async Task<IActionResult> ConfirmInvoiceByCustomer([FromQuery] ConfirmInvoice confirmInvoice)
+   public async Task<IActionResult> ConfirmInvoiceByCustomer([FromForm] ConfirmInvoice confirmInvoice)
    {
       try
       {

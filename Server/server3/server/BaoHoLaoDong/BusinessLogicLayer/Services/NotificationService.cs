@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BusinessLogicLayer.Mappings.RequestDTO;
 using BusinessLogicLayer.Mappings.ResponseDTO;
+using BusinessLogicLayer.Models;
 using BusinessLogicLayer.Services.Interface;
 using BusinessObject.Entities;
 using DataAccessObject.Repository;
@@ -31,4 +32,16 @@ public class NotificationService : INotificationService
         newNotification = await _notificationRepo.CreateAsync(newNotification);
         return _mapper.Map<NotificationResponse?>(newNotification);
     }
+
+    public async Task<List<NotificationResponse>?> GetAllAdminNotiAsync()
+    {
+        var notifications = await _notificationRepo.GetAllAdminNotiAsync(RecipientType.Employee.ToString());
+        return _mapper.Map<List<NotificationResponse>?>(notifications);
+    }
+
+    public async Task<bool?> MaskAsReadAsync(int notificationId, bool readAll)
+    {
+        return await _notificationRepo.MaskAsReadAsync(notificationId, readAll);
+    }
+
 }

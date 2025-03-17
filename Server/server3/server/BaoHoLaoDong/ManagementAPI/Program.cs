@@ -101,6 +101,7 @@ builder.Services.AddScoped<IBlogPostService, BlogPostService>();
 builder.Services.AddScoped<ITaxService, TaxService>();
 builder.Services.AddScoped<IReportService, ReportService>();
 builder.Services.AddScoped<IInvoiceService, InvoiceService>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
 
 // Đăng ký MailService
 builder.Services.AddScoped<IMailService, MailService>();
