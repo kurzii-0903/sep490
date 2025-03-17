@@ -4,7 +4,7 @@ using DataAccessObject.Repository.Interface;
 
 namespace DataAccessObject.Repository;
 
-public class NotificationRepo :INotificationRepo
+public class NotificationRepo : INotificationRepo
 {
     private readonly NotificationDao notificationDao;
 
@@ -21,5 +21,10 @@ public class NotificationRepo :INotificationRepo
     public async Task<Notification?> CreateAsync(Notification newNotification)
     {
         return await notificationDao.CreateAsync(newNotification);
+    }
+
+    public async Task<List<Notification>?> CreateAsync(List<Notification> newNotifications)
+    {
+        return await notificationDao.CreateAsync(newNotifications);
     }
 }

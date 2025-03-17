@@ -124,7 +124,7 @@ namespace BusinessLogicLayer.Services
     }
 }
 
-        public async Task<bool> SendOrderConfirmationEmailAsync(string toEmail, string orderNumber, string orderDetails)
+        public async Task<bool> SendOrderConfirmationEmailAsync(string toEmail, string orderNumber, string orderDetails, string total)
         {
             try
             {
@@ -140,6 +140,7 @@ namespace BusinessLogicLayer.Services
                     <p>Chúng tôi đã nhận được đơn hàng của bạn với mã đơn hàng: <strong>{orderNumber}</strong>.</p>
                     <p>Thông tin đơn hàng:</p>
                     <pre>{orderDetails}</pre>
+                    <p>Tổng giá trị đơn hàng: <strong>{total}</strong>.</p>
                     <p>Chúng tôi sẽ xử lý đơn hàng của bạn và thông báo khi đơn hàng được giao.</p>
                     <p>Trân trọng,<br />Đội ngũ hỗ trợ</p>
                 </body>

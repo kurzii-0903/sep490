@@ -36,4 +36,5 @@ public interface IUserService
     Task<UserResponse?> ConfirmEmailCustomerAsync(string email, string code);
     Task<Page<UserResponse>?> GetAllUserPageAsync(string role,int page, int size);
     Task<bool> ResetPasswordAsync(ResetPassword resetPassword);
+    Task<UserResponse?> GetCustomerByIdAsync(int customerId);
 }

@@ -12,6 +12,8 @@ using Org.BouncyCastle.Asn1.X9;
 using System.Runtime.CompilerServices;
 using AutoMapper;
 using Microsoft.IdentityModel.Tokens;
+using ManagementAPI.Hubs;
+using Microsoft.AspNetCore.SignalR;
 
 namespace ManagementAPI.Controllers
 {
@@ -22,11 +24,14 @@ namespace ManagementAPI.Controllers
         private readonly IOrderService _orderService;
         private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
-        public OrderController(IOrderService orderService, IConfiguration configuration,IMapper mapper)
+        private readonly IHubContext<NotificationHub> _notificationHub;
+
+        public OrderController(IOrderService orderService, IConfiguration configuration,IMapper mapper, IHubContext<NotificationHub> notificationHub)
         {
             _orderService = orderService;
             _configuration = configuration;
             _mapper = mapper;
+            _notificationHub = notificationHub;
         }
 
         /// <summary>
@@ -54,6 +59,7 @@ namespace ManagementAPI.Controllers
             try
             {
                 var result = await _orderService.CreateNewOrderV2Async(newOrder);
+                await _notificationHub.Clients.Group(NotificationGroup.Employee.ToString()).SendAsync("ReceiveNotification", result);
                 return Ok(result);
             }
             catch (Exception ex)

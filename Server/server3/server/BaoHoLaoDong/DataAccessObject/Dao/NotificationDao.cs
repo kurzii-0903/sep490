@@ -15,7 +15,7 @@ public class NotificationDao
     public async Task<List<Notification>> GetByRecipientIdAsync(int userId)
     {
         return await _context.Notifications.AsNoTracking()
-            .Where(u=>u.RecipientId == userId)
+            .Where(u => u.RecipientId == userId)
             .ToListAsync();
     }
 
@@ -24,5 +24,12 @@ public class NotificationDao
         await _context.Notifications.AddAsync(newNotification);
         await _context.SaveChangesAsync();
         return newNotification;
+    }
+
+    public async Task<List<Notification>?> CreateAsync(List<Notification> newNotifications)
+    {
+        await _context.Notifications.AddRangeAsync(newNotifications);
+        await _context.SaveChangesAsync();
+        return newNotifications;
     }
 }

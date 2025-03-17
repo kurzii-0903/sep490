@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+﻿import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { formatVND } from "../../utils/format";
 import axios from "axios";
@@ -23,6 +23,7 @@ export function ConfirmOrder() {
     };
     const handleOrder = async () => {
         const newOrder = {
+            customerId: customerInfo.customerId,
             customerName: customerInfo.customerName,
             customerEmail: customerInfo.customerEmail,
             customerPhone: customerInfo.customerPhone,
@@ -53,6 +54,44 @@ export function ConfirmOrder() {
             alert("Failed to place order. Please try again!");
         }
     };
+
+    const getCookie = (name) => {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+    };
+
+    useEffect(() => {
+        const cookieValue = getCookie("user");
+        if (!cookieValue) return;
+        const decodedValue = decodeURIComponent(cookieValue);
+        let parsedValue;
+        try {
+            parsedValue = JSON.parse(decodedValue);
+        } catch (e) {
+            const trimmedValue = decodedValue.replace(/^"|"$/g, '');
+            parsedValue = JSON.parse(trimmedValue);
+        }
+        const fetchCustomer = async () => {
+            try {
+                const response = await axios.get(`${BASE_URL}/api/User/get-customer-by-id/${parsedValue.userId}`);
+                const customer = response.data;
+                setCustomerInfo({
+                    customerName: customer.name,
+                    customerEmail: customer.email,
+                    customerPhone: customer.phoneNumber,
+                    customerAddress: customer.address,
+                    customerId: customer.id
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchCustomer();
+    }, []);
+
 
     return (
         <div className="p-6 bg-white rounded-lg shadow-md max-w-4xl mx-auto">
@@ -130,30 +169,30 @@ export function ConfirmOrder() {
 
             <table className="w-full border-collapse border border-gray-300">
                 <thead>
-                <tr className="bg-gray-100 text-left">
-                    <th className="border p-3">Hình ảnh</th>
-                    <th className="border p-3">Tên sản phẩm</th>
-                    <th className="border p-3">Size</th>
-                    <th className="border p-3">Màu sắc</th>
-                    <th className="border p-3 text-center">Số lượng</th>
-                    <th className="border p-3">Giá</th>
-                    <th className="border p-3">Thành tiền</th>
-                </tr>
+                    <tr className="bg-gray-100 text-left">
+                        <th className="border p-3">Hình ảnh</th>
+                        <th className="border p-3">Tên sản phẩm</th>
+                        <th className="border p-3">Size</th>
+                        <th className="border p-3">Màu sắc</th>
+                        <th className="border p-3 text-center">Số lượng</th>
+                        <th className="border p-3">Giá</th>
+                        <th className="border p-3">Thành tiền</th>
+                    </tr>
                 </thead>
                 <tbody>
-                {orderData.orderDetails.map(item => (
-                    <tr key={item.productId} className="text-center">
-                        <td className="border p-3">
-                            <img src={item.image} alt={item.productName} className="w-16 h-16 object-cover rounded-md" />
-                        </td>
-                        <td className="border p-3 text-left">{item.productName}</td>
-                        <td className="border p-3">{item.size || 'N/A'}</td>
-                        <td className="border p-3">{item.color || 'N/A'}</td>
-                        <td className="border p-3">{item.quantity}</td>
-                        <td className="border p-3">{formatVND(item.price)}</td>
-                        <td className="border p-3 font-semibold">{formatVND(item.price * item.quantity)}</td>
-                    </tr>
-                ))}
+                    {orderData.orderDetails.map(item => (
+                        <tr key={item.productId} className="text-center">
+                            <td className="border p-3">
+                                <img src={item.image} alt={item.productName} className="w-16 h-16 object-cover rounded-md" />
+                            </td>
+                            <td className="border p-3 text-left">{item.productName}</td>
+                            <td className="border p-3">{item.size || 'N/A'}</td>
+                            <td className="border p-3">{item.color || 'N/A'}</td>
+                            <td className="border p-3">{item.quantity}</td>
+                            <td className="border p-3">{formatVND(item.price)}</td>
+                            <td className="border p-3 font-semibold">{formatVND(item.price * item.quantity)}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
 

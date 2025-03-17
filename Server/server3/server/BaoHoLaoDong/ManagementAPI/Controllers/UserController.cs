@@ -180,4 +180,19 @@ public class UserController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+
+    [HttpGet("get-customer-by-id/{customerId}")]
+    public async Task<IActionResult> GetCustomerById([FromRoute] int customerId)
+    {
+        try
+        {
+            var customer = await _userService.GetCustomerByIdAsync(customerId);
+            return Ok(customer);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
 }
