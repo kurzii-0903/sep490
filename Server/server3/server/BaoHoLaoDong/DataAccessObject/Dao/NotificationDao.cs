@@ -32,4 +32,36 @@ public class NotificationDao
         await _context.SaveChangesAsync();
         return newNotifications;
     }
+
+    public async Task<List<Notification>> GetAllAdminNotiAsync(string recipientType)
+    {
+        return await _context.Notifications
+            .Where(n => n.RecipientType == recipientType)
+            .AsNoTracking()
+            .ToListAsync();
+    }
+
+    public async Task<bool?> MaskAsReadAsync(int notificationId, bool readAll)
+    {
+        if (readAll)
+        {
+            var allNotifications = await _context.Notifications.Where(n => !n.IsRead).ToListAsync();
+            if (!allNotifications.Any()) return false;
+            foreach (var notification in allNotifications)
+            {
+                notification.IsRead = true;
+            }
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        else
+        {
+            var notification = await _context.Notifications.FindAsync(notificationId);
+            if (notification == null) return false;
+            notification.IsRead = true;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+    }
+
 }

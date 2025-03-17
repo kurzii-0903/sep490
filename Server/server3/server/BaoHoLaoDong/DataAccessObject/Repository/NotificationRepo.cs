@@ -27,4 +27,14 @@ public class NotificationRepo : INotificationRepo
     {
         return await notificationDao.CreateAsync(newNotifications);
     }
+
+    public async Task<List<Notification>?> GetAllAdminNotiAsync(string recipientType)
+    {
+        return await notificationDao.GetAllAdminNotiAsync(recipientType);
+    }
+
+    public async Task<bool?> MaskAsReadAsync(int notificationId, bool readAll)
+    {
+        return await notificationDao.MaskAsReadAsync(notificationId, readAll);
+    }
 }
