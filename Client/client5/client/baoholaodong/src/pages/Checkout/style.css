@@ -189,3 +189,13 @@
     bottom: 10px;
     font-size: 20px;
 }
+
+.confirm-payment-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 16px;
+}
