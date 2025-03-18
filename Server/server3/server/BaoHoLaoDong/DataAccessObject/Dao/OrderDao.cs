@@ -1,6 +1,8 @@
 ﻿using BusinessObject.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Globalization;
+using System.Text;
 
 namespace DataAccessObject.Dao;
 
@@ -137,7 +139,10 @@ public class OrderDao : IDao<Order>
 
         if (!string.IsNullOrWhiteSpace(customerName))
         {
-            query = query.Where(o => o.Customer.FullName.Contains(customerName));
+            var normalizedCustomerName = RemoveDiacritics(customerName);
+            query = query.Where(o =>
+                EF.Functions.Collate(o.CustomerName, "SQL_Latin1_General_Cp1253_CI_AI")
+                .Contains(normalizedCustomerName));
         }
         if (page.HasValue && pageSize.HasValue)
         {
@@ -149,6 +154,15 @@ public class OrderDao : IDao<Order>
 
         return await query.AsNoTracking().ToListAsync();
     }
+
+    static string RemoveDiacritics(string text)
+    {
+        return string.Concat(text
+            .Normalize(NormalizationForm.FormD)
+            .Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark))
+            .Normalize(NormalizationForm.FormC);
+    }
+
 
     public async Task<int> CountAsync()
     {
