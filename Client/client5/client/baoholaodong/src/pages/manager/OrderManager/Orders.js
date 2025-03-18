@@ -14,8 +14,10 @@ const Orders = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [totalPages, setTotalPages] = useState(1);
 	const [searchName, setSearchName] = useState('');
+	const [startDateString, setStartDateString] = useState('');
 	const [startDate, setStartDate] = useState(null);
-	const [endDate, setEndDate] = useState(null);
+	const [endDateString, setEndDateString] = useState('');
+	const [endDate, setEndDate] = useState('');
 	const [searchInput, setSearchInput] = useState("");
 	const navigate = useNavigate();
 	useEffect(() => {
@@ -24,8 +26,8 @@ const Orders = () => {
 				const response = await axios.get(`${BASE_URL}/api/Order/get-page-orders`, {
 					params: {
 						customerName: searchName,
-						startDate: startDate,
-						endDate: endDate,
+						startDate: startDateString,
+						endDate: endDateString,
 						page: currentPage,
 						pageSize: 10
 					}
@@ -41,12 +43,7 @@ const Orders = () => {
 		};
 
 		fetchOrders();
-	}, [currentPage, searchName, startDate, endDate]);
-
-	const handleSearch = (range) => {
-		setStartDate(range.startDate);
-		setEndDate(range.endDate);
-	};
+	}, [currentPage, searchName, startDateString, endDateString]);
 
 	const handleKeyDown = (e) => {
 		if (e.key === "Enter") {
@@ -57,6 +54,34 @@ const Orders = () => {
 	const handleCreate = () => {
 		navigate("/manager/create-order");
 	}
+
+	const handleStartDateChange = (e) => {
+		if (!e.target.value) {
+			setStartDate(null);
+			setStartDateString('');
+			return;
+		}
+		const formattedDate = formatDate(e.target.value);
+		setStartDate(e.target.value);
+        setStartDateString(formattedDate);
+    };
+
+    const handleEndDateChange = (e) => {
+		if (!e.target.value) {
+			setEndDate(null);
+			setEndDateString('');
+			return;
+		}
+		const formattedDate = formatDate(e.target.value);
+		setEndDate(e.target.value);
+        setEndDateString(formattedDate);
+    };
+
+	const formatDate = (date) => {
+		const [day, month, year] = new Date(date).toLocaleDateString("en-GB").split("/");
+		return `${day}${month}${year}`;
+	  };	  
+
 	return (
 		<div className="bg-white rounded-lg shadow">
 			<div className="flex p-6 border-b justify-between">
@@ -67,10 +92,24 @@ const Orders = () => {
 						value={searchInput}
 						onChange={(e) => setSearchInput(e.target.value)}
 						onKeyDown={handleKeyDown}
-						placeholder="Tìm kiếm sản phẩm..."
+						placeholder="Tên khách hàng..."
 						className="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
 					/>
-					<RangePicker onSearch={handleSearch} />
+					<input
+						type="date"
+						value={startDate}
+						onChange={handleStartDateChange}
+						className="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+						placeholder="Từ ngày"
+					/>
+					<input
+						type="date"
+						value={endDate}
+						onChange={handleEndDateChange}
+						placeholder="Đến ngày"
+						className="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+						min={startDate}
+					/>
 					<button
 						className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center"
 						onClick={handleCreate}>

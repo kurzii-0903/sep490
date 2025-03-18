@@ -14,6 +14,8 @@ using AutoMapper;
 using Microsoft.IdentityModel.Tokens;
 using ManagementAPI.Hubs;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.AspNetCore.Http;
+using System.Globalization;
 
 namespace ManagementAPI.Controllers
 {
@@ -356,12 +358,22 @@ namespace ManagementAPI.Controllers
 
         [HttpGet("get-page-orders")]
         public async Task<IActionResult> GetOrdersPageAsync([FromQuery] int? customerId, [FromQuery] string? customerName,
-            [FromQuery] DateTime? startDate, [FromQuery] DateTime? endDate, [FromQuery] int page = 1, [FromQuery] int pageSize = 20)
+            [FromQuery] string? startDate, [FromQuery] string? endDate, [FromQuery] int page = 1, [FromQuery] int pageSize = 20)
         {
             try
             {
+                DateTime? start = null;
+                DateTime? end = null;
+                if (!string.IsNullOrEmpty(startDate))
+                {
+                    start = DateTime.ParseExact(startDate, "ddMMyyyy", CultureInfo.InvariantCulture);
+                }
+                if (!string.IsNullOrEmpty(endDate))
+                {
+                    end = DateTime.ParseExact(endDate, "ddMMyyyy", CultureInfo.InvariantCulture);
+                }
                 string? customerIdStr = customerId?.ToString();
-                var orders = await _orderService.GetOrdersAsync(startDate, endDate, customerName ?? customerIdStr, page, pageSize);
+                var orders = await _orderService.GetOrdersAsync(start, end, customerName ?? customerIdStr, page, pageSize);
                 if (orders == null || !orders.Items.Any())
                 {
                     return NotFound(new { message = "No orders found with the given criteria." });
