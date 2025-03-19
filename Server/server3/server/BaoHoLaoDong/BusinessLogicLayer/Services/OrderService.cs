@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -80,6 +81,37 @@ namespace BusinessLogicLayer.Services
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error retrieving order with ID: {OrderId}", orderId);
+                throw;
+            }
+        }
+
+        public async Task<Page<OrderResponse>?> GetOrdersWithStringDateTimeAsync(string? startDate, string? endDate, string? customerName, int page = 1, int pageSize = 5)
+        {
+            try
+            {
+                DateTime? start = null;
+                DateTime? end = null;
+                if (!string.IsNullOrEmpty(startDate))
+                {
+                    start = DateTime.ParseExact(startDate, "ddMMyyyy", CultureInfo.InvariantCulture);
+                }
+                if (!string.IsNullOrEmpty(endDate))
+                {
+                    end = DateTime.ParseExact(endDate, "ddMMyyyy", CultureInfo.InvariantCulture);
+                    end = end.Value.AddDays(1).AddSeconds(-1);
+                }
+                if (!string.IsNullOrWhiteSpace(customerName))
+                {
+                    customerName = RemoveDiacritics(Regex.Replace(customerName.Trim().ToLower(), @"\s+", " "));
+                }
+                var orders = await _orderRepo.SearchAsync(start, end, customerName, page, pageSize);
+                var totalOrders = await _orderRepo.CountTotalOrdersByFilter(start, end, customerName);
+                var orderPage = new Page<OrderResponse>(_mapper.Map<List<OrderResponse>>(orders), page, pageSize, totalOrders);
+                return orderPage;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving orders with filters - StartDate: {StartDate}, EndDate: {EndDate}, CustomerName: {CustomerName}", startDate, endDate, customerName);
                 throw;
             }
         }
