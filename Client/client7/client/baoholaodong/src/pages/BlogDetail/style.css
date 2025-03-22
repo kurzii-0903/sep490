@@ -1,0 +1,144 @@
+﻿
+/* BlogDetail Styles */
+.blog-detail-wrapper {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    color: #555;
+    background-color: #fff;
+}
+
+.blog-detail-container {
+    max-width: 1200px; /* Maximum width for larger screens */
+    margin: 0 auto; /* Center the container */
+    width: 75%; /* Occupy 3/4 of the page width */
+}
+
+.blog-detail-header {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.blog-detail-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+
+.blog-detail-meta {
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    justify-content: flex-start; /* Align with content below */
+}
+
+.blog-detail-date-icon {
+    margin-right: 5px;
+}
+
+.blog-detail-date-text {
+    margin-left: 5px;
+}
+
+.blog-detail-content {
+    text-align: left;
+}
+
+.blog-detail-title {
+    color: #d32f2f;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-align: left; /* Align with content */
+}
+
+.blog-detail-body p {
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.blog-detail-section {
+    margin-bottom: 20px;
+}
+
+.blog-detail-section p {
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.blog-detail-section ul {
+    padding-left: 20px;
+    line-height: 1.6;
+    list-style-type: disc; /* Use solid disc bullet points to match the image */
+}
+
+.blog-detail-section li {
+    margin-bottom: 8px; /* Add spacing between list items to match the image */
+}
+
+/* Remove safety tips section styles as requested */
+.blog-detail-safety-tips {
+    display: none; /* Hidden since it's removed */
+}
+
+.safety-tips-image {
+    display: none; /* Hidden since it's removed */
+}
+
+.blog-detail-related {
+    margin-top: 40px;
+}
+
+.blog-detail-related .blog-detail-section-title {
+    color: #d32f2f;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.related-posts {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.related-post-item {
+    width: 48%;
+}
+
+.related-post-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.related-post-content {
+    text-align: left;
+}
+
+.related-post-date {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.related-post-title {
+    font-size: 16px;
+    color: #333;
+    margin: 5px 0;
+}
+
+.related-post-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.related-post-link {
+    color: #d32f2f;
+    text-decoration: none;
+    font-size: 14px;
+}
