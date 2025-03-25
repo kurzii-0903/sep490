@@ -119,7 +119,7 @@ public class OrderDao : IDao<Order>
             .Take(pageSize)
             .ToListAsync();
     }
-    public async Task<List<Order>> SearchAsync(DateTime? startDate, DateTime? endDate, string? customerName, int? page = null, int? pageSize = null)
+    public async Task<List<Order>> SearchAsync(DateTime? startDate, DateTime? endDate, string? customerName,int? customerId, int? page = null, int? pageSize = null)
     {
         var query = _context.Orders
             .Include(o => o.Customer)
@@ -134,6 +134,11 @@ public class OrderDao : IDao<Order>
         if (endDate.HasValue)
         {
             query = query.Where(o => o.OrderDate <= endDate.Value);
+        }
+
+        if (customerId != null)
+        {
+            query = query.Where(o => o.CustomerId == customerId);
         }
 
         if (!string.IsNullOrWhiteSpace(customerName))

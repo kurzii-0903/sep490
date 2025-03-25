@@ -12,7 +12,7 @@ namespace BusinessLogicLayer.Services.Interface
         Task<List<OrderResponse>> GetAllOrdersAsync();
         Task<OrderResponse> CreateNewOrderAsync(NewOrder orderRequest);
         Task<OrderResponse?> GetOrderByIdAsync(int orderId);
-        Task<Page<OrderResponse>?> GetOrdersWithStringDateTimeAsync(string? startDate, string? endDate, string? customerName, int page = 1, int pageSize = 5);
+        Task<Page<OrderResponse>?> GetOrdersWithStringDateTimeAsync(string? startDate, string? endDate, string? customerName, string? CustomerId, int page = 1, int pageSize = 5);
         Task<Page<OrderResponse>?> GetOrdersAsync(DateTime? startDate, DateTime? endDate, string? customerName, int page = 1, int pageSize = 5);
 
         Task<OrderResponse?> UpdateOrderAsync(int orderId, NewOrder orderRequest);

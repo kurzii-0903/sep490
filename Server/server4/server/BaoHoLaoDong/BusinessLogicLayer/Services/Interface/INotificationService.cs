@@ -11,4 +11,5 @@ public interface INotificationService
     Task<List<NotificationResponse>?> GetAllAdminNotiAsync();
     Task<bool?> MaskAsReadAsync(int notificationId, bool readAll);
     Task<List<NotificationResponse>?> CreateNewNotificationAsync(List<NewNotification> notifications);
+    Task<List<NotificationResponse>?> GetCustomerNotificationAsync(int? customerid, bool? isRead);
 }

@@ -71,9 +71,9 @@ namespace DataAccessObject.Repository
             return await _orderDao.GetOrdersByPageAsync(page, pageSize);
         }
 
-        public async Task<List<Order>?> SearchAsync(DateTime? startDate, DateTime? endDate, string customerName, int page = 1, int pageSize = 20)
+        public async Task<List<Order>?> SearchAsync(DateTime? startDate, DateTime? endDate, string? customerName,int? customerId, int page = 1, int pageSize = 20)
         {
-            return await _orderDao.SearchAsync(startDate, endDate, customerName, page, pageSize);
+            return await _orderDao.SearchAsync(startDate, endDate, customerName, customerId, page, pageSize);
         }
 
         public async Task<bool> CancelOrderAsync(int orderId)

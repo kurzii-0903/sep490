@@ -37,4 +37,10 @@ public class NotificationRepo : INotificationRepo
     {
         return await notificationDao.MaskAsReadAsync(notificationId, readAll);
     }
+
+    public async Task<List<Notification>?> GetCustomerNotificationAsync(int? customerid, bool? isRead, string recipientType)
+    {
+        return await notificationDao.GetCustomerNotificationAsync(customerid, isRead,recipientType);
+    }
+
 }

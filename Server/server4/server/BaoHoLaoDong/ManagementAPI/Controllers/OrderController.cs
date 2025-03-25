@@ -363,7 +363,7 @@ namespace ManagementAPI.Controllers
             try
             {
                 string? customerIdStr = customerId?.ToString();
-                var orders = await _orderService.GetOrdersWithStringDateTimeAsync(startDate, endDate, customerName ?? customerIdStr, page, pageSize);
+                var orders = await _orderService.GetOrdersWithStringDateTimeAsync(startDate, endDate, customerName,customerIdStr, page, pageSize);
                 if (orders == null || !orders.Items.Any())
                 {
                     return NotFound(new { message = "No orders found with the given criteria." });

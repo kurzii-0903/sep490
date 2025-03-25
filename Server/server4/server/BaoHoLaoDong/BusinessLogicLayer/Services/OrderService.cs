@@ -86,7 +86,7 @@ namespace BusinessLogicLayer.Services
                 throw;
             }
         }
-        public async Task<Page<OrderResponse>?> GetOrdersWithStringDateTimeAsync(string? startDate, string? endDate, string? customerName, int page = 1, int pageSize = 5)
+        public async Task<Page<OrderResponse>?> GetOrdersWithStringDateTimeAsync(string? startDate, string? endDate, string? customerName, string? customerId, int page = 1, int pageSize = 5)
         {
             try
             {
@@ -105,7 +105,12 @@ namespace BusinessLogicLayer.Services
                 {
                     customerName = RemoveDiacritics(Regex.Replace(customerName.Trim().ToLower(), @"\s+", " "));
                 }
-                var orders = await _orderRepo.SearchAsync(start, end, customerName, page, pageSize);
+                int? id = null;
+                if (!string.IsNullOrWhiteSpace(customerId) && Regex.IsMatch(customerId, @"^\d+$"))
+                {
+                    id = Int32.Parse(customerId);
+                }
+                var orders = await _orderRepo.SearchAsync(start, end, customerName,id, page, pageSize);
                 var totalOrders = await _orderRepo.CountTotalOrdersByFilter(start, end, customerName);
                 var orderPage = new Page<OrderResponse>(_mapper.Map<List<OrderResponse>>(orders), page, pageSize, totalOrders);
                 return orderPage;

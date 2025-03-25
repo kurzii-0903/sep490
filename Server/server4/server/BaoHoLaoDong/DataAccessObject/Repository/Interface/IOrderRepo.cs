@@ -20,7 +20,7 @@ namespace DataAccessObject.Repository.Interface
         Task<bool> CancelOrderAsync(int orderId);
         Task<List<Order>?> GetOrdersByCustomerIdAsync(int customerId, int page, int pageSize);
         Task<List<Order>?> GetOrdersByPageAsync(int page, int pageSize);
-        Task<List<Order>?> SearchAsync(DateTime? startDate, DateTime? endDate, string customerName, int page = 1, int pageSize = 20);
+        Task<List<Order>?> SearchAsync(DateTime? startDate, DateTime? endDate, string? customerName, int? customerId, int page = 1, int pageSize = 20);
         Task<int> CountOrdersAsync();
         Task<int> CountTotalOrder(string customerName);
         Task<int> CountTotalOrdersByDate(DateTime? startDate, DateTime? endDate);

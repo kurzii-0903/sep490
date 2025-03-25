@@ -66,4 +66,19 @@ public class NotificationDao
         }
     }
 
+    public async Task<List<Notification>?> GetCustomerNotificationAsync(int? customerid, bool? isRead, string recipientType)
+    {
+        var query = _context.Notifications.AsQueryable();
+        if(customerid != null)
+        {
+            query = query.Where(x => x.RecipientId == customerid);
+        }
+        if(isRead != null)
+        {
+            query = (DbSet<Notification>)query.Where(x => x.IsRead == isRead);
+        }
+        return await query.OrderByDescending(c => c.CreatedAt)
+            .AsNoTracking()
+            .ToListAsync();
+    }
 }

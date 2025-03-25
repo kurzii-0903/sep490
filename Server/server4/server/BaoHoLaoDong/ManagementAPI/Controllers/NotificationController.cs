@@ -32,6 +32,20 @@ public class NotificationController : ControllerBase
         }
     }
 
+    [HttpGet("get-noti-customer")]
+    public async Task<IActionResult> GetCustomerNotificationAsync(int? customerid, bool? isRead)
+    {
+        try
+        {
+            var notifications = await _notificationService.GetCustomerNotificationAsync(customerid,isRead);
+            return Ok(notifications);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
     [HttpPut("mask-as-read")]
     public async Task<IActionResult> MaskAsRead(int notificationId, bool readAll = false)
     {
