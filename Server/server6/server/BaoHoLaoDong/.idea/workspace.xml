@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a42118d2-7b8e-48ad-98d3-e46d6aa90281" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/obj/Debug/net8.0/BusinessLogicLayer.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/obj/Debug/net8.0/BusinessLogicLayer.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogicLayer/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogicLayer/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessObject/obj/Debug/net8.0/BusinessObject.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessObject/obj/Debug/net8.0/BusinessObject.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessObject/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessObject/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessObject/obj/Debug/net8.0/DataAccessObject.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessObject/obj/Debug/net8.0/DataAccessObject.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccessObject/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccessObject/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManagementAPI/obj/Debug/net8.0/ManagementAPI.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ManagementAPI/obj/Debug/net8.0/ManagementAPI.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManagementAPI/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/ManagementAPI/obj/rider.project.model.nuget.info" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2uHlTrkqD9t5fajWT6fH5WRojAI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dinh-linh-6",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.25659.40" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a42118d2-7b8e-48ad-98d3-e46d6aa90281" name="Changes" comment="" />
+      <created>1741913394977</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741913394977</updated>
+      <workItem from="1741913394980" duration="416000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

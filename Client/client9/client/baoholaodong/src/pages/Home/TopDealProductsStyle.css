@@ -1,0 +1,489 @@
+﻿/* Base Styles (unchanged where possible, with minor improvements) */
+.deal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    background-image: url('../../images/saletrees.jpg');
+    background-position: 50% 50%;
+    background-size: 40%;
+    background-repeat: repeat;
+}
+
+.deal .container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px; /* Match your header’s max-width for consistency */
+    margin: 0 auto;
+}
+
+.deal .container .flex {
+    height: auto;
+    display: flex;
+    overflow-x: hidden;
+}
+
+.product-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 0;
+    scroll-behavior: smooth; /* Smooth scrolling for all devices */
+}
+
+.product-discounted-card {
+    flex: 0 0 auto;
+    width: 350px;
+    background: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-discounted-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-discounted-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+
+.product-discounted-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-discounted-card:hover .product-discounted-image {
+    transform: scale(1.1);
+}
+
+.product-discounted-image-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-discounted-card:hover .product-discounted-image-overlay {
+    opacity: 1;
+}
+
+.product-discounted-view-details-button {
+    background-color: white;
+    color: #2d3748;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    transform: translateY(1rem);
+    transition: transform 0.3s ease;
+}
+
+.product-discounted-card:hover .product-discounted-view-details-button {
+    transform: translateY(0);
+}
+
+.product-discounted-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 15px;
+}
+
+.product-discounted-name {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.product-discounted-prices {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.product-discount-price {
+    color: red;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.product-original-price {
+    color: gray;
+    text-decoration: line-through;
+    font-size: 16px;
+}
+
+.product-discount-percentage {
+    color: goldenrod;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.option-button {
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #b50a00;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 100%;
+}
+
+.option-button:hover {
+    background-color: #a00a00;
+}
+
+.deal-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: -100px;
+    margin-right: auto;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.product-container {
+    margin-top: 20px;
+    margin-left: 40px;
+    display: flex;
+    flex-wrap: nowrap;
+    width: calc(100% - 80px);
+    overflow-x: hidden;
+}
+
+.deal h2 {
+    color: white;
+    white-space: nowrap;
+}
+
+.deal-title-text {
+    color: white;
+    font-size: 30px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 42px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.highlight {
+    position: relative;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 140%;
+    height: 3px;
+    background-color: gold;
+    clip-path: polygon(0% 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+}
+
+.navigate-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.navigate-button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: red;
+    border: 2px solid gold;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.navigate-button:hover {
+    background-color: yellow;
+}
+
+.view-all-button {
+    position: relative;
+    width: 200px;
+    height: 50px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 50px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: bold;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    overflow: hidden;
+    border-top: 2px solid #b50a00;
+    border-bottom: 2px solid #b50a00;
+    border-left: none;
+    border-right: none;
+    transition: color 0.5s ease;
+    margin-top: 20px;
+}
+
+.view-all-button:hover {
+    color: red;
+}
+
+.view-all-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: gold;
+    transition: left 0.5s ease;
+    z-index: -1;
+}
+
+.view-all-button:hover::before {
+    left: 0;
+}
+
+.view-all-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10%;
+    height: 100%;
+    background-color: gold;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+}
+
+/* Tablet Styles (769px–1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .deal {
+        height: 500px; /* Slightly shorter for tablets */
+        background-size: 50%; /* Adjust background size for better visibility */
+    }
+
+    .deal .container {
+        flex-direction: row; /* Keep horizontal layout */
+        align-items: center;
+        padding: 0 15px; /* Add padding for better spacing */
+    }
+
+    .deal-info {
+        margin-left: 0; /* Remove negative margin */
+        margin-right: 20px; /* Add spacing between deal-info and products */
+        align-items: flex-start;
+        flex-shrink: 0;
+    }
+
+    .deal-title-text {
+        font-size: 26px; /* Slightly smaller title */
+        line-height: 36px;
+    }
+
+    .navigate-button-container {
+        gap: 8px; /* Slightly smaller gap */
+        margin-top: 15px;
+    }
+
+    .navigate-button {
+        width: 35px; /* Smaller buttons */
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .view-all-button {
+        width: 180px; /* Slightly smaller button */
+        height: 45px;
+        line-height: 45px;
+        font-size: 0.9rem;
+        margin-top: 15px;
+    }
+
+    .product-container {
+        margin-left: 0; /* Remove margin to use full width */
+        width: 100%; /* Full width for product container */
+        gap: 15px; /* Smaller gap between cards */
+        padding: 15px 0;
+    }
+
+    .product-discounted-card {
+        width: 280px; /* Smaller cards for tablet */
+        padding: 15px;
+    }
+
+    .product-discounted-image {
+        height: 220px; /* Smaller image height */
+    }
+
+    .product-discounted-name {
+        font-size: 18px; /* Smaller name */
+    }
+
+    .product-discount-price {
+        font-size: 20px; /* Slightly smaller price */
+    }
+
+    .product-original-price {
+        font-size: 14px;
+    }
+
+    .product-discount-percentage {
+        font-size: 16px;
+    }
+
+    .option-button {
+        padding: 8px 15px; /* Smaller button */
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile Styles (≤768px) */
+@media (max-width: 768px) {
+    .deal {
+        height: auto; /* Allow height to adjust */
+        background-size: 60%; /* Adjust background size for mobile */
+        padding: 20px 0; /* Add padding for better spacing */
+    }
+
+    .deal .container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0 10px; /* Add padding for better spacing */
+    }
+
+    .deal-info {
+        margin-left: 0;
+        margin-right: 0;
+        align-items: center;
+        text-align: center;
+        margin-top: 20px; /* Reduced margin for better spacing */
+        margin-bottom: 20px;
+    }
+
+    .deal-title-text {
+        font-size: 22px; /* Smaller title */
+        line-height: 32px;
+    }
+
+    .highlight::after {
+        width: 100%; /* Adjust underline width for mobile */
+    }
+
+    .navigate-button-container {
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    .navigate-button {
+        width: 30px; /* Smaller buttons */
+        height: 30px;
+        font-size: 0.9rem;
+    }
+
+    .view-all-button {
+        width: 160px; /* Smaller button */
+        height: 40px;
+        line-height: 40px;
+        font-size: 0.85rem;
+        margin-top: 10px;
+    }
+
+    .product-container {
+        flex-wrap: nowrap;
+        margin-left: 0;
+        width: 100%;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        gap: 10px; /* Smaller gap between cards */
+        padding: 10px 0;
+    }
+
+    .product-discounted-card {
+        width: 250px; /* Smaller cards for mobile */
+        padding: 10px;
+        margin: 0 auto; /* Center cards */
+    }
+
+    .product-discounted-image {
+        height: 180px; /* Smaller image height */
+    }
+
+    .product-discounted-name {
+        white-space: normal;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .product-discount-price {
+        font-size: 18px; /* Smaller price */
+    }
+
+    .product-original-price {
+        font-size: 12px;
+    }
+
+    .product-discount-percentage {
+        font-size: 14px;
+    }
+
+    .option-button {
+        padding: 6px 10px; /* Smaller button */
+        font-size: 0.85rem;
+    }
+}
+
+/* Desktop Styles (>1024px) */
+@media (min-width: 1025px) {
+    .deal {
+        height: 600px;
+        background-size: 40%;
+    }
+
+    .deal .container {
+        padding: 0 20px;
+    }
+
+    .deal-info {
+        margin-left: -100px; /* Keep original negative margin */
+        margin-right: 40px;
+    }
+
+    .product-container {
+        margin-left: 40px;
+        width: calc(100% - 80px);
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .product-discounted-card {
+        width: 350px;
+        padding: 20px;
+    }
+
+    .product-discounted-image {
+        height: 300px;
+    }
+}
