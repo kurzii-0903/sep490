@@ -1,0 +1,206 @@
+/* Reset default margins and ensure the page takes up full height */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Scope all styles to the customer-info-page class */
+.customer-info-page {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+/* Form Container */
+.customer-info-page .customer-info {
+    padding: 30px;
+    max-width: 1080px; /* Approximately 3/4 of a 1440px screen */
+    width: 100%;
+    background: #fff;
+}
+
+.customer-info-page .customer-info h1 {
+    color: #D81B60;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 26px;
+    text-transform: uppercase;
+}
+
+.customer-info-page .customer-info .subtitle {
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.customer-info-page .form-group {
+    margin-bottom: 15px;
+}
+
+.customer-info-page .form-group label {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.customer-info-page .form-group input,
+.customer-info-page .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.customer-info-page .form-group .gender-options {
+    display: flex;
+    gap: 20px; /* Horizontal layout for radio buttons */
+}
+
+.customer-info-page .form-group input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.customer-info-page .form-group input::placeholder,
+.customer-info-page .form-group select::placeholder {
+    color: #999;
+    font-size: 15px;
+}
+
+.customer-info-page .form-group select {
+    appearance: none;
+    background: white;
+    padding-right: 30px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="gray"><path d="M5 7l5 5 5-5H5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 14px;
+}
+
+/* Button Styles */
+.customer-info-page button {
+    background-color: #1976D2;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.customer-info-page button:hover {
+    background-color: #1565C0;
+}
+
+/* Customer Details */
+.customer-info-page .customer-details {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.customer-info-page .customer-details h2 {
+    color: #D81B60;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.customer-info-page .profile-section {
+    display: flex;
+    gap: 20px;
+}
+
+.customer-info-page .profile-image {
+    flex-shrink: 0;
+}
+
+.customer-info-page .profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+}
+
+.customer-info-page .profile-info {
+    flex-grow: 1;
+}
+
+.customer-info-page .profile-info p {
+    font-size: 15px;
+    color: #333;
+    margin: 5px 0;
+}
+
+/* Order List */
+.customer-info-page .order-list {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.customer-info-page .order-list h2 {
+    color: #D81B60;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.customer-info-page .order-list table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.customer-info-page .order-list th,
+.customer-info-page .order-list td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.customer-info-page .order-list th {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.customer-info-page .order-list tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Updated Breadcrumb Styles to match the second image */
+.customer-info-page .breadcrumb {
+    font-size: 16px; /* Slightly larger font size */
+    color: #333;
+    margin-bottom: 15px; /* Reduced margin */
+}
+
+.customer-info-page .breadcrumb a {
+    color: #333;
+    text-decoration: none;
+}
+
+.customer-info-page .breadcrumb a:hover {
+    text-decoration: underline;
+}

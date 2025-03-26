@@ -1,0 +1,112 @@
+﻿.manager-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    min-width: 300px;
+    max-width: 400px;
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: white;
+    z-index: 1000;
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+/* Loại toast */
+.manager-toast.success {
+    background-color: #28a745; /* Màu xanh thành công */
+}
+
+.manager-toast.error {
+    background-color: #dc3545; /* Màu đỏ lỗi */
+}
+
+/* Nội dung bên trong */
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.toast-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.toast-message {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Nút đóng */
+.toast-close {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.toast-close:hover {
+    opacity: 1;
+}
+
+/* Thanh tiến trình */
+.toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+}
+
+.toast-progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: white;
+    animation: progress 5s linear forwards;
+}
+
+/* Animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes progress {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .manager-toast {
+        min-width: 250px;
+        max-width: 90vw;
+        bottom: 10px;
+        right: 10px;
+    }
+}
