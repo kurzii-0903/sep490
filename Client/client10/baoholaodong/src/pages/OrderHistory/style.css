@@ -1,0 +1,283 @@
+.oh-order-history-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.oh-order-history-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+/* Container chứa input và button */
+.oh-search-container {
+  display: flex; /* Sử dụng flexbox để xếp input và button cạnh nhau */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  width: 100%; /* Chiếm toàn bộ chiều rộng */
+  max-width: 500px; /* Giới hạn chiều rộng tối đa */
+  margin: 0 auto 20px auto; /* Căn giữa và thêm khoảng cách dưới */
+}
+
+/* Thanh input */
+.oh-search-input {
+  flex: 1; /* Chiếm toàn bộ không gian còn lại */
+  padding: 10px; /* Padding bên trong */
+  border: 1px solid #e0e0e0; /* Viền input */
+  border-right: none; /* Bỏ viền phải để nút sát vào */
+  border-radius: 4px 0 0 4px; /* Bo góc trái, không bo góc phải */
+  font-size: 14px;
+  color: #333;
+}
+
+/* Nút tìm kiếm */
+.oh-search-button {
+  display: flex; /* Để icon và text bên trong căn giữa */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  gap: 5px; /* Khoảng cách giữa icon và chữ "Tìm kiếm" */
+  padding: 10px 15px; /* Padding trong nút */
+  background-color: #007bff; /* Màu nền nút */
+  color: white; /* Màu chữ */
+  border: 1px solid #007bff; /* Viền nút cùng màu nền */
+  border-left: none; /* Bỏ viền trái để sát input */
+  border-radius: 0 4px 4px 0; /* Bo góc phải, không bo góc trái */
+  cursor: pointer; /* Con trỏ chuột khi hover */
+  font-size: 14px; /* Kích thước chữ */
+  white-space: nowrap; /* Không cho chữ xuống dòng */
+}
+
+/* Hover effect cho nút */
+.oh-search-button:hover {
+  background-color: #0056b3; /* Màu nền khi hover */
+  border-color: #0056b3; /* Viền khi hover */
+}
+
+/* Đảm bảo SVG trong nút có kích thước phù hợp */
+.oh-search-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.oh-orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.oh-order-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 15px;
+  background-color: #f9f9f9;
+}
+
+.oh-order-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.oh-order-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.oh-order-detail {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.oh-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.oh-order-status {
+  display: flex;
+  align-items: flex-start;
+}
+
+.oh-status-badge {
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.oh-status-badge.completed {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.oh-status-badge.processing {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.oh-status-badge.pending {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+.oh-status-badge.cancelled {
+  background-color: #ccadad;
+  color: #166534;
+}
+
+.oh-order-products {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.oh-product-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 5px 0;
+}
+
+.oh-product-info {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.oh-quantity {
+  color: #6b7280;
+}
+
+.oh-product-price {
+  text-align: right;
+  font-weight: 600;
+  color: #c00;
+}
+
+.oh-order-total {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  font-weight: 600;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  margin-top: 5px;
+}
+
+.oh-total-amount {
+  color: #c00;
+  font-size: 16px;
+}
+
+.oh-order-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+.oh-buy-again-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 15px;
+  background-color: #c00;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.oh-buy-again-button:hover {
+  background-color: #a00;
+}
+
+.oh-buy-again-button svg {
+  stroke: white;
+}
+
+.oh-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.oh-pagination-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.oh-pagination-button {
+  padding: 5px 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.oh-pagination-button:hover {
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  .oh-order-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .oh-order-status {
+    justify-content: flex-start;
+  }
+
+  .oh-product-item {
+    grid-template-columns: 1fr;
+  }
+
+  .oh-product-price {
+    text-align: left;
+    margin-top: 5px;
+  }
+
+  .oh-order-total {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .oh-total-amount {
+    text-align: left;
+  }
+
+  .oh-search-container {
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100%;
+  }
+
+  .oh-search-input {
+    border-right: 1px solid #e0e0e0;
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  .oh-search-button {
+    border-left: 1px solid #007bff;
+    border-radius: 4px;
+    width: 100%;
+    justify-content: center;
+  }
+}

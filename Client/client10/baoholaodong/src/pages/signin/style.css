@@ -1,0 +1,285 @@
+/* Base Styles */
+.signin-form-container {
+    width: 602px;
+    position: relative;
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    margin-bottom: 80px;
+}
+
+.signin-form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.signin-form-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #b50a00;
+    text-transform: uppercase;
+}
+
+.signin-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-form-group {
+    margin-bottom: 15px;
+}
+
+.signin-form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Added for consistency with Register page */
+    outline: none;
+    font-size: 16px; /* Added for consistency */
+}
+
+.signin-submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #b50a00;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease; /* Added for smoother hover effect */
+}
+
+.signin-submit-button:hover {
+    background-color: #c7170e;
+}
+
+.signin-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.forgot-password-link a,
+.signin-link a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px; /* Added for consistency */
+}
+
+.forgot-password-link a:hover,
+.signin-link a:hover {
+    color: #b50a00;
+}
+
+.or-text {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    margin-top: 20px; /* Reduced from 60px for better spacing */
+    margin-bottom: 20px;
+}
+
+.google-signin-button {
+    width: 100%;
+    height: 50px;
+    background: url('../../images/google.svg') no-repeat center center;
+    background-size: contain;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.error-text {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center; /* Added for consistency with Register page */
+}
+
+/* Tablet Styles (769px–1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .signin-form-container {
+        width: 90%;
+        max-width: 700px;
+        padding: 15px;
+        margin: 30px auto 0;
+        margin-bottom: 60px;
+    }
+
+    .signin-form-header h2 {
+        font-size: 22px;
+    }
+
+    .signin-form-group {
+        margin-bottom: 12px;
+    }
+
+    .signin-form-group input {
+        padding: 8px;
+        font-size: 15px;
+    }
+
+    .signin-submit-button {
+        padding: 8px;
+        font-size: 15px;
+    }
+
+    .signin-links {
+        margin-top: 8px;
+    }
+
+    .forgot-password-link a,
+    .signin-link a {
+        font-size: 13px;
+    }
+
+    .or-text {
+        font-size: 13px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .google-signin-button {
+        height: 45px;
+        margin-top: 8px;
+    }
+
+    .error-text {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+}
+
+/* Mobile Styles (≤768px) */
+@media (max-width: 768px) {
+    .signin-form-container {
+        width: 90%;
+        max-width: 500px;
+        padding: 15px;
+        margin: 20px auto 0;
+        margin-bottom: 50px;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .signin-form-header h2 {
+        font-size: 20px;
+    }
+
+    .signin-form-group {
+        margin-bottom: 10px;
+    }
+
+    .signin-form-group input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .signin-submit-button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .signin-links {
+        margin-top: 8px;
+    }
+
+    .forgot-password-link a,
+    .signin-link a {
+        font-size: 12px;
+    }
+
+    .or-text {
+        font-size: 12px;
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+
+    .google-signin-button {
+        height: 40px;
+        margin-top: 8px;
+    }
+
+    .error-text {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+}
+
+/* Extra Small Mobile (≤480px) */
+@media (max-width: 480px) {
+    .signin-form-container {
+        width: 95%;
+        max-width: 400px;
+        padding: 10px;
+        margin: 15px auto 0;
+        margin-bottom: 40px;
+        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .signin-form-header h2 {
+        font-size: 18px;
+    }
+
+    .signin-form-group {
+        margin-bottom: 8px;
+    }
+
+    .signin-form-group input {
+        padding: 6px;
+        font-size: 13px;
+    }
+
+    .signin-submit-button {
+        padding: 6px;
+        font-size: 13px;
+    }
+
+    .signin-links {
+        margin-top: 6px;
+    }
+
+    .forgot-password-link a,
+    .signin-link a {
+        font-size: 11px;
+    }
+
+    .or-text {
+        font-size: 11px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .google-signin-button {
+        height: 35px;
+        margin-top: 6px;
+    }
+
+    .error-text {
+        font-size: 11px;
+        margin-bottom: 6px;
+    }
+}
+
+/* Desktop Styles (>1024px) */
+@media (min-width: 1025px) {
+    .signin-form-container {
+        width: 602px;
+        padding: 20px;
+        margin: 40px auto 0;
+        margin-bottom: 140px;
+    }
+
+    .signin-form-header h2 {
+        font-size: 24px;
+    }
+
+    .signin-form-group input {
+        font-size: 16px;
+    }
+
+    .signin-submit-button {
+        font-size: 16px;
+    }
+}
