@@ -71,9 +71,9 @@ namespace DataAccessObject.Repository
             return await _orderDao.GetOrdersByPageAsync(page, pageSize);
         }
 
-        public async Task<List<Order>?> SearchAsync(DateTime? startDate, DateTime? endDate, string customerName, string status, int page = 1, int pageSize = 20)
+        public async Task<List<Order>?> SearchAsync(string? emailOrPhone,DateTime? startDate, DateTime? endDate, string customerName, int? customerId, string? status, int page = 1, int pageSize = 20)
         {
-            return await _orderDao.SearchAsync(startDate, endDate, customerName, status,page, pageSize);
+            return await _orderDao.SearchAsync(emailOrPhone,startDate, endDate, customerName, customerId, status,page, pageSize);
         }
 
         public async Task<bool> CancelOrderAsync(int orderId)
@@ -100,9 +100,9 @@ namespace DataAccessObject.Repository
         {
             return await _orderDao.CountTotalOrdersByDate(startDate, endDate);
         }
-        public async Task<int> CountTotalOrdersByFilter(DateTime? startDate, DateTime? endDate, string customerName)
+        public async Task<int> CountTotalOrdersByFilter(string? emailOrPhone, DateTime? startDate, DateTime? endDate, string customerName, int? customerId, string? status)
         {
-            return await _orderDao.CountTotalOrdersByFilter(startDate, endDate, customerName);
+            return await _orderDao.CountTotalOrdersByFilter(emailOrPhone, startDate,  endDate,  customerName,  customerId,status);
         }
 
 

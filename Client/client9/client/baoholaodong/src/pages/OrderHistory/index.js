@@ -1,6 +1,6 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { CartContext } from "../../contexts/CartContext"; 
+import { CartContext } from "../../contexts/CartContext";
 import "./style.css";
 
 function OrderHistory() {
@@ -14,13 +14,19 @@ function OrderHistory() {
   const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
 
-  useEffect(() => {
-    const fetchOrders = async () => {
+  // Hàm fetch orders
+  const fetchOrders = useCallback(
+    async (query = "") => {
       try {
         setLoading(true);
-        const response = await fetch(
-          `${BASE_URL}/api/Order/get-page-orders?customerId=${userId}`
-        );
+        let url = `${BASE_URL}/api/Order/get-page-orders?customerId=${userId}`;
+        if (query) {
+          url = `${BASE_URL}/api/Order/get-page-orders?customerId=${userId}&emailOrPhone=${encodeURIComponent(
+            query
+          )}`;
+        }
+
+        const response = await fetch(url);
 
         if (!response.ok) {
           throw new Error("Failed to fetch orders");
@@ -35,33 +41,28 @@ function OrderHistory() {
       } finally {
         setLoading(false);
       }
-    };
+    },
+    [userId]
+  );
 
-    if (userId) {
-      fetchOrders();
+  useEffect(() => {
+    fetchOrders();
+  }, [fetchOrders, currentPage]);
+
+  const handleSearch = () => {
+    fetchOrders(searchQuery);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
     }
-  }, [userId, currentPage]);
+  };
 
-  // Lọc đơn hàng dựa trên truy vấn tìm kiếm
-  const filteredOrders = Array.isArray(orders)
-    ? orders.filter(
-        (order) =>
-          order.orderId
-            ?.toString()
-            .toLowerCase()
-            .includes(searchQuery.toLowerCase()) ||
-          order.orderDetails?.some((item) =>
-            item.productName?.toLowerCase().includes(searchQuery.toLowerCase())
-          )
-      )
-    : [];
-
-  // Định dạng tiền tệ
   const formatCurrency = (amount) => {
     return `${amount.toLocaleString("vi-VN")} đ`;
   };
 
-  // Định dạng ngày theo DD/MM/YYYY
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("vi-VN", {
@@ -71,21 +72,19 @@ function OrderHistory() {
     });
   };
 
-  // Hiển thị badge trạng thái
   const renderStatusBadge = (status) => {
     switch (status.toLowerCase()) {
-      case "Completed":
-        return <span className="status-badge completed">Đã hoàn thành</span>;
-      case "Processing":
-        return <span className="status-badge processing">Đang xử lý</span>;
-      case "Pending":
-        return <span className="status-badge pending">Chờ xác nhận</span>;
+      case "completed":
+        return <span className="oh-status-badge completed">Đã hoàn thành</span>;
+      case "processing":
+        return <span className="oh-status-badge processing">Đang xử lý</span>;
+      case "pending":
+        return <span className="oh-status-badge pending">Chờ xác nhận</span>;
       default:
         return null;
     }
   };
 
-  // Xử lý hành động "Mua lại"
   const handleBuyAgain = (order) => {
     order.orderDetails.forEach((item) => {
       const product = {
@@ -98,12 +97,9 @@ function OrderHistory() {
       };
       addToCart(product);
     });
-
-    // Chuyển hướng sang trang Checkout
     navigate("/checkout");
   };
 
-  // Xử lý chuyển trang
   const handlePageChange = (newPage) => {
     if (newPage > 0 && newPage <= totalPages) {
       setCurrentPage(newPage);
@@ -115,19 +111,19 @@ function OrderHistory() {
   }
 
   return (
-    <div className="order-history-container">
-      <h2 className="order-history-title">Lịch sử đơn hàng</h2>
+    <div className="oh-order-history-container">
+      <h2 className="oh-order-history-title">Lịch sử đơn hàng</h2>
 
-      {/* Thanh tìm kiếm */}
-      <div className="search-container">
+      <div className="oh-search-container">
         <input
           type="text"
-          placeholder="Tìm kiếm đơn hàng..."
-          className="search-input"
+          placeholder="Nhập email hoặc số điện thoại để tìm kiếm..."
+          className="oh-search-input"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyPress={handleKeyPress}
         />
-        <span className="search-icon">
+        <button className="oh-search-button" onClick={handleSearch}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -142,60 +138,57 @@ function OrderHistory() {
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-        </span>
+          Tìm kiếm
+        </button>
       </div>
 
-      {/* Danh sách đơn hàng */}
-      {filteredOrders.length === 0 ? (
-        <div className="no-orders">Không có đơn hàng nào.</div>
+      {orders.length === 0 ? (
+        <div className="oh-no-orders">Không có đơn hàng nào.</div>
       ) : (
-        <div className="orders-list">
-          {filteredOrders.map((order) => (
-            <div key={order.orderId} className="order-item">
-              <div className="order-header">
-                <div className="order-info">
-                  <div className="order-detail">
-                    <span className="label">Mã đơn hàng:</span>
+        <div className="oh-orders-list">
+          {orders.map((order) => (
+            <div key={order.orderId} className="oh-order-item">
+              <div className="oh-order-header">
+                <div className="oh-order-info">
+                  <div className="oh-order-detail">
+                    <span className="oh-label">Mã đơn hàng:</span>
                     <span>{order.orderId}</span>
                   </div>
-                  <div className="order-detail">
-                    <span className="label">Ngày đặt:</span>
+                  <div className="oh-order-detail">
+                    <span className="oh-label">Ngày đặt:</span>
                     <span>{formatDate(order.orderDate)}</span>
                   </div>
                 </div>
-                <div className="order-status">
+                <div className="oh-order-status">
                   {renderStatusBadge(order.status)}
                 </div>
               </div>
 
-              {/* Chi tiết sản phẩm trong đơn hàng */}
-              <div className="order-products">
+              <div className="oh-order-products">
                 {order.orderDetails.map((item) => (
-                  <div key={item.orderDetailId} className="product-item">
-                    <div className="product-info">
+                  <div key={item.orderDetailId} className="oh-product-item">
+                    <div className="oh-product-info">
                       <span>{item.productName}</span>
-                      <span className="quantity">x{item.quantity}</span>
+                      <span className="oh-quantity">x{item.quantity}</span>
                     </div>
-                    <div className="product-price">
+                    <div className="oh-product-price">
                       {formatCurrency(item.totalPrice)}
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Tổng tiền */}
-              <div className="order-total">
-                <span className="total-label">Tổng tiền:</span>
-                <div className="total-amount">
+              <div className="oh-order-total">
+                <span className="oh-total-label">Tổng tiền:</span>
+                <div className="oh-total-amount">
                   {formatCurrency(order.totalAmount)}
                 </div>
               </div>
 
-              {/* Nút hành động */}
               {order.status.toLowerCase() === "completed" && (
-                <div className="order-actions">
+                <div className="oh-order-actions">
                   <button
-                    className="buy-again-button"
+                    className="oh-buy-again-button"
                     onClick={() => handleBuyAgain(order)}
                   >
                     <svg
@@ -222,13 +215,12 @@ function OrderHistory() {
         </div>
       )}
 
-      {/* Phân trang */}
-      <div className="pagination">
-        <div className="pagination-info">
-          Hiển thị {filteredOrders.length} đơn hàng (Tổng: {orders.length})
+      <div className="oh-pagination">
+        <div className="oh-pagination-info">
+          Hiển thị {orders.length} đơn hàng (Tổng: {orders.length})
         </div>
         {totalPages > 1 && (
-          <div className="pagination-controls">
+          <div className="oh-pagination-controls">
             <button
               disabled={currentPage === 1}
               onClick={() => handlePageChange(currentPage - 1)}

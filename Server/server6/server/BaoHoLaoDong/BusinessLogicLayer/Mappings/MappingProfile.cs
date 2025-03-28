@@ -234,12 +234,13 @@ namespace BusinessLogicLayer.Mappings
                 .ForMember(dest => dest.Invoice, otp => otp.MapFrom(src => src.Invoice));
 
             CreateMap<OrderDetail, OrderDetailResponse>()
-                .ForMember(dest => dest.ProductImage,
-                    otp => otp.MapFrom(src =>
-                        src.Product.ProductImages != null
-                            ? (
-                                $"{applicationUrl}/images/products/{src.Product.ProductImages.FirstOrDefault().FileName}")
-                            : ""));
+    .ForMember(dest => dest.ProductImage,
+        otp => otp.MapFrom(src =>
+            (src.Product != null && src.Product.ProductImages != null && src.Product.ProductImages.Any())
+                ? $"{applicationUrl}/images/products/{src.Product.ProductImages.First().FileName}"
+                : string.Empty
+        ));
+
             CreateMap<Invoice, InvoiceResponse>()
                 .ForMember(dest => dest.InvoiceId, opt => opt.MapFrom(src => src.InvoiceId))
                 .ForMember(dest => dest.OrderId, opt => opt.MapFrom(src => src.OrderId))
@@ -288,7 +289,7 @@ namespace BusinessLogicLayer.Mappings
                 .ForMember(dest => dest.RecipientId, otp => otp.MapFrom(src => src.RecipientId))
                 .ForMember(dest => dest.RecipientType, otp => otp.MapFrom(src => src.RecipientType))
                 .ForMember(dest => dest.IsRead, otp => otp.MapFrom(src => src.IsRead))
-                .ForMember(dest=>dest.OrderId,otp=>otp.MapFrom(src=>src.OrderId))
+                .ForMember(dest => dest.OrderId, otp => otp.MapFrom(src => src.OrderId))
                 .ForMember(dest => dest.CreatedAt, otp => otp.MapFrom(src => src.CreatedAt))
                 .ForMember(dest => dest.UpdatedAt, otp => otp.MapFrom(src => src.UpdatedAt))
                 .ReverseMap();
