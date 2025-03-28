@@ -14,20 +14,20 @@ function OrderHistory() {
   const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
 
-  // Hàm fetch orders
   const fetchOrders = useCallback(
     async (query = "") => {
       try {
         setLoading(true);
-        let url = `${BASE_URL}/api/Order/get-page-orders?customerId=${userId}`;
+        let url;
         if (query) {
-          url = `${BASE_URL}/api/Order/get-page-orders?customerId=${userId}&emailOrPhone=${encodeURIComponent(
+          url = `${BASE_URL}/api/Order/get-page-orders?emailOrPhone=${encodeURIComponent(
             query
           )}`;
+        } else {
+          url = `${BASE_URL}/api/Order/get-page-orders?customerId=${userId}&page=${currentPage}`;
         }
 
         const response = await fetch(url);
-
         if (!response.ok) {
           throw new Error("Failed to fetch orders");
         }
@@ -42,14 +42,15 @@ function OrderHistory() {
         setLoading(false);
       }
     },
-    [userId]
+    [userId, currentPage]
   );
 
   useEffect(() => {
     fetchOrders();
-  }, [fetchOrders, currentPage]);
+  }, [fetchOrders]);
 
   const handleSearch = () => {
+    setCurrentPage(1);
     fetchOrders(searchQuery);
   };
 
@@ -60,7 +61,9 @@ function OrderHistory() {
   };
 
   const formatCurrency = (amount) => {
-    return `${amount.toLocaleString("vi-VN")} đ`;
+    return amount !== undefined && amount !== null
+      ? `${amount.toLocaleString("vi-VN")} đ`
+      : "0 đ";
   };
 
   const formatDate = (dateString) => {
@@ -73,14 +76,14 @@ function OrderHistory() {
   };
 
   const renderStatusBadge = (status) => {
-    switch (status.toLowerCase()) {
+    switch (status?.toLowerCase()) {
       case "completed":
         return <span className="oh-status-badge completed">Đã hoàn thành</span>;
       case "processing":
         return <span className="oh-status-badge processing">Đang xử lý</span>;
       case "pending":
         return <span className="oh-status-badge pending">Chờ xác nhận</span>;
-        case "cancelled":
+      case "cancelled":
         return <span className="oh-status-badge cancelled">Đã bị huỷ</span>;
       default:
         return null;
@@ -88,18 +91,45 @@ function OrderHistory() {
   };
 
   const handleBuyAgain = (order) => {
+    if (!order || !order.orderDetails || !Array.isArray(order.orderDetails)) {
+      console.error("Invalid order data:", order);
+      return;
+    }
+
     order.orderDetails.forEach((item) => {
-      const product = {
-        id: item.orderDetailId,
+      if (!item.totalPrice || !item.quantity || !item.productName) {
+        console.error("Invalid order detail:", item);
+        return;
+      }
+
+      const selectedVariant = {
+        size: item.size || null,
+        color: item.color || null,
         price: item.totalPrice / item.quantity,
-        quantity: item.quantity,
-        name: item.productName,
-        discount: item.productDiscount,
-        selectedVariant: null,
+        discount: item.productDiscount || 0,
+        quantity: item.quantity + 10,
       };
+
+      const product = {
+        id: item.orderDetailId || Date.now(),
+        name: item.productName,
+        image: item.image || null,
+        quantity: item.quantity,
+        price: item.totalPrice / item.quantity,
+        finalPrice: item.totalPrice / item.quantity,
+        originalPrice: item.totalPrice / item.quantity,
+        discount: item.productDiscount || 0,
+        selectedVariant:
+          selectedVariant.size || selectedVariant.color
+            ? selectedVariant
+            : null,
+        quantityInStock: item.quantity + 10,
+      };
+
       addToCart(product);
     });
-    navigate("/checkout");
+
+    navigate("/cart");
   };
 
   const handlePageChange = (newPage) => {
@@ -187,7 +217,7 @@ function OrderHistory() {
                 </div>
               </div>
 
-              {order.status.toLowerCase() === "completed" && (
+              {order.status?.toLowerCase() === "completed" && (
                 <div className="oh-order-actions">
                   <button
                     className="oh-buy-again-button"
