@@ -89,7 +89,7 @@ namespace BusinessLogicLayer.Services
                 throw;
             }
         }
-        public async Task<Page<OrderResponse>?> GetOrdersWithStringDateTimeAsync(string? startDate, string? endDate, string? customerName,string status, int page = 1, int pageSize = 5)
+        public async Task<Page<OrderResponse>?> GetOrdersWithStringDateTimeAsync(string? emailOrPhone,string? startDate, string? endDate, string? customerName, string? customerId, string? status, int page = 1, int pageSize = 5)
         {
             try
             {
@@ -106,10 +106,17 @@ namespace BusinessLogicLayer.Services
                 }
                 if (!string.IsNullOrWhiteSpace(customerName))
                 {
-                    customerName = RemoveDiacritics(Regex.Replace(customerName.Trim().ToLower(), @"\s+", " "));
+                    customerName = customerName.Trim();
                 }
-                var orders = await _orderRepo.SearchAsync(start, end, customerName,status, page, pageSize);
-                var totalOrders = await _orderRepo.CountTotalOrdersByFilter(start, end, customerName);
+                int? id = null;
+                if (!string.IsNullOrWhiteSpace(customerId) && Regex.IsMatch(customerId, @"^\d+$"))
+                {
+                    id = Int32.Parse(customerId);
+                }
+                var orders = await _orderRepo.SearchAsync(emailOrPhone,start, end, customerName, id,status, page, pageSize);
+                var totalOrders = await _orderRepo.CountTotalOrdersByFilter(emailOrPhone, start, end, customerName, id, status);
+                //var order1 = orders.FirstOrDefault();
+                //var a = _mapper.Map<OrderResponse>(order1);
                 var orderPage = new Page<OrderResponse>(_mapper.Map<List<OrderResponse>>(orders), page, pageSize, totalOrders);
                 return orderPage;
             }
@@ -143,17 +150,17 @@ namespace BusinessLogicLayer.Services
         //        throw;
         //    }
         //}
-        public async Task<Page<OrderResponse>?> GetOrdersAsync(DateTime? startDate, DateTime? endDate, string? customerName, int page = 1, int pageSize = 5)
+        public async Task<Page<OrderResponse>?> GetOrdersAsync(string? emailOrPhone, DateTime? startDate, DateTime? endDate, string? customerName, int page = 1, int pageSize = 5)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<Page<OrderResponse>?> GetOrdersByDateAsync(DateTime? startDate, DateTime? endDate,
+        public async Task<Page<OrderResponse>?> GetOrdersByDateAsync(string? emailOrPhone,DateTime? startDate, DateTime? endDate,
             int page = 1, int pageSize = 5)
         {
             try
             {
-                var orders = await _orderRepo.SearchAsync(startDate, endDate, null,null, page, pageSize);
+                var orders = await _orderRepo.SearchAsync(emailOrPhone, startDate, endDate,null, null,null, page, pageSize);
                 orders = orders.OrderByDescending(o => o.OrderDate).ToList();
                 var totalOrders = await _orderRepo.CountTotalOrdersByDate(startDate, endDate);
                 var orderPage = new Page<OrderResponse>(_mapper.Map<List<OrderResponse>>(orders), page, pageSize,
@@ -269,10 +276,10 @@ namespace BusinessLogicLayer.Services
             }
         }
 
-        public async Task<List<OrderResponse>?> SearchOrdersAsync(DateTime? startDate, DateTime? endDate,
+        public async Task<List<OrderResponse>?> SearchOrdersAsync(string? emailOrPhone,DateTime? startDate, DateTime? endDate,
             string customerName, string status, int page = 1, int pageSize = 20)
         {
-            var orders = await _orderRepo.SearchAsync(startDate, endDate, customerName,status, page, pageSize);
+            var orders = await _orderRepo.SearchAsync(emailOrPhone,startDate, endDate, customerName,null,status, page, pageSize);
 
             if (orders == null || !orders.Any())
             {

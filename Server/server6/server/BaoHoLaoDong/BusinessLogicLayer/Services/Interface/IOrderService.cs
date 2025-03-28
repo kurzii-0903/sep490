@@ -12,16 +12,16 @@ namespace BusinessLogicLayer.Services.Interface
         Task<List<OrderResponse>> GetAllOrdersAsync();
         Task<OrderResponse> CreateNewOrderAsync(NewOrder orderRequest);
         Task<OrderResponse?> GetOrderByIdAsync(int orderId);
-        Task<Page<OrderResponse>?> GetOrdersWithStringDateTimeAsync(string? startDate, string? endDate, string? customerName,string status, int page = 1, int pageSize = 5);
-        Task<Page<OrderResponse>?> GetOrdersAsync(DateTime? startDate, DateTime? endDate, string? customerName, int page = 1, int pageSize = 5);
+        Task<Page<OrderResponse>?> GetOrdersWithStringDateTimeAsync(string? emailOrPhone,string? startDate, string? endDate, string? customerName, string? CustomerId,string? status, int page = 1, int pageSize = 5);
+        Task<Page<OrderResponse>?> GetOrdersAsync(string? emailOrPhone, DateTime? startDate, DateTime? endDate, string? customerName, int page = 1, int pageSize = 5);
 
         Task<OrderResponse?> UpdateOrderAsync(int orderId, NewOrder orderRequest);
         Task<bool> UpdateOrderStatusAsync(int orderId, string status);
         Task<bool> DeleteOrderAsync(int orderId);
         Task<decimal> CalculateOrderTotalAsync(int orderId);
         Task<List<OrderDetailResponse>?> GetOrderDetailsByPageAsync(int orderId, int page = 1, int pageSize = 20);
-        Task<List<OrderResponse>?> SearchOrdersAsync(DateTime? startDate, DateTime? endDate, string customerName,string status, int page = 1, int pageSize = 20);
-        Task<Page<OrderResponse>?> GetOrdersByDateAsync(DateTime? startDate, DateTime? endDate, int page = 1, int pageSize = 5);
+        Task<List<OrderResponse>?> SearchOrdersAsync(string? emailOrPhone, DateTime? startDate, DateTime? endDate, string customerName,string status, int page = 1, int pageSize = 20);
+        Task<Page<OrderResponse>?> GetOrdersByDateAsync(string? emailOrPhone, DateTime? startDate, DateTime? endDate, int page = 1, int pageSize = 5);
         Task<bool> CancelOrderAsync(int orderId);
         Task<int> CountOrdersAsync();
 

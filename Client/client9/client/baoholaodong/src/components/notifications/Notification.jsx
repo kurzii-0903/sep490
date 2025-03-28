@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Bell } from "lucide-react";
 
-export default function Notification({ userId, onMarkAsRead }) {
+export default function Notification({ onMarkAsRead }) {
   const [showNotifications, setShowNotifications] = useState(false);
   const [notifications, setNotifications] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -9,24 +9,24 @@ export default function Notification({ userId, onMarkAsRead }) {
 
   const dropdownRef = useRef(null);
   const BASE_URL = process.env.REACT_APP_BASE_URL_API;
-  const fetchNotifications = async () => {
-    if (!userId) {
-      setError("Không có userId để lấy thông báo");
-      setLoading(false);
-      return;
-    }
 
+  const fetchNotifications = async () => {
     try {
       setLoading(true);
       const response = await fetch(
-        `${BASE_URL}/api/Notification/get-noti-customer?userid=${userId}`
+        `${BASE_URL}/api/Notification/getall-admin-noti`,
+        {
+          headers: {
+            'accept': '*/*'
+          }
+        }
       );
       if (!response.ok) {
         const errorText = await response.text();
         throw new Error(`Failed to fetch: ${response.status} - ${errorText}`);
       }
       const data = await response.json();
-      setNotifications(data);
+      setNotifications(data); // Không lọc theo userId nữa
     } catch (err) {
       console.error("Fetch error:", err);
       setError(err.message);
@@ -37,7 +37,7 @@ export default function Notification({ userId, onMarkAsRead }) {
 
   useEffect(() => {
     fetchNotifications();
-  }, [userId]);
+  }, []); // Không phụ thuộc vào userId
 
   useEffect(() => {
     const handleClickOutside = (event) => {
