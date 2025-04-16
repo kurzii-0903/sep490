@@ -1,0 +1,291 @@
+﻿.top-deal-container {
+    background-image: url(../../images/deal-bg.jpg);
+    background-position: 50% 50%;
+    background-size: 60%;
+    background-repeat: repeat;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.top-deal-content-wrapper {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.top-deal-flex-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .top-deal-flex-container {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.top-deal-header-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .top-deal-header-section {
+        align-items: flex-start;
+    }
+}
+
+.top-deal-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+    .top-deal-title {
+        font-size: 1.75rem;
+    }
+}
+
+.top-deal-title-highlight {
+    position: relative;
+}
+
+.top-deal-title-highlight::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.25rem;
+    height: 3px;
+    width: 100%;
+    background-color: #facc15;
+    clip-path: polygon(0% 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+}
+
+.top-deal-button-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.top-deal-scroll-button {
+    width: 2rem;
+    height: 2rem;
+    color: #dc2626;
+    border: 2px solid #facc15;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-deal-scroll-button:hover {
+    background-color: #fef08a;
+}
+
+.top-deal-view-all-button {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background-color: #dc2626;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 2px solid #b50a00;
+    border-left: none;
+    border-right: none;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.top-deal-view-all-button:hover {
+    color: #dc2626;
+}
+
+.top-deal-view-all-button span:first-child {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.top-deal-view-all-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #facc15;
+    transition: left 0.3s ease;
+    z-index: 0;
+}
+
+.top-deal-view-all-button:hover::after {
+    left: 0;
+}
+
+.top-deal-product-scroll {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    scroll-behavior: smooth;
+}
+
+.top-deal-product-card {
+    width: 250px;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 0.75rem;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+    display: flex; /* Thêm flex để điều chỉnh layout */
+    flex-direction: column; /* Sắp xếp theo cột */
+    min-height: 400px; /* Đặt chiều cao tối thiểu để các thẻ đồng nhất */
+}
+
+@media (min-width: 768px) {
+    .top-deal-product-card {
+        width: 300px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .top-deal-product-card {
+        width: 350px;
+    }
+}
+
+.top-deal-product-card:hover {
+    transform: translateY(-0.5rem);
+}
+
+.top-deal-image-container {
+    position: relative;
+}
+
+.top-deal-product-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+}
+
+@media (min-width: 768px) {
+    .top-deal-product-image {
+        height: 220px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .top-deal-product-image {
+        height: 300px;
+    }
+}
+
+.top-deal-image-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.top-deal-image-overlay:hover {
+    opacity: 1;
+}
+
+.top-deal-detail-button {
+    background-color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    color: #4b5563;
+    font-weight: 500;
+}
+
+.top-deal-product-title {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    height: 2.5rem;
+    line-height: 1.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+    .top-deal-product-title {
+        font-size: 1.125rem;
+        text-align: left;
+    }
+}
+
+.top-deal-price-container {
+    text-align: left;
+    margin-top: 0.5rem;
+    flex-grow: 1;
+}
+
+.top-deal-price-discounted {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+.top-deal-price-original {
+    color: #9ca3af;
+    text-decoration: line-through;
+    margin-left: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.top-deal-discount-text {
+    color: #ca8a04;
+    font-weight: 700;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.top-deal-price-normal {
+    font-weight: 700;
+    color: #ef4444;
+}
+
+.top-deal-add-to-cart-button {
+    margin-top: 0.75rem;
+    width: 100%;
+    background-color: #b91c1c;
+    color: white;
+    font-size: 0.875rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.top-deal-add-to-cart-button:hover {
+    background-color: #991b1b;
+}
