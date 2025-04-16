@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from "react";
 import { SquarePen, Eye, Plus, CheckCircle, XCircle } from "lucide-react";
 import Modal from "../../../components/Modal/Modal";
@@ -155,9 +154,7 @@ const Orders = () => {
           <div className="flex space-x-4">
             <select
               value={status}
-              onChange={(e) =>
-                setStatus(e.target.value === "all" ? null : e.target.value)
-              }
+              onChange={(e) => setStatus(e.target.value)} // Chỉ set giá trị status, không cần set thành null
               className="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
             >
               <option value="all">Tất cả</option>
@@ -174,14 +171,14 @@ const Orders = () => {
             />
             <input
               type="date"
-              value={startDate}
+              value={startDate || ""}
               onChange={handleStartDateChange}
               className="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
               placeholder="Từ ngày"
             />
             <input
               type="date"
-              value={endDate}
+              value={endDate || ""}
               onChange={handleEndDateChange}
               placeholder="Đến ngày"
               className="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
@@ -247,11 +244,19 @@ const Orders = () => {
                         <span
                           className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                                                         ${
-                                                          order.status === "Pending"? "bg-yellow-200 text-yellow-800"
-                                                            : order.status ==="Cancelled" ? "bg-red-300 text-red-800"
-															: order.status === "Completed" ? "bg-green-300 text-green-800" 
-														  	: order.status === "Processing" ? "bg-orange-200 text-orange-800" :
-															"bg-blue-200 text-blue-800"
+                                                          order.status ===
+                                                          "Pending"
+                                                            ? "bg-yellow-200 text-yellow-800"
+                                                            : order.status ===
+                                                              "Cancelled"
+                                                            ? "bg-red-300 text-red-800"
+                                                            : order.status ===
+                                                              "Completed"
+                                                            ? "bg-green-300 text-green-800"
+                                                            : order.status ===
+                                                              "Processing"
+                                                            ? "bg-orange-200 text-orange-800"
+                                                            : "bg-blue-200 text-blue-800"
                                                         }`}
                         >
                           {order.status}
