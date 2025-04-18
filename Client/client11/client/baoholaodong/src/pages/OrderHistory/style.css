@@ -128,9 +128,15 @@
   background-color: #fef9c3;
   color: #854d0e;
 }
+
 .oh-status-badge.cancelled {
   background-color: #ccadad;
   color: #166534;
+}
+
+.oh-status-badge.received {
+  background-color: #4caf50;
+  color: white;
 }
 
 .oh-order-products {
@@ -202,6 +208,61 @@
 
 .oh-buy-again-button svg {
   stroke: white;
+}
+
+.oh-cancel-button {
+  display: flex;
+  align-items: center;
+  background-color: #f44336;
+  color: white;
+  padding: 6px 15px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 8px;
+  transition: background-color 0.2s;
+}
+
+.oh-cancel-button svg {
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+  stroke: white;
+}
+
+.oh-cancel-button:hover:not(:disabled) {
+  background-color: #d32f2f;
+}
+
+.oh-received-button {
+  display: flex;
+  align-items: center;
+  background-color: #4caf50;
+  color: white;
+  padding: 6px 15px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 8px;
+  transition: background-color 0.2s;
+}
+
+.oh-received-button svg {
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+  stroke: white;
+}
+
+.oh-received-button:hover:not(:disabled) {
+  background-color: #388e3c;
+}
+
+.oh-received-button.oh-disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }
 
 .oh-pagination {

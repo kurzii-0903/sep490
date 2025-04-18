@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ManagementAPI.Controllers;
 [ApiController]
 [Route("api/[controller]")]
-[Authorize(Roles = "Admin,Manager")]
+[Authorize(Roles = "Admin,Manager,Customer")]
 public class InvoiceController : ControllerBase
 {
     private readonly IInvoiceService _invoiceService;
@@ -40,6 +40,8 @@ public class InvoiceController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
+
+
     [HttpPut("confirm-invoice-by-employee/{invoiceNo}/{status}")]
     public async Task<IActionResult> ConfirmInvoiceByEmployee([FromRoute] string invoiceNo, [FromRoute] string status)
     {

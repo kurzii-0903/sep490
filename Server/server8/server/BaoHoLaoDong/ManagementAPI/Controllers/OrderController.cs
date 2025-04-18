@@ -309,5 +309,20 @@ namespace ManagementAPI.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [AllowAnonymous]
+        [HttpPut("confirm-order-by-customer")]
+        public async Task<IActionResult> ConfirmOrderByCustomerAsync([FromBody] OrderConfirmModel model)
+        {
+            try
+            {
+                var orders = await _orderService.ConfirmOrderByCustomerAsync(model);
+                return Ok(orders);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
