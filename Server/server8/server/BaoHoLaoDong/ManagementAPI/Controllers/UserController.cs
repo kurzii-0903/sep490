@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ManagementAPI.Controllers;
 [ApiController]
 [Route("api/[controller]")]
-[Authorize(Roles = "Admin")]
+[Authorize(Roles = "Admin,Customer")]    
 public class UserController : ControllerBase
 {
     private readonly IUserService _userService;
@@ -169,6 +169,7 @@ public class UserController : ControllerBase
         }
     }
     [HttpGet("get-customer-by-id/{customerId}")]
+    [AllowAnonymous]
     public async Task<IActionResult> GetCustomerById([FromRoute] int customerId)
     {
         try

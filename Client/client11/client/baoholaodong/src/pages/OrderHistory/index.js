@@ -1,18 +1,30 @@
 import { useState, useEffect, useContext, useCallback } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
+import { AuthContext } from "../../contexts/AuthContext";
+import { setAxiosInstance } from "../../axiosInstance";
+import axiosInstance from "../../axiosInstance";
 import "./style.css";
 
-function OrderHistory({config}) {
+function OrderHistory({ config }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const { userId } = useParams();
+  const [updatingOrderId, setUpdatingOrderId] = useState(null);
   const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
+  const { user } = useContext(AuthContext);
   const BASE_URL = config.baseUrl;
+
+  const userId = user?.userId;
+
+  useEffect(() => {
+    if (user && user.token) {
+      setAxiosInstance(user.token, BASE_URL);
+    }
+  }, [user, BASE_URL]);
 
   const fetchOrders = useCallback(
     async (query = "") => {
@@ -20,21 +32,18 @@ function OrderHistory({config}) {
         setLoading(true);
         let url;
         if (query) {
-          url = `${BASE_URL}/api/Order/get-page-orders?emailOrPhone=${encodeURIComponent(
+          url = `/Order/get-page-orders?emailOrPhone=${encodeURIComponent(
             query
           )}`;
         } else {
-          url = `${BASE_URL}/api/Order/get-page-orders?customerId=${userId}&page=${currentPage}`;
+          url = `/Order/get-page-orders?customerId=${userId}&page=${currentPage}`;
         }
 
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error("Failed to fetch orders");
-        }
-
-        const data = await response.json();
-        setOrders(Array.isArray(data.items) ? data.items : []);
-        setTotalPages(data.totalPages || 1);
+        const response = await axiosInstance.get(url);
+        setOrders(
+          Array.isArray(response.data.items) ? response.data.items : []
+        );
+        setTotalPages(response.data.totalPages || 1);
       } catch (error) {
         console.error("Error fetching orders:", error);
         setOrders([]);
@@ -45,18 +54,13 @@ function OrderHistory({config}) {
     [userId, currentPage]
   );
 
-  
   useEffect(() => {
-    if (!userId) {
-      navigate("/404"); 
+    if (!user || !userId) {
+      navigate("/login");
       return;
     }
     fetchOrders();
-  }, [userId, navigate]); 
-  
-  useEffect(() => {
-    fetchOrders();
-  }, [fetchOrders]);
+  }, [user, userId, navigate, fetchOrders]);
 
   const handleSearch = () => {
     setCurrentPage(1);
@@ -66,6 +70,72 @@ function OrderHistory({config}) {
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSearch();
+    }
+  };
+
+  const updateOrderStatus = async (orderId, newStatus) => {
+    if (updatingOrderId) return;
+
+    setUpdatingOrderId(orderId);
+    try {
+      if (!user?.token) {
+        alert("Vui lòng đăng nhập lại.");
+        navigate("/login");
+        return;
+      }
+
+      const payload = { orderId, status: newStatus };
+      await axiosInstance.put(`/Order/confirm-order-by-customer`, payload, {
+        headers: {
+          "Content-Type":
+            "application/json;odata.metadata=minimal;odata.streaming=true",
+          accept: "*/*",
+        },
+      });
+
+      // Poll to confirm status update
+      let attempts = 0;
+      const maxAttempts = 15;
+      const delay = 11000;
+      let detailResponse;
+      while (attempts < maxAttempts) {
+        detailResponse = await axiosInstance.get(`/Order/get-order/${orderId}`);
+        if (detailResponse.data.status === newStatus) {
+          break;
+        }
+        await new Promise((resolve) => setTimeout(resolve, delay));
+        attempts++;
+      }
+
+      if (
+        attempts === maxAttempts &&
+        detailResponse.data.status !== newStatus
+      ) {
+        alert("Cập nhật trạng thái thất bại. Vui lòng thử lại sau.");
+        return;
+      }
+
+      // Update local state
+      setOrders((prevOrders) =>
+        prevOrders.map((order) =>
+          order.orderId === orderId ? detailResponse.data : order
+        )
+      );
+    } catch (err) {
+      alert("Không thể cập nhật trạng thái đơn hàng. Vui lòng thử lại.");
+    } finally {
+      setUpdatingOrderId(null);
+    }
+  };
+  const handleCancelOrder = (orderId) => {
+    if (window.confirm("Bạn có chắc chắn muốn hủy đơn hàng này?")) {
+      updateOrderStatus(orderId, "Cancelled");
+    }
+  };
+
+  const handleConfirmReceived = (orderId) => {
+    if (window.confirm("Bạn xác nhận đã nhận được đơn hàng?")) {
+      updateOrderStatus(orderId, "Received");
     }
   };
 
@@ -88,14 +158,14 @@ function OrderHistory({config}) {
     switch (status?.toLowerCase()) {
       case "completed":
         return <span className="oh-status-badge completed">Đã hoàn thành</span>;
-      case "processing":
-        return <span className="oh-status-badge processing">Đang xử lý</span>;
       case "pending":
         return <span className="oh-status-badge pending">Chờ xác nhận</span>;
       case "cancelled":
         return <span className="oh-status-badge cancelled">Đã bị huỷ</span>;
+      case "received":
+        return <span className="oh-status-badge received">Đã nhận hàng</span>;
       default:
-        return null;
+        return <span className="oh-status-badge unknown">Không xác định</span>;
     }
   };
 
@@ -226,8 +296,53 @@ function OrderHistory({config}) {
                 </div>
               </div>
 
-              {order.status?.toLowerCase() === "completed" && (
-                <div className="oh-order-actions">
+              <div className="oh-order-actions">
+                {order.status?.toLowerCase() === "completed" && (
+                  <>
+                    <button
+                      className="oh-buy-again-button"
+                      onClick={() => handleBuyAgain(order)}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                      </svg>
+                      <span>Mua lại</span>
+                    </button>
+                    <button
+                      className="oh-received-button"
+                      onClick={() => handleConfirmReceived(order.orderId)}
+                      disabled={updatingOrderId === order.orderId}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Đã nhận được hàng</span>
+                    </button>
+                  </>
+                )}
+                {order.status?.toLowerCase() === "received" && (
                   <button
                     className="oh-buy-again-button"
                     onClick={() => handleBuyAgain(order)}
@@ -249,8 +364,31 @@ function OrderHistory({config}) {
                     </svg>
                     <span>Mua lại</span>
                   </button>
-                </div>
-              )}
+                )}
+                {order.status?.toLowerCase() === "pending" && (
+                  <button
+                    className="oh-cancel-button"
+                    onClick={() => handleCancelOrder(order.orderId)}
+                    disabled={updatingOrderId === order.orderId}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                    <span>Hủy đơn hàng</span>
+                  </button>
+                )}
+              </div>
             </div>
           ))}
         </div>

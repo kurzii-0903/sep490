@@ -774,5 +774,26 @@ namespace BusinessLogicLayer.Services
                 return null;
             }
         }
+
+        public async Task<bool> ConfirmOrderByCustomerAsync(OrderConfirmModel model)
+        {
+            try
+            {
+                var order = await _orderRepository.GetOrderByIdAsync(model.OrderId);
+                if (order == null)
+                {
+                    throw new Exception("Order not found.");
+                }
+
+                order.Status = model.Status;
+                order = await _orderRepository.UpdateOrderAsync(order);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating order with ID: {OrderId}",model.OrderId);
+                throw;
+            }
+        }
     }
 }
