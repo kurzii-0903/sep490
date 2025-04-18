@@ -192,7 +192,7 @@ public class OrderDao : IDao<Order>
 
         if (!string.IsNullOrWhiteSpace(customerName))
         {
-            query = query.Where(o => o.CustomerName.Contains(customerName));
+            query = query.Where(o => o.Customer.FullName.Contains(customerName));
         }
         if (!string.IsNullOrEmpty(status) && status != "all")
         {
