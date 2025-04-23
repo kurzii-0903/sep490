@@ -1,0 +1,99 @@
+﻿
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.top-sale-wrapper {
+    @apply w-full max-w-screen-xl mx-auto px-4 py-6;
+}
+
+.top-sale-header {
+    @apply flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6;
+}
+
+.top-sale-title {
+    @apply text-xl md:text-2xl font-bold text-red-700 relative inline-block uppercase;
+}
+
+.top-sale-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 25%;
+    background-color: rgb(250 204 21); /* yellow-400 */
+    margin-bottom: -4px;
+}
+
+.top-sale-filter-group {
+    @apply flex flex-wrap gap-2;
+}
+
+.top-sale-filter-btn {
+    @apply px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 bg-gray-200 hover:bg-gray-300;
+}
+
+.top-sale-filter-btn-active {
+    @apply bg-red-700 text-white;
+}
+
+.top-sale-grid {
+    @apply grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4;
+}
+
+.top-sale-card {
+    @apply bg-white rounded-lg shadow hover:shadow-lg overflow-hidden transition-all duration-300;
+}
+
+.top-sale-image {
+    @apply w-full h-48 object-cover cursor-pointer transition-transform duration-300 hover:scale-105;
+}
+
+.top-sale-image-overlay {
+    @apply absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition;
+}
+
+.top-sale-overlay-btn {
+    @apply bg-white text-gray-800 text-sm px-4 py-1 rounded-full font-medium;
+}
+
+.top-sale-info {
+    @apply p-3 flex flex-col gap-2;
+}
+
+.top-sale-rating {
+    @apply flex text-yellow-400 text-sm justify-start;
+}
+
+.top-sale-name {
+    @apply text-sm font-semibold line-clamp-2 text-left;
+}
+
+.top-sale-price-block {
+    @apply text-sm text-left min-h-[48px];
+}
+
+.top-sale-price {
+    @apply text-red-600 font-bold;
+}
+
+.top-sale-price-original {
+    @apply text-gray-400 line-through ml-2 text-sm;
+}
+
+.top-sale-discount {
+    @apply text-yellow-600 text-xs font-semibold mt-1;
+}
+
+.top-sale-button {
+    @apply mt-auto text-sm bg-red-700 text-white w-full py-2 rounded hover:bg-red-800 transition;
+}
+
+.top-sale-button-inner {
+    @apply flex items-center justify-center gap-1;
+}
+
+.top-sale-footer-btn {
+    @apply px-6 py-2 bg-red-700 text-white rounded-full font-bold uppercase tracking-wide hover:bg-yellow-400 hover:text-red-700 transition;
+}
