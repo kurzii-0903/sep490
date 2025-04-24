@@ -1,11 +1,8 @@
-"use client";
-
 import { useState, useEffect, useContext, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
 import { AuthContext } from "../../contexts/AuthContext";
-import { setAxiosInstance } from "../../axiosInstance";
-import axiosInstance from "../../axiosInstance";
+import axios from "axios";
 import "./style.css";
 
 const OrderHistory = () => {
@@ -24,12 +21,6 @@ const OrderHistory = () => {
 
   const tabs = [];
 
-  useEffect(() => {
-    if (user && user.token) {
-      setAxiosInstance(user.token);
-    }
-  }, [user]);
-
   const fetchOrders = useCallback(
     async (query = "") => {
       try {
@@ -43,7 +34,11 @@ const OrderHistory = () => {
           url = `/api/Order/get-page-orders?customerId=${userId}&page=${currentPage}`;
         }
 
-        const response = await axiosInstance.get(url);
+        const response = await axios.get(url, {
+          headers: {
+            Authorization: `Bearer ${user?.token}`,
+          },
+        });
         setOrders(
           Array.isArray(response.data.items) ? response.data.items : []
         );
@@ -55,7 +50,7 @@ const OrderHistory = () => {
         setLoading(false);
       }
     },
-    [userId, currentPage]
+    [userId, currentPage, user?.token]
   );
 
   useEffect(() => {
@@ -89,8 +84,9 @@ const OrderHistory = () => {
       }
 
       const payload = { orderId, status: newStatus };
-      await axiosInstance.put(`/api/Order/confirm-order-by-customer`, payload, {
+      await axios.put(`/api/Order/confirm-order-by-customer`, payload, {
         headers: {
+          Authorization: `Bearer ${user.token}`,
           "Content-Type":
             "application/json;odata.metadata=minimal;odata.streaming=true",
           accept: "*/*",
@@ -102,9 +98,11 @@ const OrderHistory = () => {
       const delay = 11000;
       let detailResponse;
       while (attempts < maxAttempts) {
-        detailResponse = await axiosInstance.get(
-          `/api/Order/get-order/${orderId}`
-        );
+        detailResponse = await axios.get(`/api/Order/get-order/${orderId}`, {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        });
         if (detailResponse.data.status === newStatus) {
           break;
         }
