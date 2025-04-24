@@ -46,7 +46,6 @@ const OrderHistory = () => {
         setTotalPages(response.data.totalPages || 1);
         setTotalItems(response.data.totalItems || 0);
       } catch (error) {
-        console.error("Error fetching orders:", error);
         setOrders([]);
         setTotalItems(0);
       } finally {
@@ -168,26 +167,25 @@ const OrderHistory = () => {
 
   const handleBuyAgain = (order) => {
     if (!order || !order.orderDetails || !Array.isArray(order.orderDetails)) {
-      console.error("Invalid order data:", order);
       return;
     }
 
     order.orderDetails.forEach((item) => {
       if (!item.totalPrice || !item.quantity || !item.productName) {
-        console.error("Invalid order detail:", item);
         return;
       }
 
       const selectedVariant = {
+        variantId: item.variantId || null,
         size: item.size || null,
         color: item.color || null,
         price: item.totalPrice / item.quantity,
         discount: item.productDiscount || 0,
-        quantity: item.quantity + 10,
+        quantity: item.quantity,
       };
 
       const product = {
-        id: item.orderDetailId || Date.now(),
+        id: item.productId || item.orderDetailId || Date.now(),
         name: item.productName,
         image: item.image || null,
         quantity: item.quantity,
@@ -196,10 +194,13 @@ const OrderHistory = () => {
         originalPrice: item.totalPrice / item.quantity,
         discount: item.productDiscount || 0,
         selectedVariant:
-          selectedVariant.size || selectedVariant.color
+          selectedVariant.variantId ||
+          selectedVariant.size ||
+          selectedVariant.color
             ? selectedVariant
             : null,
         quantityInStock: item.quantity + 10,
+        availableQuantity: item.quantity + 10,
       };
 
       addToCart(product);
