@@ -11,6 +11,7 @@ const OrderHistory = () => {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [totalItems, setTotalItems] = useState(0);
   const [updatingOrderId, setUpdatingOrderId] = useState(null);
 
   const navigate = useNavigate();
@@ -43,9 +44,11 @@ const OrderHistory = () => {
           Array.isArray(response.data.items) ? response.data.items : []
         );
         setTotalPages(response.data.totalPages || 1);
+        setTotalItems(response.data.totalItems || 0);
       } catch (error) {
         console.error("Error fetching orders:", error);
         setOrders([]);
+        setTotalItems(0);
       } finally {
         setLoading(false);
       }
@@ -360,7 +363,7 @@ const OrderHistory = () => {
 
         <div className="pagination">
           <div className="pagination-info">
-            Hiển thị {orders.length} đơn hàng (Tổng: {orders.length})
+            Hiển thị {orders.length} đơn hàng (Tổng: {totalItems})
           </div>
           {totalPages > 1 && (
             <div className="pagination-controls">
