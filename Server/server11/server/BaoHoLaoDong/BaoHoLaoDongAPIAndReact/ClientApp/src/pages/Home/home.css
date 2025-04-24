@@ -1,0 +1,131 @@
+﻿/*.blog-categories-container {*/
+/*    padding: 0;*/
+/*    background-color: #f7f7f7;*/
+/*    text-align: left;*/
+/*    width: 100%;*/
+/*    max-width: 2200px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*.section-title {*/
+/*    font-size: 32px;*/
+/*    font-weight: bold;*/
+/*    color: #d32f2f;*/
+/*    background-color: #f7f7f7;*/
+/*    padding: 10px 20px;*/
+/*    border-radius: 0;*/
+/*    position: relative;*/
+/*    width: 100%;*/
+/*    margin-bottom: 30px;*/
+/*    text-transform: uppercase;*/
+/*    text-align: left;*/
+/*}*/
+
+/*.section-title::after {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    bottom: -5px;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 5px;*/
+/*    background-color: #d32f2f;*/
+/*}*/
+
+/*.blog-list {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: center;*/
+/*    width: 100%;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    gap: 30px;*/
+/*}*/
+
+/*.blog-item {*/
+/*    background-color: #fff;*/
+/*    border: 1px solid #ddd;*/
+/*    border-radius: 0;*/
+/*    padding: 20px;*/
+/*    width: 45%;*/
+/*    text-align: left;*/
+/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+/*    transition: transform 0.3s ease;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    height: 100%;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*.blog-item:hover {*/
+/*    transform: translateY(-5px);*/
+/*}*/
+
+/*.blog-image {*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*    margin-bottom: 15px;*/
+/*}*/
+
+/*.blog-content {*/
+/*    flex-grow: 1;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: space-between;*/
+/*}*/
+
+/*.blog-title {*/
+/*    font-size: 20px;*/
+/*    font-weight: bold;*/
+/*    color: #ff4500;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+/*.blog-date {*/
+/*    font-size: 14px;*/
+/*    color: #666;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+/*.blog-preview {*/
+/*    font-size: 14px;*/
+/*    color: #666;*/
+/*    line-height: 1.6;*/
+/*    margin-bottom: 15px;*/
+/*    flex-grow: 1;*/
+/*}*/
+
+/*.blog-actions {*/
+/*    display: flex;*/
+/*    justify-content: space-between; !* Tags bên trái, Đọc thêm bên phải *!*/
+/*    align-items: center;*/
+/*    margin-top: 10px;*/
+/*}*/
+
+/*.read-more {*/
+/*    font-size: 14px;*/
+/*    color: #fff;*/
+/*    text-decoration: none;*/
+/*    font-weight: bold;*/
+/*    padding: 8px 15px;*/
+/*    background-color: #d32f2f;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*.read-more:hover {*/
+/*    background-color: #b71c1c;*/
+/*}*/
+
+/*.blog-tags {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*}*/
+
+/*.blog-tag {*/
+/*    font-size: 12px;*/
+/*    color: #ff4500;*/
+/*    margin-right: 10px;*/
+/*    background-color: #fff;*/
+/*    padding: 2px 8px;*/
+/*    border-radius: 3px;*/
+/*    border: 1px solid #ff4500;*/
+/*}*/

@@ -1,0 +1,175 @@
+/* Blog list container */
+.blog-list-container {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 50px;
+}
+
+/* Sidebar filter - bên trái */
+.blog-filter {
+    border: 1px solid rgba(5, 5, 5, 0.1);
+    background-color: white;
+    margin-right: 35px;
+    height: 100%;
+    width: 300px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* Blog content - bên phải */
+.blog-list {
+    flex-grow: 1;
+}
+
+.all-blog-item{
+    border: 1px solid rgba(5, 5, 5, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.all-blog-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Breadcrumb */
+.breadcrumb-blog-list {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-left: 68px;
+    padding: 10px 0;
+    font-weight: 400;
+    line-height: 24px;
+    background-color: transparent;
+    width: 100%;
+    text-align: left;
+}
+
+.breadcrumb-item {
+    color: #b50a00;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-item.active {
+    color: #000000;
+}
+
+.breadcrumb-icon {
+    margin-right: 5px;
+}
+
+.breadcrumb-separator {
+    margin: 0 10px;
+}
+
+/* Blog list grid layout */
+.all-blog-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Show filter options when active */
+.filter-options.active {
+    display: block;
+    max-height: 500px;
+    animation: slideDown 1s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        max-height: 0;
+    }
+    to {
+        max-height: 500px;
+    }
+}
+
+.filter-header {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to top, #620805, #c7170e);
+    color: gold;
+    padding: 10px;
+}
+
+.filter-icon {
+    margin-right: 8px;
+}
+
+.filter-title {
+    font-weight: bold;
+}
+
+.filter-options {
+    padding: 20px;
+}
+
+.filter-subtitle {
+    color: black;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.filter-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.filter-checkbox {
+    margin-right: 8px;
+    accent-color: #b50a00;
+}
+
+/* Responsive cho tablet */
+@media (max-width: 1280px) {
+    .blog-list-container {
+        flex-direction: row;
+    }
+    .all-blog-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .blog-filter {
+        width: 200px;
+    }
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .blog-list-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .blog-filter {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .all-blog-list {
+        grid-template-columns: 1fr;
+    }
+
+    .breadcrumb-blog-list {
+        margin-left: 14px;
+    }
+}
+
+/* Căn chỉnh khoảng cách trên màn nhỏ */
+@media (max-width: 480px) {
+    .blog-list-container {
+        padding: 10px;
+    }
+
+    .all-blog-title {
+        font-size: 20px;
+    }
+}

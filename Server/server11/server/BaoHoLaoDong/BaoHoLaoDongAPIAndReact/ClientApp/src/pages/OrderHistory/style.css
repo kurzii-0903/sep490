@@ -1,0 +1,351 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.order-history-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 20px 30px;
+    width: 100%;
+}
+
+.page-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.search-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+    .search-input:focus {
+        outline: none;
+        border-color: #4a90e2;
+        box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+    }
+
+.search-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+    .search-button:hover {
+        background-color: #357abd;
+    }
+
+    .search-button svg {
+        width: 16px;
+        height: 16px;
+    }
+
+.order-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 1px;
+}
+
+.tab-button {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.2s;
+}
+
+    .tab-button.active {
+        color: #4a90e2;
+        font-weight: 500;
+    }
+
+        .tab-button.active::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #4a90e2;
+        }
+
+/* Table Styles */
+.orders-table {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-header,
+.table-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1.2fr 1.5fr 0.8fr 1.2fr 0.8fr 1.5fr;
+    padding: 1rem;
+    align-items: center;
+}
+
+.table-header {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+
+.header-cell {
+    padding: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table-row:hover {
+    background-color: #f8f9fa;
+}
+
+.cell {
+    padding: 0.5rem;
+    color: #333;
+}
+
+.order-id {
+    color: #4a90e2;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.customer-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.order-total {
+    font-weight: 500;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+    .status-badge.completed {
+        background-color: #e3f2fd;
+        color: #1976d2;
+    }
+
+    .status-badge.pending {
+        background-color: #fff3e0;
+        color: #f57c00;
+    }
+
+    .status-badge.cancelled {
+        background-color: #ffebee;
+        color: #d32f2f;
+    }
+
+    .status-badge.received {
+        background-color: #e8f5e9;
+        color: #388e3c;
+    }
+
+    .status-badge.unknown {
+        background-color: #f5f5f5;
+        color: #757575;
+    }
+
+.order-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.action-button {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+    .action-button.buy-again {
+        background-color: #4a90e2;
+        color: white;
+    }
+
+        .action-button.buy-again:hover {
+            background-color: #357abd;
+        }
+
+    .action-button.received {
+        background-color: #4caf50;
+        color: white;
+    }
+
+        .action-button.received:hover {
+            background-color: #388e3c;
+        }
+
+    .action-button.cancel {
+        background-color: #f44336;
+        color: white;
+    }
+
+        .action-button.cancel:hover {
+            background-color: #d32f2f;
+        }
+
+    .action-button:disabled {
+        background-color: #e0e0e0;
+        cursor: not-allowed;
+        opacity: 0.7;
+    }
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 1rem 0;
+}
+
+.pagination-info {
+    color: #666;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+    .pagination-controls button {
+        padding: 0.5rem 1rem;
+        border: 1px solid #e0e0e0;
+        background-color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        color: #333;
+        transition: all 0.2s;
+    }
+
+        .pagination-controls button:hover:not(:disabled) {
+            background-color: #f8f9fa;
+            border-color: #4a90e2;
+            color: #4a90e2;
+        }
+
+        .pagination-controls button:disabled {
+            background-color: #f5f5f5;
+            color: #bdbdbd;
+            cursor: not-allowed;
+        }
+
+    .pagination-controls span {
+        color: #666;
+    }
+
+.no-orders {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 1024px) {
+    .order-history-container {
+        padding: 1rem;
+    }
+
+    .table-header,
+    .table-row {
+        grid-template-columns: 1fr 1fr 1.2fr 0.8fr 1fr 0.8fr 1.2fr; /* Tăng độ rộng tương ứng */
+    }
+
+    .status-badge {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+    }
+
+    .action-button {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .order-tabs {
+        flex-wrap: wrap;
+    }
+
+    .table-header,
+    .table-row {
+        grid-template-columns: 0.9fr 0.9fr 1fr 0.7fr 0.9fr 0.7fr 1fr;
+        .status-badge
+
+{
+    font-size: 0.65rem;
+    padding: 0.15rem 0.35rem;
+}
+
+.action-button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.65rem;
+}
+
+.order-id,
+.customer-name,
+.header-cell {
+    font-size: 0.9rem;
+}
+
+}
+}

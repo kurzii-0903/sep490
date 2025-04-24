@@ -1,0 +1,355 @@
+.header {
+    width: 100%;
+    background: linear-gradient(to top, #4a0403, #a50d0b);
+    color: white;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    padding: 0.5rem 1rem;
+    transition: padding 0.3s ease;
+}
+
+.header.scrolled {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header.scrolled {
+    animation: slideDown 0.4s ease-out forwards;
+}
+
+.cart-wrapper {
+    position: relative;
+}
+
+.header-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* Menu Toggle */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-toggle span {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: white;
+    flex-shrink: 0;
+}
+
+.logo img {
+    height: 2.5rem;
+}
+
+.company-info {
+    display: none; /* Ẩn trên mobile */
+}
+
+.company-info h1 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.company-info p {
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+/* Search */
+.search-form {
+    flex: 1;
+    min-width: 150px;
+    order: 3; /* Đẩy xuống dưới trên mobile */
+    width: 100%;
+}
+
+.search-form input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: black !important;
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.contact {
+    display: none; /* Ẩn trên mobile */
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.contact svg {
+    font-size: 1rem;
+}
+
+.user {
+    position: relative;
+    cursor: pointer;
+}
+
+.user svg {
+    font-size: 1.5rem;
+}
+
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+}
+
+.user:hover .user-dropdown {
+    display: block;
+}
+
+.user-dropdown a {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.user-dropdown a:hover {
+    background: #f5f5f5;
+}
+
+.cart {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart svg {
+    font-size: 1.5rem;
+}
+
+.cart-count {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    background: white;
+    color: red;
+    font-size: 0.75rem;
+    font-weight: bold;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .header-content {
+        justify-content: space-between;
+    }
+
+    .logo-text {
+        display: none;
+    }
+
+    .search-container {
+        margin: 0;
+    }
+
+    .search-form {
+        top: calc(100% + 0.5rem);
+    }
+
+    .user-text {
+        display: none;
+    }
+}
+
+/* Tablet (bao gồm iPad Mini) */
+@media (min-width: 768px) {
+    .header {
+        padding: 1rem;
+    }
+
+    .header-content {
+        flex-wrap: nowrap;
+        gap: 0.5rem; /* Giảm gap để tiết kiệm không gian */
+    }
+
+    .search-form {
+        order: 0; /* Đưa lên giữa */
+        margin: 0 0.5rem; /* Giảm margin */
+        min-width: 150px; /* Giảm min-width để tránh chiếm quá nhiều chỗ */
+    }
+
+    .search-form input {
+        font-size: 0.9rem; /* Giảm font-size */
+    }
+
+    .contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        font-size: 0.8rem; /* Giảm font-size */
+    }
+
+    .logo img {
+        height: 2.5rem; /* Giảm kích thước logo */
+    }
+
+    .company-info {
+        display: block;
+    }
+
+    .user-text {
+        display: none;
+    }
+
+    .cart svg {
+        font-size: 1.5rem; /* Đảm bảo icon cart không quá lớn */
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .logo img {
+        height: 3.5rem;
+    }
+
+    .company-info h1 {
+        font-size: 1.25rem;
+    }
+
+    .company-info p {
+        font-size: 0.875rem;
+    }
+
+    .search-form {
+        min-width: 300px;
+    }
+
+    .user {
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .user svg {
+        font-size: 2rem;
+    }
+
+    .user-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .user-text span:first-child {
+        font-size: 0.65rem;
+        margin-bottom: -0.25rem;
+    }
+
+    .user-text span:last-child {
+        font-size: 1.10rem;
+    }
+
+    .contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        font-size: 0.9rem;
+    }
+
+    .cart svg {
+        font-size: 2rem;
+    }
+}
+
+/* Tối ưu cho iPad Mini (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .header-content {
+        gap: 0.5rem;
+    }
+
+    .logo img {
+        height: 2rem;
+    }
+
+    .company-info h1 {
+        font-size: 0.9rem;
+    }
+
+    .company-info p {
+        font-size: 0.65rem;
+    }
+
+    .search-form {
+        min-width: 120px;
+    }
+
+    .contact {
+        font-size: 0.75rem;
+    }
+
+    .user svg {
+        font-size: 1.25rem;
+    }
+
+    .cart svg {
+        font-size: 1.25rem;
+    }
+
+    .actions {
+        gap: 0.5rem;
+    }
+}
